@@ -1,15 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using Com.GlagSoft.GsCommande.forms;
+
 namespace Com.GlagSoft.GsCommande
 {
-    public partial class MainForm : Telerik.WinControls.UI.RadForm
+    public partial class MainForm : Form
     {
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void radMenuButtonItem1_ButtonElement_Click(object sender, System.EventArgs e)
+        private void ucCommandeAjouter1_Load(object sender, EventArgs e)
         {
-            this.Close();
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            var form = new FormFamilleGestion();
+            form.ShowDialog();
         }
     }
 }

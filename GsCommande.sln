@@ -9,6 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Objects", "Objects\Objects.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessObjects", "DataAccessObjects\DataAccessObjects.csproj", "{EF905D04-60DC-41A7-A719-57269AC00571}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ressources", "Ressources", "{2ED2E591-0C50-4821-97D8-BB07A7DD7716}"
+	ProjectSection(SolutionItems) = preProject
+		Ressources\gscommande.db = Ressources\gscommande.db
+		Ressources\SQLite.Interop.dll = Ressources\SQLite.Interop.dll
+		Ressources\System.Data.SQLite.dll = Ressources\System.Data.SQLite.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

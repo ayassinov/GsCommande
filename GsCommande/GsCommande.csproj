@@ -37,18 +37,49 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="forms\FormFamilleGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FormFamilleGestion.Designer.cs">
+      <DependentUpon>FormFamilleGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\FormProduitGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FormProduitGestion.Designer.cs">
+      <DependentUpon>FormProduitGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\FormProduitSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FormProduitSelect.Designer.cs">
+      <DependentUpon>FormProduitSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageBoxEx.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="uc\UcCommandeAjouter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc\UcCommandeAjouter.Designer.cs">
+      <DependentUpon>UcCommandeAjouter.cs</DependentUpon>
+    </Compile>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\Com.GlagSoft.GsCommande.Objects.Famille.datasource" />
+    <None Include="Properties\DataSources\Com.GlagSoft.GsCommande.Objects.Produit.datasource" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -56,19 +87,52 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telerik.WinControls, Version=2010.2.10.914, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
-    <Reference Include="Telerik.WinControls.Themes.Breeze, Version=2010.2.10.914, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.Themes.Windows7, Version=2010.2.10.914, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.UI, Version=2010.2.10.914, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
-    <Reference Include="TelerikCommon, Version=2010.2.10.914, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="forms\FormFamilleGestion.resx">
+      <DependentUpon>FormFamilleGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\FormProduitGestion.resx">
+      <DependentUpon>FormProduitGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\FormProduitSelect.resx">
+      <DependentUpon>FormProduitSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc\UcCommandeAjouter.resx">
+      <DependentUpon>UcCommandeAjouter.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Objects\Objects.csproj">
+      <Project>{A50D6DC6-09BB-40C0-A944-0CFCB7136F29}</Project>
+      <Name>Objects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{00B9F255-1E4C-426A-A7CD-59E3978D8C05}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Create.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(SolutionDir)\Ressources\SQLite.Interop.dll $(TargetDir)
+copy $(SolutionDir)\Ressources\gscommande.db $(TargetDir)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
