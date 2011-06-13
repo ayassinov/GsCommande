@@ -15,8 +15,5 @@ namespace Com.GlagSoft.GsCommande.Objects
             Qtekilo = qteKilo;
             QteDemiKilo = qteDemiKilo;
         }
-
-        
-
     }
 }
