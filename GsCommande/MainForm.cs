@@ -27,5 +27,11 @@ namespace Com.GlagSoft.GsCommande
             var form = new FormFamilleGestion();
             form.ShowDialog();
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            var form = new FormProduitGestion();
+            form.ShowDialog();
+        }
     }
 }

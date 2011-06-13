@@ -51,7 +51,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
             var id = ExecuteScalar();
 
             if (id == null)
-                throw new Exception("Famille not inserted");
+                throw new Exception("Object not inserted");
 
             return Convert.ToInt32(id);
         }

@@ -35,10 +35,10 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
 
         public Produit Create(Produit produit)
         {
-            using (var helper = new SqliteHelper("INSERT INTO produit (Code, Libelle, familleId) VALUES(@code, @libelle, @familleId) "))
+            using (var helper = new SqliteHelper("INSERT INTO produit (Code, Libelle, familleId) VALUES(@code, @libelle, @familleId); Select last_insert_rowid(); "))
             {
                 helper.AddInParameter("code", DbType.Int32, produit.Code);
-                helper.AddInParameter("libelle", DbType.String, produit.Code);
+                helper.AddInParameter("libelle", DbType.String, produit.Libelle);
                 helper.AddInParameter("familleId", DbType.Int32, produit.Famille.Id);
 
                 produit.Id = helper.ExecuteCreateQuery();
@@ -113,7 +113,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             var code = 0;
             using (var helper = new SqliteHelper("SELECT max(code) code FROM produit WHERE familleId  = @familleId"))
             {
-                helper.AddInParameter("id", DbType.Int32, famille.Id);
+                helper.AddInParameter("familleId", DbType.Int32, famille.Id);
                 using (var reader = helper.ExecuteQuery())
                 {
                     if (reader.Read())
