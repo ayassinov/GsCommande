@@ -12,6 +12,8 @@ namespace Com.GlagSoft.GsCommande
 {
     public partial class MainForm : Form
     {
+        FormProduitGestion form = new FormProduitGestion();
+
         public MainForm()
         {
             InitializeComponent();
@@ -25,13 +27,20 @@ namespace Com.GlagSoft.GsCommande
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             var form = new FormFamilleGestion();
+            form.LoadAll();
             form.ShowDialog();
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            var form = new FormProduitGestion();
+            form.LoadAll();
+            form.CloseGestionProduitForm += CloseGestionProduitForm;
             form.ShowDialog();
+        }
+
+        private void CloseGestionProduitForm()
+        {
+            form.Close();
         }
     }
 }

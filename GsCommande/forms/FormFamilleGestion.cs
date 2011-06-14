@@ -16,10 +16,9 @@ namespace Com.GlagSoft.GsCommande.forms
         public FormFamilleGestion()
         {
             InitializeComponent();
-            LoadAll();
         }
 
-        private void LoadAll()
+        public void LoadAll()
         {
             lstFamille.DataSource = _familleService.ListAll();
 
@@ -89,7 +88,7 @@ namespace Com.GlagSoft.GsCommande.forms
             catch (Exception)
             {
 
-                MessageBoxEx.Show(@"Une erreur s'est produite lors de la sauvegarde de la donnée", @"Gestion des familles", MessageBoxButtons.OK,
+                MessageBoxEx.Show(@"Une erreur s'est produite lors de la sauvegarde des données", @"Gestion des familles", MessageBoxButtons.OK,
                                  MessageBoxIcon.Information);
             }
         }
