@@ -95,6 +95,8 @@ namespace Com.GlagSoft.GsCommande.forms
                 btnAdd.Visible = true;
                 btnDelete.Visible = dgvProduits.SelectedRows.Count > 0;
                 btnModifier.Visible = dgvProduits.SelectedRows.Count > 0;
+                txtLibelle.Enabled = false;
+                dgvProduits.Focus();
             }
             else if (_modeAffichage == forms.ModeAffichage.Insert)
             {
@@ -102,7 +104,7 @@ namespace Com.GlagSoft.GsCommande.forms
                 grbAddProduct.Visible = true;
                 grbListeDesProduits.Visible = true;
                 btnModifier.Visible = false;
-
+                txtLibelle.Enabled = true;
                 if (dgvProduits.Rows.Count > 0)
                 {
                     grbAddProduct.Dock = DockStyle.Top;
@@ -131,6 +133,7 @@ namespace Com.GlagSoft.GsCommande.forms
             }
             else //update
             {
+                txtLibelle.Enabled = true;
                 btnModifier.Visible = false;
                 lstfamille.Enabled = false;
                 grbAddProduct.Text = @"Modifier le produit";
@@ -170,12 +173,21 @@ namespace Com.GlagSoft.GsCommande.forms
             {
                 if (_produit == null)
                 {
-                    _produit = _produitService.Create(new Produit
+                    _produit =  _produitService.Create(new Produit
                      {
                          Code = Convert.ToInt32(lblCode.Text),
                          Libelle = txtLibelle.Text,
                          Famille = _famille
                      });
+                    txtLibelle.Text = string.Empty;
+                    btnAnnuler.Visible = false;
+                    grbListeDesProduits.Visible = false;
+                    LoadAll();
+                    grbListeDesProduits.Visible = true;
+                    _produit = null;
+                    _modeAffichage = forms.ModeAffichage.Insert;
+                    ModeAffichage();
+
 
                 }
                 else //update
@@ -192,11 +204,12 @@ namespace Com.GlagSoft.GsCommande.forms
                     _produit.Libelle = txtLibelle.Text;
                     _produit.Famille = cmbFamille.SelectedItem as Famille;
                     _produitService.Update(_produit);
+                    txtLibelle.Text = string.Empty;
+                    btnAnnuler.Visible = false;
+                    LoadAll();
                 }
 
-                txtLibelle.Text = string.Empty;
-                btnAnnuler.Visible = false;
-                LoadAll();
+                
             }
             catch (Exception)
             {
@@ -208,15 +221,6 @@ namespace Com.GlagSoft.GsCommande.forms
 
         private void lstfamille_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //on test sur la selcted value not null
-
-            //_famille = selectedItem
-
-            //On charge la liste des produits selon le mode d'affichage.
-
-            //Si on a des produits => Browsable
-            //Sinon on affiche le mode => Adding
-
             if (lstfamille.SelectedValue != null)
             {
                 _famille = lstfamille.SelectedItem as Famille;
@@ -234,17 +238,6 @@ namespace Com.GlagSoft.GsCommande.forms
                 {
                     dgvProduits.Rows[0].Selected = true;
                 }
-
-                //changement de famille en mode modification ou ajout.
-                //if (_famille != null && btnAnnuler.Visible)
-                //{
-                //    lblCode.Text = _produitService.GetNextCodeValue(_famille).ToString();
-                //    lblFamille.Text = _famille.Libelle;
-                //    //chargement des produits 
-                //    dgvProduits.DataSource = _produitService.
-                //    GetByFamille(lstfamille.SelectedItem as Famille);
-                //    return;
-                //}
             }
         }
 
@@ -271,7 +264,6 @@ namespace Com.GlagSoft.GsCommande.forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveOrUpdate();
-
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -293,10 +285,14 @@ namespace Com.GlagSoft.GsCommande.forms
         {
             try
             {
-                if (_produit != null)
+                if (MessageBox.Show(@"Vous confirmer la suppression du produit : " + _produit.Libelle,
+                                    @"Gestion des produits",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Question) == DialogResult.Yes)
+                {
                     _produitService.Delete(_produit);
-
-                LoadAll();
+                    LoadAll();
+                }
             }
             catch (Exception)
             {
@@ -309,6 +305,7 @@ namespace Com.GlagSoft.GsCommande.forms
         private void btnModifier_Click(object sender, EventArgs e)
         {
             _modeAffichage = forms.ModeAffichage.Update;
+            _produit = dgvProduits.SelectedRows[0].DataBoundItem as Produit;
             ModeAffichage();
         }
 
@@ -321,6 +318,14 @@ namespace Com.GlagSoft.GsCommande.forms
             else
             {
                 lblCode.Text = _produitService.GetNextCodeValue(cmbFamille.SelectedItem as Famille).ToString();
+            }
+        }
+
+        private void txtLibelle_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                SaveOrUpdate();
             }
         }
     }

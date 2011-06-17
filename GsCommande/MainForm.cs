@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Com.GlagSoft.GsCommande.forms;
 
@@ -12,7 +6,7 @@ namespace Com.GlagSoft.GsCommande
 {
     public partial class MainForm : Form
     {
-        FormProduitGestion form = new FormProduitGestion();
+        FormProduitGestion _formProduitGestion = new FormProduitGestion();
 
         public MainForm()
         {
@@ -33,14 +27,15 @@ namespace Com.GlagSoft.GsCommande
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            form.LoadAll();
-            form.CloseGestionProduitForm += CloseGestionProduitForm;
-            form.ShowDialog();
+            _formProduitGestion = new FormProduitGestion();
+            _formProduitGestion.LoadAll();
+            _formProduitGestion.CloseGestionProduitForm += CloseGestionProduitForm;
+            _formProduitGestion.ShowDialog();
         }
 
         private void CloseGestionProduitForm()
         {
-            form.Close();
+            _formProduitGestion.Close();
         }
     }
 }

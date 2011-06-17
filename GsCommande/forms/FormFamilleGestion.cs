@@ -50,6 +50,7 @@ namespace Com.GlagSoft.GsCommande.forms
                 btnAdd.Enabled = true;
                 btnDelete.Enabled = true;
                 btnSave.Enabled = true;
+                txtLibelle.Focus();
             }
         }
 
@@ -74,7 +75,8 @@ namespace Com.GlagSoft.GsCommande.forms
                 {
                     if (_famille.Libelle.ToUpper().CompareTo(txtLibelle.Text.ToUpper()) == 0)
                     {
-                        LoadAll();
+                        MessageBoxEx.Show(@"Vous devez faire au moins un changement", @"Gestion des familles", MessageBoxButtons.OK,
+                                  MessageBoxIcon.Information);
                         return;
                     }
                     _famille.Libelle = txtLibelle.Text;
@@ -95,12 +97,17 @@ namespace Com.GlagSoft.GsCommande.forms
 
         private void Delete()
         {
-            if (_famille == null)
-                return;
-
             try
             {
-                _familleService.Delete(_famille);
+                if (MessageBox.Show(@"Vous confirmer la suppression de la famille : " + _famille.Libelle,
+                                    @"Gestion des produits",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    _familleService.Delete(_famille);
+                    LoadAll();
+                }
+
             }
             catch (Exception)
             {
@@ -114,20 +121,22 @@ namespace Com.GlagSoft.GsCommande.forms
         {
             if (keyData == (Keys.Control | Keys.S))
             {
-                AddOrUpdateFamille(_famille != null);
+                if (btnSave.Enabled)
+                    AddOrUpdateFamille(_famille != null);
                 return true;
             }
 
             if (keyData == (Keys.Control | Keys.Z))
             {
-                Delete();
-                LoadAll();
+                if (btnDelete.Enabled == true)
+                    Delete();
                 return true;
             }
 
             if (keyData == (Keys.Control | Keys.N))
             {
-                SwitchToAddMode(true);
+                if (btnAdd.Enabled)
+                    SwitchToAddMode(true);
                 return true;
             }
 
@@ -159,7 +168,6 @@ namespace Com.GlagSoft.GsCommande.forms
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Delete();
-            LoadAll();
         }
 
         private void lstFamille_KeyDown(object sender, KeyEventArgs e)
@@ -167,7 +175,6 @@ namespace Com.GlagSoft.GsCommande.forms
             if (e.KeyData == Keys.Delete)
             {
                 Delete();
-                LoadAll();
             }
         }
 

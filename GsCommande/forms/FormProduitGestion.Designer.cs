@@ -221,6 +221,7 @@
             this.txtLibelle.Name = "txtLibelle";
             this.txtLibelle.Size = new System.Drawing.Size(150, 20);
             this.txtLibelle.TabIndex = 3;
+            this.txtLibelle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLibelle_KeyDown);
             // 
             // label2
             // 
