@@ -11,7 +11,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
         public List<Produit> GetByFamille(Famille famille)
         {
             var produits = new List<Produit>();
-            using (var helper = new SqliteHelper("SELECT Id, Code, Libelle FROM produit WHERE familleId = @id"))
+            using (var helper = new SqliteHelper("SELECT Id, Code, Libelle FROM produit WHERE familleId = @id order by code"))
             {
                 helper.AddInParameter("id", DbType.Int32, famille.Id);
                 using (var reader = helper.ExecuteQuery())
@@ -51,9 +51,10 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
         {
             bool isUpdated;
 
-            using (var helper = new SqliteHelper("UPDATE produit set Libelle = @Libelle, familleId = @familleId WHERE Id = @Id"))
+            using (var helper = new SqliteHelper("UPDATE produit set Libelle = @Libelle, familleId = @familleId, Code = @Code  WHERE Id = @Id"))
             {
                 helper.AddInParameter("Libelle", DbType.String, produit.Libelle);
+                helper.AddInParameter("Code", DbType.Int32, produit.Code);
                 helper.AddInParameter("familleId", DbType.Int32, produit.Famille.Id);
                 helper.AddInParameter("Id", DbType.Int32, produit.Id);
 
