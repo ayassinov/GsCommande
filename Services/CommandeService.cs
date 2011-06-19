@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Com.GlagSoft.GsCommande.DataAccessObjects;
 using Com.GlagSoft.GsCommande.Objects;
 
@@ -7,25 +8,28 @@ namespace Com.GlagSoft.GsCommande.Services
     public class CommandeService
     {
         private readonly CommandeData _commandeData = new CommandeData();
-
+        private LigneCommandeService _ligneCommandeService = new LigneCommandeService();
         //todo transaction
         public Commande Create(Commande commande)
         {
             commande = _commandeData.Create(commande);
             if (commande.Id > 0)
             {
-                var ligneCommandeService = new LigneCommandeService();
                 foreach (var ligneCommande in commande.LigneCommande)
                 {
                     ligneCommande.Commande = commande;
-                    bool isCreated = ligneCommandeService.Create(ligneCommande);
-                    if (!isCreated)
-                    {
-                        //delete commande et sortir de la boucle.
-                        this.Delete(commande);
-                        break;
-                    }
+                    bool isCreated = _ligneCommandeService.Create(ligneCommande);
+                    //if (!isCreated)
+                    //{
+                    //    //delete commande et sortir de la boucle.
+                    //    this.Delete(commande);
+                    //    break;
+                    //}
                 }
+            }
+            else
+            {
+                throw new Exception("Commande non créer");
             }
 
             return commande;
@@ -75,6 +79,11 @@ namespace Com.GlagSoft.GsCommande.Services
         {
             //todo implement
             return null;
+        }
+
+        public List<Commande> Recherche(Commande commande)
+        {
+            return _commandeData.Recherche(commande);
         }
     }
 }

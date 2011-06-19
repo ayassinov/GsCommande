@@ -53,7 +53,7 @@
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(3, 353);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(307, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(310, 22);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 0;
             // 
@@ -70,38 +70,46 @@
             this.btnSave,
             this.btnDelete});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
+            this.toolStrip1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.toolStrip1.MinimumSize = new System.Drawing.Size(0, 35);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(307, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(310, 35);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnAdd
             // 
             this.btnAdd.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Create;
+            this.btnAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 22);
+            this.btnAdd.Size = new System.Drawing.Size(83, 32);
             this.btnAdd.Text = "N&ouveau";
+            this.btnAdd.ToolTipText = "Nouveau (CTRL + N)";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSave
             // 
             this.btnSave.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Save;
+            this.btnSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(92, 22);
-            this.btnSave.Text = "Sauvegarder";
+            this.btnSave.Size = new System.Drawing.Size(100, 32);
+            this.btnSave.Text = "S&auvegarder";
+            this.btnSave.ToolTipText = "Sauvegarder (CTRL + S)";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Delete;
+            this.btnDelete.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Remove;
+            this.btnDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(82, 22);
-            this.btnDelete.Text = "Supprimer";
+            this.btnDelete.Size = new System.Drawing.Size(90, 32);
+            this.btnDelete.Text = "&Supprimer";
+            this.btnDelete.ToolTipText = "Supprimer (CTRL + D)";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // groupBox3
@@ -109,8 +117,8 @@
             this.groupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.txtLibelle);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(3, 25);
+            this.groupBox3.Location = new System.Drawing.Point(3, 45);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(307, 65);
             this.groupBox3.TabIndex = 3;
@@ -128,8 +136,8 @@
             // 
             // txtLibelle
             // 
-            this.txtLibelle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLibelle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLibelle.Location = new System.Drawing.Point(47, 28);
             this.txtLibelle.Name = "txtLibelle";
             this.txtLibelle.Size = new System.Drawing.Size(254, 20);
@@ -139,10 +147,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lstFamille);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 90);
+            this.groupBox2.Location = new System.Drawing.Point(3, 118);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(307, 263);
+            this.groupBox2.Size = new System.Drawing.Size(307, 235);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Famille :";
@@ -156,7 +163,7 @@
             this.lstFamille.FormattingEnabled = true;
             this.lstFamille.Location = new System.Drawing.Point(3, 16);
             this.lstFamille.Name = "lstFamille";
-            this.lstFamille.Size = new System.Drawing.Size(301, 244);
+            this.lstFamille.Size = new System.Drawing.Size(301, 216);
             this.lstFamille.TabIndex = 0;
             this.lstFamille.ValueMember = "Id";
             this.lstFamille.SelectedIndexChanged += new System.EventHandler(this.lstFamille_SelectedIndexChanged);
@@ -180,7 +187,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormFamilleGestion";
-            this.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

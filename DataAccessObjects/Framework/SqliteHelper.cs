@@ -23,7 +23,9 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
             PrepareCommand(sqlText);
         }
 
-        private void PrepareCommand(string sqlText)
+        public SqliteHelper(){}
+
+        public void PrepareCommand(string sqlText)
         {
             _command = new SQLiteCommand
                                    {

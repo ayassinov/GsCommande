@@ -63,7 +63,7 @@ namespace Com.GlagSoft.GsCommande.forms
         {
             if (string.IsNullOrEmpty(txtLibelle.Text.Trim()))
             {
-                MessageBoxEx.Show(@"Vous devez entrer un libelle", @"Gestion des familles", MessageBoxButtons.OK,
+                MessageBox.Show(@"Vous devez entrer un libelle", @"Gestion des familles", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
                 return;
             }
@@ -75,7 +75,7 @@ namespace Com.GlagSoft.GsCommande.forms
                 {
                     if (_famille.Libelle.ToUpper().CompareTo(txtLibelle.Text.ToUpper()) == 0)
                     {
-                        MessageBoxEx.Show(@"Vous devez faire au moins un changement", @"Gestion des familles", MessageBoxButtons.OK,
+                        MessageBox.Show(@"Vous devez faire au moins un changement", @"Gestion des familles", MessageBoxButtons.OK,
                                   MessageBoxIcon.Information);
                         return;
                     }
@@ -90,7 +90,7 @@ namespace Com.GlagSoft.GsCommande.forms
             catch (Exception)
             {
 
-                MessageBoxEx.Show(@"Une erreur s'est produite lors de la sauvegarde des données", @"Gestion des familles", MessageBoxButtons.OK,
+                MessageBox.Show(@"Une erreur s'est produite lors de la sauvegarde des données", @"Gestion des familles", MessageBoxButtons.OK,
                                  MessageBoxIcon.Information);
             }
         }
@@ -112,7 +112,7 @@ namespace Com.GlagSoft.GsCommande.forms
             catch (Exception)
             {
 
-                MessageBoxEx.Show("Une erreur s'est produite lors de la sauvegarde de la donnée", "Gestion des familles", MessageBoxButtons.OK,
+                MessageBox.Show(@"Une erreur s'est produite lors de la sauvegarde de la donnée", @"Gestion des familles", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
             }
         }

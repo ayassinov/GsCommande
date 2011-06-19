@@ -28,7 +28,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProduitGestion));
             this.panel1 = new System.Windows.Forms.Panel();
             this.grbListeDesProduits = new System.Windows.Forms.GroupBox();
             this.dgvProduits = new System.Windows.Forms.DataGridView();
@@ -51,6 +50,8 @@
             this.lstfamille = new System.Windows.Forms.ListBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnExit = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAdd = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.btnModifier = new System.Windows.Forms.ToolStripButton();
@@ -73,9 +74,9 @@
             this.panel1.Controls.Add(this.grbAddProduct);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(9, 25);
+            this.panel1.Location = new System.Drawing.Point(9, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(612, 481);
+            this.panel1.Size = new System.Drawing.Size(621, 475);
             this.panel1.TabIndex = 0;
             // 
             // grbListeDesProduits
@@ -84,7 +85,7 @@
             this.grbListeDesProduits.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbListeDesProduits.Location = new System.Drawing.Point(200, 0);
             this.grbListeDesProduits.Name = "grbListeDesProduits";
-            this.grbListeDesProduits.Size = new System.Drawing.Size(412, 481);
+            this.grbListeDesProduits.Size = new System.Drawing.Size(421, 475);
             this.grbListeDesProduits.TabIndex = 1;
             this.grbListeDesProduits.TabStop = false;
             this.grbListeDesProduits.Text = "Liste des produits :";
@@ -110,7 +111,7 @@
             this.dgvProduits.Name = "dgvProduits";
             this.dgvProduits.ReadOnly = true;
             this.dgvProduits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduits.Size = new System.Drawing.Size(406, 462);
+            this.dgvProduits.Size = new System.Drawing.Size(415, 456);
             this.dgvProduits.TabIndex = 0;
             this.dgvProduits.SelectionChanged += new System.EventHandler(this.dgvProduits_SelectionChanged);
             // 
@@ -161,7 +162,7 @@
             this.grbAddProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbAddProduct.Location = new System.Drawing.Point(200, 0);
             this.grbAddProduct.Name = "grbAddProduct";
-            this.grbAddProduct.Size = new System.Drawing.Size(412, 481);
+            this.grbAddProduct.Size = new System.Drawing.Size(421, 475);
             this.grbAddProduct.TabIndex = 2;
             this.grbAddProduct.TabStop = false;
             this.grbAddProduct.Text = "Ajouter produit";
@@ -247,7 +248,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 481);
+            this.groupBox1.Size = new System.Drawing.Size(200, 475);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Familles :";
@@ -261,7 +262,7 @@
             this.lstfamille.FormattingEnabled = true;
             this.lstfamille.Location = new System.Drawing.Point(3, 16);
             this.lstfamille.Name = "lstfamille";
-            this.lstfamille.Size = new System.Drawing.Size(194, 462);
+            this.lstfamille.Size = new System.Drawing.Size(194, 456);
             this.lstfamille.TabIndex = 0;
             this.lstfamille.ValueMember = "Id";
             this.lstfamille.SelectedIndexChanged += new System.EventHandler(this.lstfamille_SelectedIndexChanged);
@@ -270,7 +271,7 @@
             // 
             this.statusStrip1.Location = new System.Drawing.Point(9, 506);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(612, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(621, 22);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
@@ -279,60 +280,89 @@
             // 
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnExit,
+            this.toolStripSeparator1,
             this.btnAdd,
             this.btnSave,
             this.btnModifier,
             this.btnDelete,
             this.btnAnnuler});
             this.toolStrip1.Location = new System.Drawing.Point(9, 0);
+            this.toolStrip1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(612, 25);
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip1.Size = new System.Drawing.Size(621, 31);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnExit
+            // 
+            this.btnExit.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Exit;
+            this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(64, 28);
+            this.btnExit.Text = "&Fermer";
+            this.btnExit.ToolTipText = "Fermer (ESC)";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // btnAdd
             // 
             this.btnAdd.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Create;
+            this.btnAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 22);
-            this.btnAdd.Text = "Nouveau";
+            this.btnAdd.Size = new System.Drawing.Size(83, 28);
+            this.btnAdd.Text = "&Nouveau";
+            this.btnAdd.ToolTipText = "Nouveau (CTRL + N)";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSave
             // 
             this.btnSave.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Save;
+            this.btnSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(83, 22);
-            this.btnSave.Text = "Enregistrer";
+            this.btnSave.Size = new System.Drawing.Size(91, 28);
+            this.btnSave.Text = "&Enregistrer";
+            this.btnSave.ToolTipText = "Enregistrer (CTRL + S)";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnModifier
             // 
-            this.btnModifier.Image = ((System.Drawing.Image)(resources.GetObject("btnModifier.Image")));
+            this.btnModifier.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Modify;
+            this.btnModifier.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnModifier.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(72, 22);
-            this.btnModifier.Text = "Modifier";
+            this.btnModifier.Size = new System.Drawing.Size(80, 28);
+            this.btnModifier.Text = "&Modifier";
+            this.btnModifier.ToolTipText = "Modifier (CTRL + E)";
             this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Delete;
+            this.btnDelete.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Remove;
+            this.btnDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(82, 22);
-            this.btnDelete.Text = "Supprimer";
+            this.btnDelete.Size = new System.Drawing.Size(90, 28);
+            this.btnDelete.Text = "&Supprimer";
+            this.btnDelete.ToolTipText = "Supprimer (CTRL + D)";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Delete;
+            this.btnAnnuler.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.No;
+            this.btnAnnuler.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAnnuler.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(69, 22);
-            this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.Size = new System.Drawing.Size(77, 28);
+            this.btnAnnuler.Text = "&Annuler";
+            this.btnAnnuler.ToolTipText = "Annuler (CTRL + Z)";
+            this.btnAnnuler.Visible = false;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // FormProduitGestion
@@ -347,7 +377,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormProduitGestion";
-            this.Padding = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            this.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -397,6 +427,8 @@
         private System.Windows.Forms.ToolStripButton btnModifier;
         private System.Windows.Forms.ComboBox cmbFamille;
         private System.Windows.Forms.BindingSource familleBindingSource1;
+        private System.Windows.Forms.ToolStripButton btnExit;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 
     }
 }

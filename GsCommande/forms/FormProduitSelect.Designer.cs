@@ -33,36 +33,49 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblProduit = new System.Windows.Forms.Label();
-            this.cmbProduit = new System.Windows.Forms.ComboBox();
             this.produitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblFamille = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstFamille = new System.Windows.Forms.ListBox();
             this.familleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnProduitAjouter = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lstProduit = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtQteKilo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQteDemiKilo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.familleBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtQteKilo
             // 
-            this.txtQteKilo.Location = new System.Drawing.Point(95, 118);
+            this.txtQteKilo.Location = new System.Drawing.Point(82, 45);
+            this.txtQteKilo.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
             this.txtQteKilo.Name = "txtQteKilo";
             this.txtQteKilo.Size = new System.Drawing.Size(84, 20);
-            this.txtQteKilo.TabIndex = 10;
+            this.txtQteKilo.TabIndex = 3;
             // 
             // txtQteDemiKilo
             // 
-            this.txtQteDemiKilo.Location = new System.Drawing.Point(95, 147);
+            this.txtQteDemiKilo.Location = new System.Drawing.Point(82, 19);
+            this.txtQteDemiKilo.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
             this.txtQteDemiKilo.Name = "txtQteDemiKilo";
             this.txtQteDemiKilo.Size = new System.Drawing.Size(84, 20);
-            this.txtQteDemiKilo.TabIndex = 11;
+            this.txtQteDemiKilo.TabIndex = 2;
+            this.txtQteDemiKilo.Leave += new System.EventHandler(this.txtQteDemiKilo_Leave);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 120);
+            this.label3.Location = new System.Drawing.Point(21, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 9;
@@ -71,7 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 149);
+            this.label2.Location = new System.Drawing.Point(10, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 7;
@@ -80,23 +93,11 @@
             // lblProduit
             // 
             this.lblProduit.AutoSize = true;
-            this.lblProduit.Location = new System.Drawing.Point(43, 93);
+            this.lblProduit.Location = new System.Drawing.Point(5, 79);
             this.lblProduit.Name = "lblProduit";
             this.lblProduit.Size = new System.Drawing.Size(46, 13);
             this.lblProduit.TabIndex = 8;
             this.lblProduit.Text = "Produit :";
-            // 
-            // cmbProduit
-            // 
-            this.cmbProduit.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.produitBindingSource, "Id", true));
-            this.cmbProduit.DataSource = this.produitBindingSource;
-            this.cmbProduit.DisplayMember = "Libelle";
-            this.cmbProduit.FormattingEnabled = true;
-            this.cmbProduit.Location = new System.Drawing.Point(95, 90);
-            this.cmbProduit.Name = "cmbProduit";
-            this.cmbProduit.Size = new System.Drawing.Size(166, 21);
-            this.cmbProduit.TabIndex = 6;
-            this.cmbProduit.ValueMember = "Id";
             // 
             // produitBindingSource
             // 
@@ -105,24 +106,23 @@
             // lblFamille
             // 
             this.lblFamille.AutoSize = true;
-            this.lblFamille.Location = new System.Drawing.Point(43, 26);
+            this.lblFamille.Location = new System.Drawing.Point(5, 12);
             this.lblFamille.Name = "lblFamille";
             this.lblFamille.Size = new System.Drawing.Size(45, 13);
             this.lblFamille.TabIndex = 8;
             this.lblFamille.Text = "Famille :";
             // 
-            // listBox1
+            // lstFamille
             // 
-            this.listBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.familleBindingSource, "Id", true));
-            this.listBox1.DataSource = this.familleBindingSource;
-            this.listBox1.DisplayMember = "Libelle";
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(95, 26);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(165, 56);
-            this.listBox1.TabIndex = 12;
-            this.listBox1.ValueMember = "Id";
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.lstFamille.DataSource = this.familleBindingSource;
+            this.lstFamille.DisplayMember = "Libelle";
+            this.lstFamille.FormattingEnabled = true;
+            this.lstFamille.Location = new System.Drawing.Point(57, 12);
+            this.lstFamille.Name = "lstFamille";
+            this.lstFamille.Size = new System.Drawing.Size(165, 56);
+            this.lstFamille.TabIndex = 0;
+            this.lstFamille.ValueMember = "Id";
+            this.lstFamille.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // familleBindingSource
             // 
@@ -130,41 +130,71 @@
             // 
             // btnProduitAjouter
             // 
-            this.btnProduitAjouter.Location = new System.Drawing.Point(95, 187);
+            this.btnProduitAjouter.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Create;
+            this.btnProduitAjouter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProduitAjouter.Location = new System.Drawing.Point(293, 98);
             this.btnProduitAjouter.Name = "btnProduitAjouter";
-            this.btnProduitAjouter.Size = new System.Drawing.Size(84, 23);
+            this.btnProduitAjouter.Size = new System.Drawing.Size(118, 34);
             this.btnProduitAjouter.TabIndex = 13;
+            this.btnProduitAjouter.TabStop = false;
             this.btnProduitAjouter.Text = "Ajouter";
             this.btnProduitAjouter.UseVisualStyleBackColor = true;
+            this.btnProduitAjouter.Click += new System.EventHandler(this.btnProduitAjouter_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtQteDemiKilo);
+            this.groupBox1.Controls.Add(this.txtQteKilo);
+            this.groupBox1.Location = new System.Drawing.Point(228, 5);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(183, 87);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            // 
+            // lstProduit
+            // 
+            this.lstProduit.DataSource = this.produitBindingSource;
+            this.lstProduit.DisplayMember = "Libelle";
+            this.lstProduit.FormattingEnabled = true;
+            this.lstProduit.Location = new System.Drawing.Point(57, 79);
+            this.lstProduit.MaximumSize = new System.Drawing.Size(165, 238);
+            this.lstProduit.MinimumSize = new System.Drawing.Size(165, 15);
+            this.lstProduit.Name = "lstProduit";
+            this.lstProduit.Size = new System.Drawing.Size(165, 238);
+            this.lstProduit.TabIndex = 1;
+            this.lstProduit.ValueMember = "Id";
             // 
             // FormProduitSelect
             // 
+            this.AcceptButton = this.btnProduitAjouter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 222);
+            this.ClientSize = new System.Drawing.Size(421, 324);
+            this.Controls.Add(this.lstProduit);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnProduitAjouter);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.txtQteKilo);
-            this.Controls.Add(this.txtQteDemiKilo);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lstFamille);
             this.Controls.Add(this.lblFamille);
             this.Controls.Add(this.lblProduit);
-            this.Controls.Add(this.cmbProduit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(427, 167);
             this.Name = "FormProduitSelect";
             this.Padding = new System.Windows.Forms.Padding(9);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormProduitSelect";
-            this.Load += new System.EventHandler(this.FormProduitSelect_Load);
+            this.Text = "GsCommande";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormProduitSelect_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.txtQteKilo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQteDemiKilo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.familleBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,12 +207,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblProduit;
-        private System.Windows.Forms.ComboBox cmbProduit;
         private System.Windows.Forms.Label lblFamille;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstFamille;
         private System.Windows.Forms.Button btnProduitAjouter;
         private System.Windows.Forms.BindingSource familleBindingSource;
         private System.Windows.Forms.BindingSource produitBindingSource;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ListBox lstProduit;
 
     }
 }

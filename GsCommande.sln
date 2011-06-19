@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GsCommande", "GsCommande\GsCommande.csproj", "{B75C6CFF-5127-42B5-BF40-A1DA545EF3D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.GlagSoft.GsCommande", "GsCommande\Com.GlagSoft.GsCommande.csproj", "{B75C6CFF-5127-42B5-BF40-A1DA545EF3D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{00B9F255-1E4C-426A-A7CD-59E3978D8C05}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.GlagSoft.GsCommande.Services", "Services\Com.GlagSoft.GsCommande.Services.csproj", "{00B9F255-1E4C-426A-A7CD-59E3978D8C05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Objects", "Objects\Objects.csproj", "{A50D6DC6-09BB-40C0-A944-0CFCB7136F29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.GlagSoft.GsCommande.Objects", "Objects\Com.GlagSoft.GsCommande.Objects.csproj", "{A50D6DC6-09BB-40C0-A944-0CFCB7136F29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessObjects", "DataAccessObjects\DataAccessObjects.csproj", "{EF905D04-60DC-41A7-A719-57269AC00571}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.GlagSoft.GsCommande.DataAccessObjects", "DataAccessObjects\Com.GlagSoft.GsCommande.DataAccessObjects.csproj", "{EF905D04-60DC-41A7-A719-57269AC00571}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ressources", "Ressources", "{2ED2E591-0C50-4821-97D8-BB07A7DD7716}"
 	ProjectSection(SolutionItems) = preProject
@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ressources", "Ressources", 
 		Ressources\SQLite.Interop.dll = Ressources\SQLite.Interop.dll
 		Ressources\System.Data.SQLite.dll = Ressources\System.Data.SQLite.dll
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.GlagSoft.GsCommande.Outils", "Com.GlagSoft.GsCommande.Outils\Com.GlagSoft.GsCommande.Outils.csproj", "{F575F6BC-051E-463F-A017-95C39C4410D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,6 +68,16 @@ Global
 		{EF905D04-60DC-41A7-A719-57269AC00571}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{EF905D04-60DC-41A7-A719-57269AC00571}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{EF905D04-60DC-41A7-A719-57269AC00571}.Release|x86.ActiveCfg = Release|Any CPU
+		{F575F6BC-051E-463F-A017-95C39C4410D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F575F6BC-051E-463F-A017-95C39C4410D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F575F6BC-051E-463F-A017-95C39C4410D0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F575F6BC-051E-463F-A017-95C39C4410D0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F575F6BC-051E-463F-A017-95C39C4410D0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F575F6BC-051E-463F-A017-95C39C4410D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F575F6BC-051E-463F-A017-95C39C4410D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F575F6BC-051E-463F-A017-95C39C4410D0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F575F6BC-051E-463F-A017-95C39C4410D0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F575F6BC-051E-463F-A017-95C39C4410D0}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

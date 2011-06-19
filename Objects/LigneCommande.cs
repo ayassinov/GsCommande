@@ -7,6 +7,28 @@ namespace Com.GlagSoft.GsCommande.Objects
         public int Qtekilo { get; set; }
         public int QteDemiKilo { get; set; }
 
+        public string LibelleFamille
+        {
+            get
+            {
+                if (Produit != null && Produit.Famille != null)
+                    return Produit.Famille.Libelle;
+
+                return string.Empty;
+
+            }
+        }
+
+        public string LibelleProduit
+        {
+            get
+            {
+                if (Produit != null)
+                    return Produit.Libelle;
+                return string.Empty;
+            }
+        }
+
         public LigneCommande() { }
 
         public LigneCommande(int produitId, int qteKilo, int qteDemiKilo)
