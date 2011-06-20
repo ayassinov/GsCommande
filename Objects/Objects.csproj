@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F575F6BC-051E-463F-A017-95C39C4410D0}</ProjectGuid>
+    <ProjectGuid>{A50D6DC6-09BB-40C0-A944-0CFCB7136F29}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Com.GlagSoft.GsCommande.Outils</RootNamespace>
-    <AssemblyName>Com.GlagSoft.GsCommande.Outils</AssemblyName>
+    <RootNamespace>Com.GlagSoft.GsCommande.Objects</RootNamespace>
+    <AssemblyName>Com.GlagSoft.GsCommande.Objects</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,24 +30,21 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="GestionException.cs" />
-    <Compile Include="NullableDateTimePicker.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Commande.cs" />
+    <Compile Include="Famille.cs" />
+    <Compile Include="LigneCommande.cs" />
+    <Compile Include="Produit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -60,6 +60,20 @@ namespace Com.GlagSoft.GsCommande.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap all {
+            get {
+                object obj = ResourceManager.GetObject("all", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap clear {
+            get {
+                object obj = ResourceManager.GetObject("clear", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Create {
             get {
                 object obj = ResourceManager.GetObject("Create", resourceCulture);

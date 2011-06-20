@@ -303,6 +303,7 @@
             this.btnExit.Size = new System.Drawing.Size(64, 28);
             this.btnExit.Text = "&Fermer";
             this.btnExit.ToolTipText = "Fermer (ESC)";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // toolStripSeparator1
             // 

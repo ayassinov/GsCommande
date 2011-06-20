@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F575F6BC-051E-463F-A017-95C39C4410D0}</ProjectGuid>
+    <ProjectGuid>{00B9F255-1E4C-426A-A7CD-59E3978D8C05}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Com.GlagSoft.GsCommande.Outils</RootNamespace>
-    <AssemblyName>Com.GlagSoft.GsCommande.Outils</AssemblyName>
+    <RootNamespace>Com.GlagSoft.GsCommande.Services</RootNamespace>
+    <AssemblyName>Services</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,24 +31,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="GestionException.cs" />
-    <Compile Include="NullableDateTimePicker.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="CommandeService.cs" />
+    <Compile Include="FamilleService.cs" />
+    <Compile Include="LigneCommandeService.cs" />
+    <Compile Include="MaintenanceService.cs" />
+    <Compile Include="ProduitService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessObjects\DataAccessObjects.csproj">
+      <Project>{EF905D04-60DC-41A7-A719-57269AC00571}</Project>
+      <Name>DataAccessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Objects\Objects.csproj">
+      <Project>{A50D6DC6-09BB-40C0-A944-0CFCB7136F29}</Project>
+      <Name>Objects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

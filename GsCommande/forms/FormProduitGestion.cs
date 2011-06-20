@@ -431,6 +431,11 @@ namespace Com.GlagSoft.GsCommande.forms
 
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            OnCloseForm();
+        }
     }
 
     enum ModeAffichage

@@ -7,17 +7,12 @@ namespace Com.GlagSoft.GsCommande
     public partial class MainForm : Form
     {
         FormProduitGestion _formProduitGestion = new FormProduitGestion();
+        FormFamilleGestion _formFamilleGestion = new FormFamilleGestion();
 
         public MainForm()
         {
             InitializeComponent();
             AfficherAjoutCommande();
-        }
-
-
-        private void btnGestionProduit_Click(object sender, EventArgs e)
-        {
-            OpenGestionProduit();
         }
 
         private void OpenGestionProduit()
@@ -28,20 +23,40 @@ namespace Com.GlagSoft.GsCommande
             _formProduitGestion.ShowDialog();
         }
 
+        private void OpenGestionFamille()
+        {
+            _formFamilleGestion = new FormFamilleGestion();
+            _formFamilleGestion.CloseGestionFamilleForm += CloseGestionFamilleForm;
+            _formFamilleGestion.LoadAll();
+            _formFamilleGestion.ShowDialog();
+        }
+
+        private void btnGestionProduit_Click(object sender, EventArgs e)
+        {
+            OpenGestionProduit();
+        }
+
         private void btnGestionFamille_Click(object sender, EventArgs e)
         {
-            var form = new FormFamilleGestion();
-            form.LoadAll();
-            form.ShowDialog();
+            OpenGestionFamille();
         }
 
         private void CloseGestionProduitForm()
         {
             _formProduitGestion.Close();
+            _formProduitGestion.Dispose();
+        }
+
+        private void CloseGestionFamilleForm()
+        {
+            _formFamilleGestion.Close();
+            _formFamilleGestion.Dispose();
         }
 
         private void AfficherAjoutCommande()
         {
+            ucCommandeAjouter1.Reset();
+
             ucCommandeRecherche1.Visible = false;
             ucCommandeAjouter1.Visible = true;
             ucListeProduit1.Visible = false;
@@ -57,6 +72,8 @@ namespace Com.GlagSoft.GsCommande
 
         private void AfficherRechercheCommmande()
         {
+            ucCommandeRecherche1.Reset();
+
             ucCommandeRecherche1.Visible = true;
             ucCommandeAjouter1.Visible = false;
             ucListeProduit1.Visible = false;
@@ -85,6 +102,65 @@ namespace Com.GlagSoft.GsCommande
             btnListeProduits.Enabled = false;
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.F2))
+            {
+                if (btnAjouterCommande.Enabled)
+                    AfficherAjoutCommande();
+                return true;
+            }
+
+            if (keyData == (Keys.F3))
+            {
+                if (btnChercherCommande.Enabled)
+                    AfficherRechercheCommmande();
+                return true;
+            }
+
+            if (keyData == (Keys.F4))
+            {
+                if (btnListeProduits.Enabled)
+                    AfficherListeCommande();
+                return true;
+            }
+
+            if (keyData == (Keys.F5))
+            {
+                if (!btnAjouterCommande.Enabled)
+                    ucCommandeAjouter1.AddLigneCommande();
+                return true;
+            }
+
+            if (keyData == (Keys.F6))
+            {
+                if (!btnAjouterCommande.Enabled)
+                    ucCommandeAjouter1.UpdateLigneCommande();
+                return true;
+            }
+
+            if (keyData == (Keys.F7))
+            {
+                if (!btnAjouterCommande.Enabled)
+                    ucCommandeAjouter1.DeleteLigneCommande();
+                return true;
+            }
+
+            if (keyData == (Keys.F11))
+            {
+                OpenGestionFamille();
+                return true;
+            }
+
+            if (keyData == (Keys.F12))
+            {
+                OpenGestionProduit();
+                return true;
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private void btnAjouterCommande_Click(object sender, EventArgs e)
         {
             AfficherAjoutCommande();
@@ -104,8 +180,5 @@ namespace Com.GlagSoft.GsCommande
         {
             ucCommandeAjouter1.SaveCommande();
         }
-
-
-
     }
 }

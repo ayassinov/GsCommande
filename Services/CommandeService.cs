@@ -85,5 +85,10 @@ namespace Com.GlagSoft.GsCommande.Services
         {
             return _commandeData.Recherche(commande);
         }
+
+        public List<Commande> ListAll()
+        {
+            return _commandeData.ListAll();
+        }
     }
 }

@@ -31,6 +31,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnQuitter = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAdd = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
@@ -53,7 +55,7 @@
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(3, 353);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(310, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(358, 22);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 0;
             // 
@@ -66,6 +68,8 @@
             // 
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnQuitter,
+            this.toolStripSeparator1,
             this.btnAdd,
             this.btnSave,
             this.btnDelete});
@@ -75,9 +79,25 @@
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(310, 35);
+            this.toolStrip1.Size = new System.Drawing.Size(358, 35);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnQuitter
+            // 
+            this.btnQuitter.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Exit;
+            this.btnQuitter.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnQuitter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(72, 32);
+            this.btnQuitter.Text = "&Fermer";
+            this.btnQuitter.ToolTipText = "Fermer (ESC)";
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 35);
             // 
             // btnAdd
             // 
@@ -120,7 +140,7 @@
             this.groupBox3.Location = new System.Drawing.Point(3, 45);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(307, 65);
+            this.groupBox3.Size = new System.Drawing.Size(355, 65);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Modifier Famille :";
@@ -136,11 +156,11 @@
             // 
             // txtLibelle
             // 
-            this.txtLibelle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLibelle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLibelle.Location = new System.Drawing.Point(47, 28);
             this.txtLibelle.Name = "txtLibelle";
-            this.txtLibelle.Size = new System.Drawing.Size(254, 20);
+            this.txtLibelle.Size = new System.Drawing.Size(302, 20);
             this.txtLibelle.TabIndex = 1;
             this.txtLibelle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLibelle_KeyDown);
             // 
@@ -149,7 +169,7 @@
             this.groupBox2.Controls.Add(this.lstFamille);
             this.groupBox2.Location = new System.Drawing.Point(3, 118);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(307, 235);
+            this.groupBox2.Size = new System.Drawing.Size(349, 235);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Famille :";
@@ -163,7 +183,7 @@
             this.lstFamille.FormattingEnabled = true;
             this.lstFamille.Location = new System.Drawing.Point(3, 16);
             this.lstFamille.Name = "lstFamille";
-            this.lstFamille.Size = new System.Drawing.Size(301, 216);
+            this.lstFamille.Size = new System.Drawing.Size(343, 216);
             this.lstFamille.TabIndex = 0;
             this.lstFamille.ValueMember = "Id";
             this.lstFamille.SelectedIndexChanged += new System.EventHandler(this.lstFamille_SelectedIndexChanged);
@@ -177,7 +197,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 375);
+            this.ClientSize = new System.Drawing.Size(361, 375);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.toolStrip1);
@@ -219,6 +239,8 @@
         private System.Windows.Forms.ListBox lstFamille;
         private System.Windows.Forms.BindingSource familleBindingSource;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripButton btnQuitter;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 
     }
 }

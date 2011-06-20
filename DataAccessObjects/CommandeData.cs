@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
@@ -97,6 +98,40 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
                                               IsLivree = reader.GetBoolFromReader("IsLivree"),
 
                                           });
+                    }
+                }
+            }
+
+            return commandes;
+        }
+
+        public List<Commande> ListAll()
+        {
+            var sb = new StringBuilder("SELECT Id, DateCommande, NomPrenomClient, IsLivree FROM Commande WHERE 1 = 1");
+
+           
+          //  sb.Append(" AND IsLivree = @IsLivree");
+
+            var commandes = new List<Commande>();
+
+            using (var helper = new SqliteHelper(sb.ToString()))
+            {
+              
+              //  helper.AddInParameter("IsLivree", DbType.Boolean, commande.IsLivree);
+
+
+                using (var reader = helper.ExecuteQuery())
+                {
+                    while (reader.Read())
+                    {
+                        commandes.Add(new Commande()
+                        {
+                            Id = reader.GetIntFromReader("Id"),
+                            DateCommande = reader.GetDateTimeFromReader("DateCommande"),
+                            NomPrenomClient = reader.GetStringFromReader("NomPrenomClient"),
+                            IsLivree = reader.GetBoolFromReader("IsLivree"),
+
+                        });
                     }
                 }
             }

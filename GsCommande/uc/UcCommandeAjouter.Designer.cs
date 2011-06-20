@@ -118,7 +118,7 @@
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvLigneCommande.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLigneCommande.AutoGenerateColumns = false;
@@ -137,7 +137,7 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvLigneCommande.DefaultCellStyle = dataGridViewCellStyle2;
@@ -146,7 +146,7 @@
             this.dgvLigneCommande.Location = new System.Drawing.Point(3, 51);
             this.dgvLigneCommande.MultiSelect = false;
             this.dgvLigneCommande.Name = "dgvLigneCommande";
-            this.dgvLigneCommande.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dgvLigneCommande.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
             this.dgvLigneCommande.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvLigneCommande.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLigneCommande.Size = new System.Drawing.Size(640, 239);

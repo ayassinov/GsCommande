@@ -32,17 +32,17 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnSauvegarder = new System.Windows.Forms.ToolStripButton();
             this.btnModifier = new System.Windows.Forms.ToolStripButton();
             this.btnImprimer = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAjouterCommande = new System.Windows.Forms.ToolStripButton();
             this.btnChercherCommande = new System.Windows.Forms.ToolStripButton();
             this.btnListeProduits = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnGestionFamille = new System.Windows.Forms.ToolStripButton();
             this.btnGestionProduit = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.ucListeProduit1 = new Com.GlagSoft.GsCommande.uc.UcListeProduit();
             this.ucCommandeRecherche1 = new Com.GlagSoft.GsCommande.uc.UcCommandeRecherche();
             this.ucCommandeAjouter1 = new Com.GlagSoft.GsCommande.uc.UcCommandeAjouter();
@@ -100,22 +100,6 @@
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 40);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.ucListeProduit1);
-            this.panel1.Controls.Add(this.ucCommandeRecherche1);
-            this.panel1.Controls.Add(this.ucCommandeAjouter1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 66);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1076, 310);
-            this.panel1.TabIndex = 4;
-            // 
             // btnSauvegarder
             // 
             this.btnSauvegarder.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Save;
@@ -146,6 +130,11 @@
             this.btnImprimer.Size = new System.Drawing.Size(84, 37);
             this.btnImprimer.Text = "&Imprimer";
             this.btnImprimer.ToolTipText = "Imprimer (CTRL+P)";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 40);
             // 
             // btnAjouterCommande
             // 
@@ -180,6 +169,11 @@
             this.btnListeProduits.ToolTipText = "Liste des Produits (F4)";
             this.btnListeProduits.Click += new System.EventHandler(this.btnListeProduits_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 40);
+            // 
             // btnGestionFamille
             // 
             this.btnGestionFamille.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Notes;
@@ -188,6 +182,7 @@
             this.btnGestionFamille.Name = "btnGestionFamille";
             this.btnGestionFamille.Size = new System.Drawing.Size(124, 37);
             this.btnGestionFamille.Text = "Gérer les &familles";
+            this.btnGestionFamille.ToolTipText = "Gérer les familles (F11)";
             this.btnGestionFamille.Click += new System.EventHandler(this.btnGestionFamille_Click);
             // 
             // btnGestionProduit
@@ -198,12 +193,19 @@
             this.btnGestionProduit.Name = "btnGestionProduit";
             this.btnGestionProduit.Size = new System.Drawing.Size(143, 37);
             this.btnGestionProduit.Text = "Gestion des &produits";
+            this.btnGestionProduit.ToolTipText = "Gestion des produits (F12)";
             this.btnGestionProduit.Click += new System.EventHandler(this.btnGestionProduit_Click);
             // 
-            // toolStripSeparator2
+            // panel1
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 40);
+            this.panel1.Controls.Add(this.ucListeProduit1);
+            this.panel1.Controls.Add(this.ucCommandeRecherche1);
+            this.panel1.Controls.Add(this.ucCommandeAjouter1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 66);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1076, 310);
+            this.panel1.TabIndex = 4;
             // 
             // ucListeProduit1
             // 

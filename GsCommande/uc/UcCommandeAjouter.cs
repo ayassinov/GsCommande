@@ -22,6 +22,21 @@ namespace Com.GlagSoft.GsCommande.uc
             InitializeComponent();
         }
 
+        public void Reset()
+        {
+            dgvLigneCommande.DataSource = new List<Commande>();
+            txtClient.Text = string.Empty;
+            dateTimePicker.Value = DateTime.Now.Date;
+            LoadAll();
+
+        }
+
+        public void LoadAll()
+        {
+            btnModifier.Enabled = dgvLigneCommande.SelectedRows.Count > 0;
+            btnSupprimer.Enabled = dgvLigneCommande.SelectedRows.Count > 0;
+        }
+
         public void SaveCommande()
         {
 
@@ -52,13 +67,19 @@ namespace Com.GlagSoft.GsCommande.uc
             {
                 GestionException.TraiterException(exception, "Ajout commande");
             }
-
         }
 
-        private void UpdateLigneCommande()
+        public void UpdateLigneCommande()
         {
-            if (dgvLigneCommande.SelectedRows.Count == 0)
+            if (!btnModifier.Enabled)
                 return;
+
+            if (dgvLigneCommande.SelectedRows.Count == 0)
+            {
+                MessageBox.Show(@"Aucun produit séléctionné", @"Ajout Commande", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                return;
+            }
 
             _form = new FormProduitSelect
                         {
@@ -66,17 +87,24 @@ namespace Com.GlagSoft.GsCommande.uc
                             IsUpdate = true,
                             LigneCommandes = _ligneCommandes
                         };
+
             OpenSelectionForm();
         }
 
-        private void AddLigneCommande()
+        public void AddLigneCommande()
         {
+            if (!btnAjouter.Enabled)
+                return;
+
             _form = new FormProduitSelect { IsUpdate = false, LigneCommande = null, LigneCommandes = _ligneCommandes };
             OpenSelectionForm();
         }
 
-        private void DeleteLigneCommande()
+        public void DeleteLigneCommande()
         {
+            if (!btnSupprimer.Enabled)
+                return;
+
             if (dgvLigneCommande.SelectedRows.Count == 0)
             {
                 MessageBox.Show(@"Aucun produit séléctionné", @"Ajout Commande", MessageBoxButtons.OK,
@@ -96,6 +124,7 @@ namespace Com.GlagSoft.GsCommande.uc
             _ligneCommandes.Remove(_ligneCommandes[i]);
             dgvLigneCommande.DataSource = new List<LigneCommande>();
             dgvLigneCommande.DataSource = _ligneCommandes;
+            LoadAll();
         }
 
         private void OpenSelectionForm()
@@ -128,10 +157,11 @@ namespace Com.GlagSoft.GsCommande.uc
         private void form_CloseFormProduitSelect()
         {
             SaveChangeToGrid();
+            LoadAll();
 
             _form.LigneCommande = null;
+          //  _form.Close();
             _form.Dispose();
-            // _form.Close();
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)

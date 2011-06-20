@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Com.GlagSoft.GsCommande.Objects;
+using Com.GlagSoft.GsCommande.Outils;
 using Com.GlagSoft.GsCommande.Services;
 
 namespace Com.GlagSoft.GsCommande.forms
@@ -34,94 +36,199 @@ namespace Com.GlagSoft.GsCommande.forms
 
         public void LoadAll()
         {
-            lstFamille.DataSource = _familleService.ListAll();
-
-            if (LigneCommande != null)
+            try
             {
-                //update
-                lstFamille.SelectedValue = LigneCommande.Produit.Famille.Id;
-                lstProduit.SelectedValue = LigneCommande.Produit.Id;
-                txtQteKilo.Value = LigneCommande.Qtekilo;
-                txtQteDemiKilo.Value = LigneCommande.QteDemiKilo;
+                lstFamille.DataSource = _familleService.ListAll();
 
-                lstFamille.Enabled = false;
-                lstProduit.Enabled = false;
-                txtQteDemiKilo.Focus();
+                if (LigneCommande != null)
+                {
+                    //update
+                    lstFamille.SelectedValue = LigneCommande.Produit.Famille.Id;
+                    lstProduit.SelectedValue = LigneCommande.Produit.Id;
+                    txtQteKilo.Value = LigneCommande.Qtekilo;
+                    txtQteDemiKilo.Value = LigneCommande.QteDemiKilo;
+
+                    lstFamille.Enabled = false;
+                    lstProduit.Enabled = false;
+                    txtQteDemiKilo.Focus();
+                }
+                else
+                {
+                    //add
+                    lstFamille.Enabled = true;
+                    lstProduit.Enabled = true;
+                    lstFamille.Focus();
+                }
             }
-            else
+            catch (Exception exception)
             {
-                //add
-                lstFamille.Enabled = true;
-                lstProduit.Enabled = true;
-                lstFamille.Focus();
+                GestionException.TraiterException(exception, "Gestion des commandes");
             }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstFamille.SelectedValue != null)
+            try
             {
-                var familleId = (int)lstFamille.SelectedValue;
-                var allCommandes = _produitService.GetByFamille(new Famille { Id = familleId });
-
-                foreach (var lcmd in LigneCommandes)
+                if (lstFamille.SelectedValue != null)
                 {
-                    //todo check this !
-                    //supprimer si on est en ajout.
-                    if(!IsUpdate)
-                        allCommandes.RemoveAll(l => l.Id == lcmd.Produit.Id);
-                    //else if(LigneCommande != null && lcmd.Produit.Id != LigneCommande.Produit.Id)
-                    //    allCommandes.RemoveAll(l => l.Id == lcmd.Produit.Id);
+                    var familleId = (int)lstFamille.SelectedValue;
+                    var allCommandes = _produitService.GetByFamille(new Famille { Id = familleId });
+
+                    foreach (var lcmd in LigneCommandes)
+                    {
+                        //supprimer si on est en ajout.
+                        if (!IsUpdate)
+                            allCommandes.RemoveAll(l => l.Id == lcmd.Produit.Id);
+                    }
+
+                    lstProduit.DataSource = allCommandes;
+
+                    if (!IsUpdate)
+                    {
+                        btnProduitAjouter.Enabled = lstProduit.Items.Count != 0;
+                        groupBox1.Enabled = lstProduit.Items.Count != 0;
+
+                    }
                 }
-
-                lstProduit.DataSource = allCommandes;
-
-                if (!IsUpdate)
-                {
-                    btnProduitAjouter.Enabled = lstProduit.Items.Count != 0;
-                    groupBox1.Enabled = lstProduit.Items.Count != 0;
-
-                }
+            }
+            catch (Exception exception)
+            {
+                GestionException.TraiterException(exception, "Gestion des commandes");
             }
         }
 
         private void btnProduitAjouter_Click(object sender, EventArgs e)
         {
-            if (lstProduit.SelectedItem == null)
+            try
             {
-                MessageBox.Show(@"Vous devez choisir un produit", @"Séléction de produit", MessageBoxButtons.OK,
-                                               MessageBoxIcon.Information);
-                return;
+                if (lstProduit.SelectedItem == null)
+                {
+                    MessageBox.Show(@"Vous devez choisir un produit", @"Séléction de produit", MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Information);
+                    return;
 
+                }
+
+                if (txtQteKilo.Value == 0 && txtQteDemiKilo.Value == 0)
+                {
+                    MessageBox.Show(@"Vous devez enter une quantité.", @"Séléction de produit", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                    return;
+                }
+
+                LigneCommande = new LigneCommande
+                                    {
+                                        Commande = null,
+                                        Produit = lstProduit.SelectedItem as Produit,
+                                        Qtekilo = (int)txtQteKilo.Value,
+                                        QteDemiKilo = (int)txtQteDemiKilo.Value
+                                    };
+                LigneCommande.Produit.Famille = lstFamille.SelectedItem as Famille;
+                OnCloseForm();
             }
-
-            if (txtQteKilo.Value == 0 && txtQteDemiKilo.Value == 0)
+            catch (Exception exception)
             {
-                MessageBox.Show(@"Vous devez enter une quantité.", @"Séléction de produit", MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
-                return;
+                GestionException.TraiterException(exception, "Gestion des commandes");
             }
-
-            LigneCommande = new LigneCommande
-                                {
-                                    Commande = null,
-                                    Produit = lstProduit.SelectedItem as Produit,
-                                    Qtekilo = (int)txtQteKilo.Value,
-                                    QteDemiKilo = (int)txtQteDemiKilo.Value
-                                };
-            LigneCommande.Produit.Famille = lstFamille.SelectedItem as Famille;
-            OnCloseForm();
         }
 
         private void txtQteDemiKilo_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(((NumericUpDown)sender).Text.Trim()))
-                ((NumericUpDown)sender).Text = @"0";
+            try
+            {
+                if (string.IsNullOrEmpty(((NumericUpDown)sender).Text.Trim()))
+                    ((NumericUpDown)sender).Text = @"0";
+            }
+            catch (Exception exception)
+            {
+                GestionException.TraiterException(exception, "Gestion des commandes");
+            }
+
         }
 
         private void FormProduitSelect_FormClosing(object sender, FormClosingEventArgs e)
         {
             OnCloseForm();
         }
+
+        private void BtnFermer_Click(object sender, EventArgs e)
+        {
+            OnCloseForm();
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+                OnCloseForm();
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void lstFamille_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+
+            bool selected = ((e.State & DrawItemState.Selected) == DrawItemState.Selected);
+
+            int index = e.Index;
+            if (index >= 0 && index < lstFamille.Items.Count)
+            {
+                string text = ((Famille)lstFamille.Items[index]).Libelle;
+                Graphics g = e.Graphics;
+
+                Color color = (selected)
+                    ? Color.FromArgb(255, 219, 88)
+                    : Color.White;
+
+                g.FillRectangle(new SolidBrush(color), e.Bounds);
+
+                Color forColor;
+                if (lstFamille.Enabled)
+                    forColor = Color.Black;
+                else
+                    forColor = Color.Gray;
+
+                // Print text
+                g.DrawString(text, e.Font, new SolidBrush(forColor),
+                    lstFamille.GetItemRectangle(index).Location);
+            }
+
+            e.DrawFocusRectangle();
+        }
+
+        private void lstProduit_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+
+            bool selected = ((e.State & DrawItemState.Selected) == DrawItemState.Selected);
+
+            int index = e.Index;
+            if (index >= 0 && index < lstProduit.Items.Count)
+            {
+                string text = ((Produit)lstProduit.Items[index]).Libelle;
+                Graphics g = e.Graphics;
+
+                Color color = (selected)
+                    ? Color.FromArgb(255, 219, 88)
+                    : Color.White;
+
+                g.FillRectangle(new SolidBrush(color), e.Bounds);
+
+                Color forColor;
+                if (lstProduit.Enabled)
+                    forColor = Color.Black;
+                else
+                    forColor = Color.Gray;
+
+                // Print text
+                g.DrawString(text, e.Font, new SolidBrush(forColor),
+                    lstProduit.GetItemRectangle(index).Location);
+            }
+
+            e.DrawFocusRectangle();
+        }
+
+
     }
 }
