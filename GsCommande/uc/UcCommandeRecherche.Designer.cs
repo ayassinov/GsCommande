@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker = new Com.GlagSoft.GsCommande.Outils.NullableDateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -36,25 +37,27 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.txtClient = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.chkIsLivered = new System.Windows.Forms.CheckBox();
+            this.btnAll = new System.Windows.Forms.Button();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnRecherche = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCommandes = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateCommandeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomPrenomClientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isLivreeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.commandeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnAll = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnRecherche = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.commandeBindingSource)).BeginInit();
+            this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCommandes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commandeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -65,14 +68,13 @@
             this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Controls.Add(this.txtClient);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.chkIsLivered);
             this.groupBox1.Controls.Add(this.btnAll);
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.btnRecherche);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(766, 149);
+            this.groupBox1.Size = new System.Drawing.Size(766, 110);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Recherche";
@@ -80,7 +82,7 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker.Location = new System.Drawing.Point(106, 55);
+            this.dateTimePicker.Location = new System.Drawing.Point(627, 17);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.NullValue = "_";
             this.dateTimePicker.Size = new System.Drawing.Size(96, 20);
@@ -90,7 +92,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(64, 59);
+            this.label4.Location = new System.Drawing.Point(585, 21);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 8;
@@ -133,46 +135,119 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Code commande :";
             // 
-            // chkIsLivered
+            // btnAll
             // 
-            this.chkIsLivered.AutoSize = true;
-            this.chkIsLivered.Location = new System.Drawing.Point(289, 55);
-            this.chkIsLivered.Name = "chkIsLivered";
-            this.chkIsLivered.Size = new System.Drawing.Size(255, 17);
-            this.chkIsLivered.TabIndex = 1;
-            this.chkIsLivered.Text = "Inclure dans la recherche les commandes livrées";
-            this.chkIsLivered.UseVisualStyleBackColor = true;
+            this.btnAll.ContextMenuStrip = this.contextMenuStrip2;
+            this.btnAll.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.all;
+            this.btnAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAll.Location = new System.Drawing.Point(209, 60);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Size = new System.Drawing.Size(96, 32);
+            this.btnAll.TabIndex = 0;
+            this.btnAll.Text = "     &Tout";
+            this.btnAll.UseVisualStyleBackColor = true;
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2});
+            this.contextMenuStrip2.Name = "contextMenuStrip1";
+            this.contextMenuStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.contextMenuStrip2.Size = new System.Drawing.Size(236, 26);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.finished_work;
+            this.toolStripMenuItem2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(235, 22);
+            this.toolStripMenuItem2.Text = "Inclure les commandes livrées ";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.clear;
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Location = new System.Drawing.Point(311, 60);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(96, 32);
+            this.btnClear.TabIndex = 0;
+            this.btnClear.Text = "     &Reset";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnRecherche
+            // 
+            this.btnRecherche.ContextMenuStrip = this.contextMenuStrip1;
+            this.btnRecherche.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Find;
+            this.btnRecherche.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRecherche.Location = new System.Drawing.Point(107, 60);
+            this.btnRecherche.Name = "btnRecherche";
+            this.btnRecherche.Size = new System.Drawing.Size(96, 32);
+            this.btnRecherche.TabIndex = 0;
+            this.btnRecherche.Text = "     &Chercher";
+            this.btnRecherche.UseVisualStyleBackColor = true;
+            this.btnRecherche.Click += new System.EventHandler(this.btnRecherche_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(236, 26);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.finished_work;
+            this.toolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(235, 22);
+            this.toolStripMenuItem1.Text = "Inclure les commandes livrées ";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dgvCommandes);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 149);
+            this.groupBox2.Location = new System.Drawing.Point(0, 110);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(766, 277);
+            this.groupBox2.Size = new System.Drawing.Size(766, 316);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Commandes";
             // 
-            // dataGridView1
+            // dgvCommandes
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCommandes.AllowUserToAddRows = false;
+            this.dgvCommandes.AllowUserToDeleteRows = false;
+            this.dgvCommandes.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvCommandes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCommandes.AutoGenerateColumns = false;
+            this.dgvCommandes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCommandes.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCommandes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.dateCommandeDataGridViewTextBoxColumn,
             this.nomPrenomClientDataGridViewTextBoxColumn,
             this.isLivreeDataGridViewCheckBoxColumn});
-            this.dataGridView1.DataSource = this.commandeBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(760, 258);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvCommandes.DataSource = this.commandeBindingSource;
+            this.dgvCommandes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCommandes.Location = new System.Drawing.Point(3, 16);
+            this.dgvCommandes.Name = "dgvCommandes";
+            this.dgvCommandes.ReadOnly = true;
+            this.dgvCommandes.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
+            this.dgvCommandes.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvCommandes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCommandes.Size = new System.Drawing.Size(760, 297);
+            this.dgvCommandes.TabIndex = 0;
+            this.dgvCommandes.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -206,59 +281,6 @@
             // 
             this.commandeBindingSource.DataSource = typeof(Com.GlagSoft.GsCommande.Objects.Commande);
             // 
-            // btnAll
-            // 
-            this.btnAll.ContextMenuStrip = this.contextMenuStrip1;
-            this.btnAll.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.all;
-            this.btnAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAll.Location = new System.Drawing.Point(208, 90);
-            this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(96, 32);
-            this.btnAll.TabIndex = 0;
-            this.btnAll.Text = "     &Tout";
-            this.btnAll.UseVisualStyleBackColor = true;
-            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.clear;
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(310, 90);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(96, 32);
-            this.btnClear.TabIndex = 0;
-            this.btnClear.Text = "     &Reset";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnRecherche
-            // 
-            this.btnRecherche.ContextMenuStrip = this.contextMenuStrip1;
-            this.btnRecherche.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Find;
-            this.btnRecherche.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecherche.Location = new System.Drawing.Point(106, 90);
-            this.btnRecherche.Name = "btnRecherche";
-            this.btnRecherche.Size = new System.Drawing.Size(96, 32);
-            this.btnRecherche.TabIndex = 0;
-            this.btnRecherche.Text = "     &Chercher";
-            this.btnRecherche.UseVisualStyleBackColor = true;
-            this.btnRecherche.Click += new System.EventHandler(this.btnRecherche_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(236, 26);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(235, 22);
-            this.toolStripMenuItem1.Text = "Inclure les commandes livrées ";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
             // UcCommandeRecherche
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,10 +292,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.commandeBindingSource)).EndInit();
+            this.contextMenuStrip2.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCommandes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commandeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -285,10 +308,9 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.TextBox txtClient;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chkIsLivered;
         private System.Windows.Forms.Button btnRecherche;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCommandes;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateCommandeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomPrenomClientDataGridViewTextBoxColumn;
@@ -300,5 +322,7 @@
         private System.Windows.Forms.Button btnAll;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }

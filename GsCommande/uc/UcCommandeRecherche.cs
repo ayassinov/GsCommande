@@ -10,25 +10,40 @@ namespace Com.GlagSoft.GsCommande.uc
     public partial class UcCommandeRecherche : UserControl
     {
         private CommandeService _commandeservice = new CommandeService();
+        private bool _toInclue = false;
+
+        public Commande SelectedCommande { get; set; }
+
+        public delegate void ChangeSelectedCommandeHandler();
+        public event ChangeSelectedCommandeHandler ChangeSelectedCommande;
+
+        private void OnChangeSelectedCommande()
+        {
+            if (ChangeSelectedCommande != null)
+                ChangeSelectedCommande();
+        }
 
         public UcCommandeRecherche()
         {
             InitializeComponent();
         }
 
-        private void Recherche(bool toInclue)
+        public void Recherche()
         {
             try
             {
+                SelectedCommande = null;
                 var commande = new Commande()
-                                       {
-                                           DateCommande = (dateTimePicker.Value == DateTime.MinValue) ? (DateTime?)null : dateTimePicker.Value,
-                                           IsLivree = toInclue,
-                                           NomPrenomClient = txtClient.Text.Trim()
-                                       };
+                                   {
+                                       Id = (int)numericUpDown1.Value,
+                                       DateCommande = (dateTimePicker.Value == DateTime.MinValue) ? (DateTime?)null : dateTimePicker.Value,
+                                       IsLivree = _toInclue,
+                                       NomPrenomClient = txtClient.Text.Trim()
+                                   };
 
                 List<Commande> commandes = _commandeservice.Recherche(commande);
-                dataGridView1.DataSource = commandes;
+                dgvCommandes.DataSource = commandes;
+                //OnChangeSelectedCommande();
             }
             catch (Exception exception)
             {
@@ -36,23 +51,26 @@ namespace Com.GlagSoft.GsCommande.uc
             }
         }
 
-        public void Reset()
+        public void LoadLastSearch()
         {
-            dateTimePicker.Value = DateTime.MinValue;
-            txtClient.Text = string.Empty;
-            chkIsLivered.Checked = false;
-            dataGridView1.DataSource = new List<Commande>();
+
         }
 
-        public void FindAll()
+        public void Reset()
         {
-            List<Commande> commandes = _commandeservice.ListAll();
-            dataGridView1.DataSource = commandes;
+            SelectedCommande = null;
+            dateTimePicker.Value = DateTime.MinValue;
+            txtClient.Text = string.Empty;
+            numericUpDown1.Text = string.Empty;
+            numericUpDown1.Value = 0;
+            dgvCommandes.DataSource = new List<Commande>();
+            OnChangeSelectedCommande();
         }
 
         private void btnRecherche_Click(object sender, EventArgs e)
         {
-            Recherche(false);
+            _toInclue = false;
+            Recherche();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -62,12 +80,30 @@ namespace Com.GlagSoft.GsCommande.uc
 
         private void btnAll_Click(object sender, EventArgs e)
         {
-            FindAll();
+            _toInclue = false;
+            Recherche();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Recherche(false);
+            _toInclue = true;
+            Recherche();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            _toInclue = true;
+            Reset();
+            Recherche();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvCommandes.SelectedRows.Count > 0)
+            {
+                SelectedCommande = dgvCommandes.SelectedRows[0].DataBoundItem as Commande;
+                OnChangeSelectedCommande();
+            }
         }
     }
 }

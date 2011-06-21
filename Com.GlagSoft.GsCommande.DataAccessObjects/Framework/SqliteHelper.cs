@@ -6,11 +6,28 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
 {
     public class SqliteHelper : IDisposable
     {
+        private static SqliteHelper _helper = new SqliteHelper();
+
+        public static SqliteHelper Helper
+        {
+            get
+            {
+                if (_helper == null)
+                    _helper = new SqliteHelper();
+
+                return _helper;
+            }
+        }
+
         private const string ConnString = "Data Source=gscommande.db";
 
         private IDbConnection _connection;
 
         private IDbCommand _command;
+
+        private IDbTransaction _transaction;
+
+        private bool _isTransactional;
 
         private IDbConnection Connection
         {
@@ -19,11 +36,43 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
 
         public SqliteHelper(string sqlText)
         {
-
             PrepareCommand(sqlText);
+            _isTransactional = false;
+
+            if (_transaction != null)
+                throw new Exception("Transaction est encours !! en mode non transaction");
         }
 
-        public SqliteHelper(){}
+        public SqliteHelper()
+        {
+        }
+
+        public void BeginTransaction()
+        {
+            if (_transaction != null)
+                throw new Exception("Transaction est déjà encours !!");
+
+            Connection.Open();
+            _transaction = Connection.BeginTransaction(IsolationLevel.ReadCommitted);
+            _isTransactional = true;
+        }
+
+        public void Commit()
+        {
+            _transaction.Commit();
+            _isTransactional = false;
+            Dispose();
+        }
+
+        public void RollBack()
+        {
+            _transaction.Rollback();
+            if (_connection.State != ConnectionState.Closed)
+                _connection.Close();
+
+            _isTransactional = false;
+            Dispose();
+        }
 
         public void PrepareCommand(string sqlText)
         {
@@ -70,10 +119,19 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
 
         public void Dispose()
         {
+            if (_isTransactional) // return if is in transaction.
+                return;
+
             if (_connection != null)
             {
                 _connection.Dispose();
                 _connection = null;
+            }
+
+            if (_transaction != null)
+            {
+                _transaction.Dispose();
+                _transaction = null;
             }
 
             if (_command != null)
@@ -81,7 +139,6 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
                 _command.Dispose();
                 _command = null;
             }
-
             GC.SuppressFinalize(this);
         }
     }

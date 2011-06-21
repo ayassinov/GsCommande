@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.txtClient = new System.Windows.Forms.TextBox();
@@ -50,11 +51,13 @@
             this.btnAjouter = new System.Windows.Forms.ToolStripButton();
             this.btnModifier = new System.Windows.Forms.ToolStripButton();
             this.btnSupprimer = new System.Windows.Forms.ToolStripButton();
+            this.pnlModifier = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLigneCommande)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ligneCommandeBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.pnlModifier.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -66,7 +69,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(646, 81);
+            this.groupBox1.Size = new System.Drawing.Size(620, 94);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Commande";
@@ -74,14 +77,14 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker.Location = new System.Drawing.Point(431, 33);
+            this.dateTimePicker.Location = new System.Drawing.Point(435, 50);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(127, 20);
             this.dateTimePicker.TabIndex = 1;
             // 
             // txtClient
             // 
-            this.txtClient.Location = new System.Drawing.Point(51, 33);
+            this.txtClient.Location = new System.Drawing.Point(55, 50);
             this.txtClient.Name = "txtClient";
             this.txtClient.Size = new System.Drawing.Size(332, 20);
             this.txtClient.TabIndex = 0;
@@ -89,7 +92,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(389, 36);
+            this.label4.Location = new System.Drawing.Point(393, 53);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 1;
@@ -98,7 +101,7 @@
             // lblNomClient
             // 
             this.lblNomClient.AutoSize = true;
-            this.lblNomClient.Location = new System.Drawing.Point(6, 36);
+            this.lblNomClient.Location = new System.Drawing.Point(10, 53);
             this.lblNomClient.Name = "lblNomClient";
             this.lblNomClient.Size = new System.Drawing.Size(39, 13);
             this.lblNomClient.TabIndex = 1;
@@ -124,6 +127,14 @@
             this.dgvLigneCommande.AutoGenerateColumns = false;
             this.dgvLigneCommande.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLigneCommande.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLigneCommande.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLigneCommande.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLigneCommande.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.LibelleFamille,
@@ -133,14 +144,14 @@
             this.commandeDataGridViewTextBoxColumn,
             this.produitDataGridViewTextBoxColumn});
             this.dgvLigneCommande.DataSource = this.ligneCommandeBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLigneCommande.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLigneCommande.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLigneCommande.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLigneCommande.GridColor = System.Drawing.Color.White;
             this.dgvLigneCommande.Location = new System.Drawing.Point(3, 51);
@@ -149,7 +160,7 @@
             this.dgvLigneCommande.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
             this.dgvLigneCommande.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvLigneCommande.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLigneCommande.Size = new System.Drawing.Size(640, 239);
+            this.dgvLigneCommande.Size = new System.Drawing.Size(614, 300);
             this.dgvLigneCommande.TabIndex = 1;
             // 
             // LibelleFamille
@@ -203,9 +214,9 @@
             this.groupBox2.Controls.Add(this.dgvLigneCommande);
             this.groupBox2.Controls.Add(this.toolStrip1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 81);
+            this.groupBox2.Location = new System.Drawing.Point(0, 94);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(646, 293);
+            this.groupBox2.Size = new System.Drawing.Size(620, 354);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Produits";
@@ -221,7 +232,7 @@
             this.toolStrip1.MinimumSize = new System.Drawing.Size(0, 35);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(640, 35);
+            this.toolStrip1.Size = new System.Drawing.Size(614, 35);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -258,14 +269,24 @@
             this.btnSupprimer.ToolTipText = "Supprimer le produit de la commande (F7)";
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
+            // pnlModifier
+            // 
+            this.pnlModifier.Controls.Add(this.groupBox2);
+            this.pnlModifier.Controls.Add(this.groupBox1);
+            this.pnlModifier.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlModifier.Location = new System.Drawing.Point(0, 0);
+            this.pnlModifier.Name = "pnlModifier";
+            this.pnlModifier.Size = new System.Drawing.Size(620, 448);
+            this.pnlModifier.TabIndex = 2;
+            // 
             // UcCommandeAjouter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pnlModifier);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcCommandeAjouter";
-            this.Size = new System.Drawing.Size(646, 374);
+            this.Size = new System.Drawing.Size(620, 448);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLigneCommande)).EndInit();
@@ -274,6 +295,7 @@
             this.groupBox2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.pnlModifier.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -299,5 +321,6 @@
         private System.Windows.Forms.ToolStripButton btnAjouter;
         private System.Windows.Forms.ToolStripButton btnModifier;
         private System.Windows.Forms.ToolStripButton btnSupprimer;
+        private System.Windows.Forms.Panel pnlModifier;
     }
 }

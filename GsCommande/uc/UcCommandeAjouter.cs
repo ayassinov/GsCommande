@@ -15,7 +15,9 @@ namespace Com.GlagSoft.GsCommande.uc
 
         FormProduitSelect _form = new FormProduitSelect();
 
-        List<LigneCommande> _ligneCommandes = new List<LigneCommande>();
+        public List<LigneCommande> LigneCommandes = new List<LigneCommande>();
+
+        public Commande CommandeForUpdate { get; set; }
 
         public UcCommandeAjouter()
         {
@@ -27,8 +29,14 @@ namespace Com.GlagSoft.GsCommande.uc
             dgvLigneCommande.DataSource = new List<Commande>();
             txtClient.Text = string.Empty;
             dateTimePicker.Value = DateTime.Now.Date;
-            LoadAll();
+        }
 
+        public void LoadForUpdate()
+        {
+            dgvLigneCommande.DataSource = LigneCommandes;
+            txtClient.Text = CommandeForUpdate.NomPrenomClient;
+            dateTimePicker.Value = CommandeForUpdate.DateCommande.Value.Date;
+            LoadAll();
         }
 
         public void LoadAll()
@@ -39,10 +47,9 @@ namespace Com.GlagSoft.GsCommande.uc
 
         public void SaveCommande()
         {
-
             try
             {
-                if (_ligneCommandes.Count == 0)
+                if (LigneCommandes.Count == 0)
                 {
                     MessageBox.Show(@"Vous devez ajouter des produits à la commande pour continuer",
                         @"Ajout commande", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -54,7 +61,7 @@ namespace Com.GlagSoft.GsCommande.uc
                                        DateCommande = dateTimePicker.Value,
                                        NomPrenomClient = txtClient.Text,
                                        IsLivree = false,
-                                       LigneCommande = _ligneCommandes
+                                       LigneCommande = LigneCommandes
                                    };
 
                 commande = _commandeService.Create(commande);
@@ -85,7 +92,7 @@ namespace Com.GlagSoft.GsCommande.uc
                         {
                             LigneCommande = dgvLigneCommande.SelectedRows[0].DataBoundItem as LigneCommande,
                             IsUpdate = true,
-                            LigneCommandes = _ligneCommandes
+                            LigneCommandes = LigneCommandes
                         };
 
             OpenSelectionForm();
@@ -96,7 +103,7 @@ namespace Com.GlagSoft.GsCommande.uc
             if (!btnAjouter.Enabled)
                 return;
 
-            _form = new FormProduitSelect { IsUpdate = false, LigneCommande = null, LigneCommandes = _ligneCommandes };
+            _form = new FormProduitSelect { IsUpdate = false, LigneCommande = null, LigneCommandes = LigneCommandes };
             OpenSelectionForm();
         }
 
@@ -121,9 +128,9 @@ namespace Com.GlagSoft.GsCommande.uc
             _form.LigneCommande = null;
 
             var i = dgvLigneCommande.SelectedRows[0].Index;
-            _ligneCommandes.Remove(_ligneCommandes[i]);
+            LigneCommandes.Remove(LigneCommandes[i]);
             dgvLigneCommande.DataSource = new List<LigneCommande>();
-            dgvLigneCommande.DataSource = _ligneCommandes;
+            dgvLigneCommande.DataSource = LigneCommandes;
             LoadAll();
         }
 
@@ -141,15 +148,15 @@ namespace Com.GlagSoft.GsCommande.uc
                 if (_form.IsUpdate)
                 {
                     var i = dgvLigneCommande.SelectedRows[0].Index;
-                    _ligneCommandes[i] = _form.LigneCommande;
+                    LigneCommandes[i] = _form.LigneCommande;
                     dgvLigneCommande.DataSource = new List<LigneCommande>();
-                    dgvLigneCommande.DataSource = _ligneCommandes;
+                    dgvLigneCommande.DataSource = LigneCommandes;
                 }
                 else
                 {
-                    _ligneCommandes.Add(_form.LigneCommande);
+                    LigneCommandes.Add(_form.LigneCommande);
                     dgvLigneCommande.DataSource = new List<LigneCommande>();
-                    dgvLigneCommande.DataSource = _ligneCommandes;
+                    dgvLigneCommande.DataSource = LigneCommandes;
                 }
             }
         }
@@ -160,7 +167,7 @@ namespace Com.GlagSoft.GsCommande.uc
             LoadAll();
 
             _form.LigneCommande = null;
-          //  _form.Close();
+            //  _form.Close();
             _form.Dispose();
         }
 

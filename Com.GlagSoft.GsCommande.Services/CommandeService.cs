@@ -7,35 +7,44 @@ namespace Com.GlagSoft.GsCommande.Services
 {
     public class CommandeService
     {
-        private readonly CommandeData _commandeData = new CommandeData();
+        private CommandeData _commandeData = new CommandeData();
         private LigneCommandeService _ligneCommandeService = new LigneCommandeService();
-        //todo transaction
+
+
         public Commande Create(Commande commande)
         {
-            commande = _commandeData.Create(commande);
-            if (commande.Id > 0)
+            _commandeData.BeginTransaction();
+
+            try
             {
-                foreach (var ligneCommande in commande.LigneCommande)
+                commande = _commandeData.Create(commande);
+                if (commande.Id > 0)
                 {
-                    ligneCommande.Commande = commande;
-                    bool isCreated = _ligneCommandeService.Create(ligneCommande);
-                    //if (!isCreated)
-                    //{
-                    //    //delete commande et sortir de la boucle.
-                    //    this.Delete(commande);
-                    //    break;
-                    //}
+                    foreach (var ligneCommande in commande.LigneCommande)
+                    {
+                        ligneCommande.Commande = commande;
+                        bool isCreated = _ligneCommandeService.Create(ligneCommande);
+                        if (!isCreated)
+                            throw new Exception("Ligne Commande non creer");
+                    }
                 }
+                else
+                {
+
+                    throw new Exception("Commande non créer");
+                }
+
+                _commandeData.Commit();
             }
-            else
+            catch (Exception)
             {
-                throw new Exception("Commande non créer");
+                _commandeData.RollBack();
+                throw;
             }
 
             return commande;
         }
 
-        //todo transaction
         public bool Delete(Commande commande)
         {
             bool isDeleted = _commandeData.Delete(commande);
@@ -67,12 +76,16 @@ namespace Com.GlagSoft.GsCommande.Services
 
         public void Deliver(Commande commande)
         {
-            //todo implement
+            bool isDelivred = _commandeData.Deliver(commande);
+            if (!isDelivred)
+                throw new Exception("Une erreur s'est produite lors de la livraison de la commande");
         }
 
-        public void CancelDelivration(Commande commande)
+        public void CancelDelivery(Commande commande)
         {
-            //todo implement
+            bool isCanceled = _commandeData.CancelDelivery(commande);
+            if (!isCanceled)
+                throw new Exception("Une erreur s'est produite lors de la livraison de la commande");
         }
 
         public Commande Get(int id)
@@ -84,11 +97,6 @@ namespace Com.GlagSoft.GsCommande.Services
         public List<Commande> Recherche(Commande commande)
         {
             return _commandeData.Recherche(commande);
-        }
-
-        public List<Commande> ListAll()
-        {
-            return _commandeData.ListAll();
         }
     }
 }

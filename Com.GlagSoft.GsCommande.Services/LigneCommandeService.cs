@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Com.GlagSoft.GsCommande.DataAccessObjects;
 using Com.GlagSoft.GsCommande.Objects;
@@ -26,6 +27,11 @@ namespace Com.GlagSoft.GsCommande.Services
         public bool Update(LigneCommande ligneCommande)
         {
             return _ligneCommandeData.Update(ligneCommande);
+        }
+
+        public List<LigneCommande> ListByCommande(Commande selectedCommande)
+        {
+            return _ligneCommandeData.ListByCommande(selectedCommande);
         }
     }
 }

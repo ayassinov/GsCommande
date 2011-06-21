@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{00B9F255-1E4C-426A-A7CD-59E3978D8C05}</ProjectGuid>
+    <ProjectGuid>{EF905D04-60DC-41A7-A719-57269AC00571}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Com.GlagSoft.GsCommande.Services</RootNamespace>
-    <AssemblyName>Com.GlagSoft.GsCommande.Services</AssemblyName>
+    <RootNamespace>Com.GlagSoft.GsCommande.DataAccessObjects</RootNamespace>
+    <AssemblyName>Com.GlagSoft.GsCommande.DataAccessObjects</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,28 +31,31 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\Ressources\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="CommandeService.cs" />
-    <Compile Include="FamilleService.cs" />
-    <Compile Include="LigneCommandeService.cs" />
-    <Compile Include="MaintenanceService.cs" />
-    <Compile Include="ProduitService.cs" />
+    <Compile Include="CommandeData.cs" />
+    <Compile Include="FamilleData.cs" />
+    <Compile Include="Framework\BaseData.cs" />
+    <Compile Include="Framework\CustomDataReader.cs" />
+    <Compile Include="Framework\SqliteHelper.cs" />
+    <Compile Include="LigneCommandeData.cs" />
+    <Compile Include="MaintenanceData.cs" />
+    <Compile Include="ProduitData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessObjects\Com.GlagSoft.GsCommande.DataAccessObjects.csproj">
-      <Project>{EF905D04-60DC-41A7-A719-57269AC00571}</Project>
-      <Name>Com.GlagSoft.GsCommande.DataAccessObjects</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Objects\Com.GlagSoft.GsCommande.Objects.csproj">
+    <ProjectReference Include="..\Com.GlagSoft.GsCommande.Objects\Com.GlagSoft.GsCommande.Objects.csproj">
       <Project>{A50D6DC6-09BB-40C0-A944-0CFCB7136F29}</Project>
       <Name>Com.GlagSoft.GsCommande.Objects</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

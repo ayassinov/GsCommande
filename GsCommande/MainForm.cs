@@ -8,6 +8,7 @@ namespace Com.GlagSoft.GsCommande
     {
         FormProduitGestion _formProduitGestion = new FormProduitGestion();
         FormFamilleGestion _formFamilleGestion = new FormFamilleGestion();
+        FormCommandeDetail _fomCommandeDetail = new FormCommandeDetail();
 
         public MainForm()
         {
@@ -29,6 +30,15 @@ namespace Com.GlagSoft.GsCommande
             _formFamilleGestion.CloseGestionFamilleForm += CloseGestionFamilleForm;
             _formFamilleGestion.LoadAll();
             _formFamilleGestion.ShowDialog();
+        }
+
+        private void OpenCommandeDetail()
+        {
+            _fomCommandeDetail = new FormCommandeDetail();
+            _fomCommandeDetail.CloseCommandeDetailForm += CloseCommandeDetailForm;
+            _fomCommandeDetail.SelectedCommande = ucCommandeRecherche1.SelectedCommande;
+            _fomCommandeDetail.LoadAll();
+            _fomCommandeDetail.ShowDialog();
         }
 
         private void btnGestionProduit_Click(object sender, EventArgs e)
@@ -53,6 +63,13 @@ namespace Com.GlagSoft.GsCommande
             _formFamilleGestion.Dispose();
         }
 
+        private void CloseCommandeDetailForm()
+        {
+            _fomCommandeDetail.Close();
+            _fomCommandeDetail.Dispose();
+            ucCommandeRecherche1.Recherche(); // reload the last search result.
+        }
+
         private void AfficherAjoutCommande()
         {
             ucCommandeAjouter1.Reset();
@@ -62,7 +79,7 @@ namespace Com.GlagSoft.GsCommande
             ucListeProduit1.Visible = false;
 
             btnSauvegarder.Visible = true;
-            btnModifier.Visible = false;
+            btnDetail.Visible = false;
             btnImprimer.Visible = false;
 
             btnChercherCommande.Enabled = true;
@@ -72,6 +89,7 @@ namespace Com.GlagSoft.GsCommande
 
         private void AfficherRechercheCommmande()
         {
+            ucCommandeRecherche1.ChangeSelectedCommande += ucCommandeRecherche1_ChangeSelectedCommande;
             ucCommandeRecherche1.Reset();
 
             ucCommandeRecherche1.Visible = true;
@@ -79,7 +97,7 @@ namespace Com.GlagSoft.GsCommande
             ucListeProduit1.Visible = false;
 
             btnSauvegarder.Visible = false;
-            btnModifier.Visible = true;
+            btnDetail.Visible = true;
             btnImprimer.Visible = false;
 
             btnChercherCommande.Enabled = false;
@@ -94,12 +112,17 @@ namespace Com.GlagSoft.GsCommande
             ucCommandeRecherche1.Visible = false;
 
             btnSauvegarder.Visible = false;
-            btnModifier.Visible = false;
+            btnDetail.Visible = false;
             btnImprimer.Visible = true;
 
             btnChercherCommande.Enabled = true;
             btnAjouterCommande.Enabled = true;
             btnListeProduits.Enabled = false;
+        }
+
+        private void ucCommandeRecherche1_ChangeSelectedCommande()
+        {
+            btnDetail.Enabled = ucCommandeRecherche1.SelectedCommande != null;
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -179,6 +202,11 @@ namespace Com.GlagSoft.GsCommande
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
             ucCommandeAjouter1.SaveCommande();
+        }
+
+        private void btnDetail_Click(object sender, EventArgs e)
+        {
+            OpenCommandeDetail();
         }
     }
 }

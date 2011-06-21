@@ -7,6 +7,7 @@ namespace Com.GlagSoft.GsCommande.Objects
     {
         public int Id { get; set; }
         public DateTime? DateCommande { get; set; }
+        public DateTime? DateLivraison { get; set; }
         public string NomPrenomClient { get; set; }
         public bool IsLivree { get; set; }
         public List<LigneCommande> LigneCommande { get; set; }

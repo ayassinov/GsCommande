@@ -102,6 +102,13 @@ namespace Com.GlagSoft.GsCommande.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap finished_work {
+            get {
+                object obj = ResourceManager.GetObject("finished_work", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap List {
             get {
                 object obj = ResourceManager.GetObject("List", resourceCulture);
@@ -186,9 +193,23 @@ namespace Com.GlagSoft.GsCommande.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap shipping {
+            get {
+                object obj = ResourceManager.GetObject("shipping", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Text_preview {
             get {
                 object obj = ResourceManager.GetObject("Text_preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap view_detail {
+            get {
+                object obj = ResourceManager.GetObject("view_detail", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
