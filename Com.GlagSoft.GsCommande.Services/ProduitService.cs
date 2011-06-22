@@ -14,6 +14,11 @@ namespace Com.GlagSoft.GsCommande.Services
             return _produitData.GetByFamille(famille);
         }
 
+        public List<Produit> ListProduitStock()
+        {
+            return _produitData.ListProduitStock();
+        }
+
         public Produit Create(Produit produit)
         {
             return _produitData.Create(produit);
@@ -37,7 +42,7 @@ namespace Com.GlagSoft.GsCommande.Services
         public int GetNextCodeValue(Famille famille)
         {
             var result = _produitData.GetMaxCodeByFamille(famille);
-            
+
             if (result == -1)
                 result = 0;
 

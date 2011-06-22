@@ -33,6 +33,45 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             return produits;
         }
 
+        public List<Produit> ListProduitStock()
+        {
+            var sb = new StringBuilder();
+            sb.Append("SELECT p.Id as IdProduit, p.code, p.Libelle as LibelleProduit,");
+            sb.Append(" f.Id as IdFamille, f.Libelle as LibelleFamille ,");
+            sb.Append(" sum(l.QteKilo) as TotalKilo , sum(l.QteDemiKilo) as TotalDemiKilo");
+            sb.Append(" FROM LigneCommande l, Produit p , Famille f, Commande c");
+            sb.Append("  WHERE  l.CommandeId = c.Id AND l.ProduitId = p.Id AND p.FamilleId = f.id AND c.IsLivree = 0");
+            sb.Append(" group by p.id order by f.id, p.code ");
+
+            var produits = new List<Produit>();
+            using (var helper = new SqliteHelper(sb.ToString()))
+            {
+                using (var reader = helper.ExecuteQuery())
+                {
+                    while (reader.Read())
+                    {
+                        produits.Add(
+                            new Produit
+                            {
+                                Id = reader.GetIntFromReader("IdProduit"),
+                                Code = reader.GetIntFromReader("Code"),
+                                Libelle = reader.GetStringFromReader("LibelleProduit"),
+                                TotalQteKilo = reader.GetIntFromReader("TotalKilo"),
+                                TotalQteDemiKilo = reader.GetIntFromReader("TotalDemiKilo"),
+                                Famille = new Famille
+                                {
+                                    Id = reader.GetIntFromReader("IdFamille"),
+                                    Libelle = reader.GetStringFromReader("LibelleFamille")
+                                }
+                            }
+                            );
+                    }
+                }
+            }
+
+            return produits;
+        }
+
         public Produit Create(Produit produit)
         {
             using (var helper = new SqliteHelper("INSERT INTO produit (Code, Libelle, familleId) VALUES(@code, @libelle, @familleId); Select last_insert_rowid(); "))

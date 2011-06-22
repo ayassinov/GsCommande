@@ -29,17 +29,20 @@ namespace Com.GlagSoft.GsCommande.uc
             dgvLigneCommande.DataSource = new List<Commande>();
             txtClient.Text = string.Empty;
             dateTimePicker.Value = DateTime.Now.Date;
+            LoadAll();
         }
 
         public void LoadForUpdate()
         {
             dgvLigneCommande.DataSource = LigneCommandes;
+            if (dgvLigneCommande.RowCount > 0)
+                dgvLigneCommande.Rows[0].Selected = true;
             txtClient.Text = CommandeForUpdate.NomPrenomClient;
             dateTimePicker.Value = CommandeForUpdate.DateCommande.Value.Date;
             LoadAll();
         }
 
-        public void LoadAll()
+        private void LoadAll()
         {
             btnModifier.Enabled = dgvLigneCommande.SelectedRows.Count > 0;
             btnSupprimer.Enabled = dgvLigneCommande.SelectedRows.Count > 0;
@@ -137,7 +140,7 @@ namespace Com.GlagSoft.GsCommande.uc
         private void OpenSelectionForm()
         {
             _form.LoadAll();
-            _form.CloseFormProduitSelect += new FormProduitSelect.CloseFormHandler(form_CloseFormProduitSelect);
+            _form.CloseFormProduitSelect += form_CloseFormProduitSelect;
             _form.ShowDialog();
         }
 
@@ -167,7 +170,7 @@ namespace Com.GlagSoft.GsCommande.uc
             LoadAll();
 
             _form.LigneCommande = null;
-            //  _form.Close();
+            //   _form.Close();
             _form.Dispose();
         }
 

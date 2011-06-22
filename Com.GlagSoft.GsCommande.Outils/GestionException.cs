@@ -7,7 +7,7 @@ namespace Com.GlagSoft.GsCommande.Outils
     {
         public static void TraiterException(Exception exception, string title)
         {
-            MessageBox.Show("Une inattendu s'est produite", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Une erreur inattendu s'est produite pendant l'exécution du programme", title, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public static void TraiterException(Exception exception, string  msg, string title)

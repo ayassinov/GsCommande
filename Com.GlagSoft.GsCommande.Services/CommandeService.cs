@@ -17,20 +17,19 @@ namespace Com.GlagSoft.GsCommande.Services
 
             try
             {
-                commande = _commandeData.Create(commande);
+                commande = _commandeData.CreateTransaction(commande);
                 if (commande.Id > 0)
                 {
                     foreach (var ligneCommande in commande.LigneCommande)
                     {
                         ligneCommande.Commande = commande;
-                        bool isCreated = _ligneCommandeService.Create(ligneCommande);
+                        bool isCreated = _ligneCommandeService.CreateTransaction(ligneCommande);
                         if (!isCreated)
                             throw new Exception("Ligne Commande non creer");
                     }
                 }
                 else
                 {
-
                     throw new Exception("Commande non créer");
                 }
 
@@ -45,33 +44,63 @@ namespace Com.GlagSoft.GsCommande.Services
             return commande;
         }
 
-        public bool Delete(Commande commande)
+        public void Delete(Commande commande)
         {
-            bool isDeleted = _commandeData.Delete(commande);
-
-            if (isDeleted)
+            _commandeData.BeginTransaction();
+            try
             {
-                var ligneCommandeService = new LigneCommandeService();
-                ligneCommandeService.Delete(commande);
-            }
+                bool isDeleted = _commandeData.DeleteTransaction(commande);
 
-            return isDeleted;
+                if (isDeleted)
+                {
+                    bool isligneDeleted = _ligneCommandeService.DeleteTransaction(commande);
+                    if (!isligneDeleted)
+                        throw new Exception("Une erreur s'est produite lors de la suppression de la ligne commande");
+                }
+                else
+                {
+                    throw new Exception("Une erreur s'est produite lors de la suppression de la commande");
+                }
+
+                _commandeData.Commit();
+            }
+            catch (Exception)
+            {
+                _commandeData.RollBack();
+                throw;
+            }
         }
 
-        //todo transaction
-        //todo no need to update all list of ligne commande
-        public bool Update(Commande commande)
+        public void UpdateTransaction(Commande commande)
         {
-            bool isUpdated = _commandeData.Update(commande);
-            if (isUpdated)
+
+            _commandeData.BeginTransaction();
+            try
             {
-                var ligneCommandeService = new LigneCommandeService();
-                foreach (var ligneCommande in commande.LigneCommande)
+                var isUpdated = _commandeData.UpdateTransaction(commande);
+
+                if (isUpdated)
                 {
-                    ligneCommandeService.Update(ligneCommande);
+                    foreach (var ligneCommande in commande.LigneCommande)
+                    {
+                        ligneCommande.Commande = commande;
+                        var isexecuted = _ligneCommandeService.UpdateTransactionByState(ligneCommande);
+                        if (!isexecuted)
+                            throw new Exception("Une erreur s'est produite lors du traitement sur de la ligne commande");
+                    }
                 }
+                else
+                {
+                    throw new Exception("Une erreur s'est produite lors de la mise à jour de la commande");
+                }
+
+                _commandeData.Commit();
             }
-            return isUpdated;
+            catch (Exception exception)
+            {
+                _commandeData.RollBack();
+                throw;
+            }
         }
 
         public void Deliver(Commande commande)
@@ -90,13 +119,14 @@ namespace Com.GlagSoft.GsCommande.Services
 
         public Commande Get(int id)
         {
-            //todo implement
-            return null;
+            return _commandeData.Get(id);
         }
 
         public List<Commande> Recherche(Commande commande)
         {
             return _commandeData.Recherche(commande);
         }
+
+
     }
 }

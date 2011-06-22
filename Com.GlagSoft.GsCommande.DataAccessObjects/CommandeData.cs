@@ -10,23 +10,26 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
 {
     public class CommandeData : BaseData
     {
-        public Commande Create(Commande commande)
+        public Commande CreateTransaction(Commande commande)
         {
-            Helper.PrepareCommand("INSERT INTO Commande (DateCommande,NomPrenomClient,IsLivree,DateLivraison) "
-                + " VALUES(@DateCommande, @NomPrenomClient, @IsLivree, @DateLivraison); Select last_insert_rowid();");
+            using (Helper)
+            {
 
-            Helper.AddInParameter("DateCommande", DbType.Date, commande.DateCommande.Value.Date);
-            Helper.AddInParameter("NomPrenomClient", DbType.String, commande.NomPrenomClient);
-            Helper.AddInParameter("IsLivree", DbType.Boolean, false);
-            Helper.AddInParameter("DateLivraison", DbType.Date, DBNull.Value);
+                Helper.PrepareCommand("INSERT INTO Commande (DateCommande,NomPrenomClient,IsLivree,DateLivraison) "
+                    + " VALUES(@DateCommande, @NomPrenomClient, @IsLivree, @DateLivraison); Select last_insert_rowid();");
 
-            commande.Id = Helper.ExecuteCreateQuery();
+                Helper.AddInParameter("DateCommande", DbType.Date, commande.DateCommande.Value.Date);
+                Helper.AddInParameter("NomPrenomClient", DbType.String, commande.NomPrenomClient);
+                Helper.AddInParameter("IsLivree", DbType.Boolean, false);
+                Helper.AddInParameter("DateLivraison", DbType.Date, DBNull.Value);
 
-            Helper.Dispose();
+                commande.Id = Helper.ExecuteCreateQuery();
+
+            }
             return commande;
         }
 
-        public bool Delete(Commande commande)
+        public bool DeleteTransaction(Commande commande)
         {
             bool isDeleted;
 
@@ -41,7 +44,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             return isDeleted;
         }
 
-        public bool Update(Commande commande)
+        public bool UpdateTransaction(Commande commande)
         {
             bool isUpdated;
 
@@ -127,7 +130,6 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             return isUpdated;
         }
 
-
         public bool CancelDelivery(Commande commande)
         {
             bool isUpdated;
@@ -142,6 +144,29 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             }
 
             return isUpdated;
+        }
+
+        public Commande Get(int id)
+        {
+            var commande = new Commande() { Id = id };
+
+            using (var helper = new SqliteHelper("SELECT Id, DateCommande, NomPrenomClient, IsLivree, DateLivraison FROM Commande WHERE Id = @Id"))
+            {
+                helper.AddInParameter("Id", DbType.Int32, id);
+
+                using (var reader = helper.ExecuteQuery())
+                {
+                    if (reader.Read())
+                    {
+                        commande.NomPrenomClient = reader.GetStringFromReader("NomPrenomClient");
+                        commande.DateCommande = reader.GetDateTimeFromReader("DateCommande");
+                        commande.IsLivree = reader.GetBoolFromReader("IsLivree");
+                        commande.DateLivraison = reader.GetDateTimeNullableFromReader("DateLivraison");
+                    }
+                }
+            }
+
+            return commande;
         }
     }
 }

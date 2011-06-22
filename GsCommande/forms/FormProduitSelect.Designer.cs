@@ -141,7 +141,7 @@
             this.btnProduitAjouter.Size = new System.Drawing.Size(95, 34);
             this.btnProduitAjouter.TabIndex = 13;
             this.btnProduitAjouter.TabStop = false;
-            this.btnProduitAjouter.Text = "      &Ajouter";
+            this.btnProduitAjouter.Text = "      &Confirmer";
             this.btnProduitAjouter.UseVisualStyleBackColor = true;
             this.btnProduitAjouter.Click += new System.EventHandler(this.btnProduitAjouter_Click);
             // 

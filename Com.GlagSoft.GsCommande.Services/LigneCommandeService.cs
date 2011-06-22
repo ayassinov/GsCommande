@@ -9,29 +9,48 @@ namespace Com.GlagSoft.GsCommande.Services
     {
         private readonly LigneCommandeData _ligneCommandeData = new LigneCommandeData();
 
-        public bool Create(LigneCommande ligneCommande)
+        public bool DeleteTransaction(Commande commande)
         {
-            return _ligneCommandeData.Create(ligneCommande);
+            return _ligneCommandeData.DeleteTransaction(commande);
         }
 
-        public bool Delete(LigneCommande ligneCommande)
+        public bool DeleteTransaction(LigneCommande ligneCommande)
         {
-            return _ligneCommandeData.Delete(ligneCommande);
+            return _ligneCommandeData.DeleteTransaction(ligneCommande);
         }
 
-        public bool Delete(Commande commande)
+        private bool UpdateTransaction(LigneCommande ligneCommande)
         {
-            return _ligneCommandeData.Delete(commande);
+            return _ligneCommandeData.UpdateTransaction(ligneCommande);
         }
 
-        public bool Update(LigneCommande ligneCommande)
+        public bool CreateTransaction(LigneCommande ligneCommande)
         {
-            return _ligneCommandeData.Update(ligneCommande);
+            return _ligneCommandeData.CreateTransaction(ligneCommande);
         }
 
         public List<LigneCommande> ListByCommande(Commande selectedCommande)
         {
             return _ligneCommandeData.ListByCommande(selectedCommande);
         }
+
+        public bool UpdateTransactionByState(LigneCommande ligneCommande)
+        {
+            var res = false;
+            switch (ligneCommande.StateEnum)
+            {
+                case State.New:
+                    res = CreateTransaction(ligneCommande); break;
+                case State.Deleted:
+                    res = DeleteTransaction(ligneCommande); break;
+                case State.Updated:
+                    res = UpdateTransaction(ligneCommande); break;
+                case State.Unchanged:
+                    res = true; break;
+            }
+            return res;
+        }
+
+
     }
 }

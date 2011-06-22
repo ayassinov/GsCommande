@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
@@ -9,7 +8,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
 {
     public class LigneCommandeData : BaseData
     {
-        public bool Create(LigneCommande ligneCommande)
+        public bool CreateTransaction(LigneCommande ligneCommande)
         {
             var isCreated = false;
 
@@ -28,14 +27,13 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             return isCreated;
         }
 
-        public bool Delete(LigneCommande ligneCommande)
+        public bool DeleteTransaction(LigneCommande ligneCommande)
         {
-            bool isDeleted;
+            bool isDeleted = false;
 
             using (Helper)
             {
-                Helper.PrepareCommand(
-                    "DELETE FROM LigneCommande WHERE CommandeId = @CommandeId AND ProduitId = @ProduitId");
+                Helper.PrepareCommand("DELETE FROM LigneCommande WHERE CommandeId = @CommandeId AND ProduitId = @ProduitId");
                 Helper.AddInParameter("CommandeId", DbType.Int32, ligneCommande.Commande.Id);
                 Helper.AddInParameter("ProduitId", DbType.Int32, ligneCommande.Produit.Id);
 
@@ -45,32 +43,36 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             return isDeleted;
         }
 
-        public bool Delete(Commande commande)
+        public bool DeleteTransaction(Commande commande)
         {
-            bool isDeleted;
-            using (var helper = new SqliteHelper("DELETE FROM LigneCommande WHERE CommandeId = @CommandeId "))
-            {
-                helper.AddInParameter("CommandeId", DbType.Int32, commande.Id);
+            bool isDeleted = false;
 
-                isDeleted = helper.ExecuteNonQuery();
+            using (Helper)
+            {
+                Helper.PrepareCommand("DELETE FROM LigneCommande WHERE CommandeId = @CommandeId ");
+                Helper.AddInParameter("CommandeId", DbType.Int32, commande.Id);
+
+                isDeleted = Helper.ExecuteNonQuery();
             }
 
             return isDeleted;
         }
 
-        public bool Update(LigneCommande ligneCommande)
+        public bool UpdateTransaction(LigneCommande ligneCommande)
         {
             bool isUpdated;
 
-            using (var helper = new SqliteHelper("UPDATE LigneCommande set QteKilo = @QteKilo, QteDemiKilo = @QteDemiKilo "
-                                                + " WHERE CommandeId = @CommandeId AND ProduitId = @ProduitId"))
+            using (Helper)
             {
-                helper.AddInParameter("QteKilo", DbType.Int32, ligneCommande.Qtekilo);
-                helper.AddInParameter("QteDemiKilo", DbType.Int32, ligneCommande.QteDemiKilo);
-                helper.AddInParameter("CommandeId", DbType.Int32, ligneCommande.Commande.Id);
-                helper.AddInParameter("ProduitId", DbType.Int32, ligneCommande.Produit.Id);
+                Helper.PrepareCommand("UPDATE LigneCommande set QteKilo = @QteKilo, QteDemiKilo = @QteDemiKilo "
+                                    + " WHERE CommandeId = @CommandeId AND ProduitId = @ProduitId");
 
-                isUpdated = helper.ExecuteNonQuery();
+                Helper.AddInParameter("QteKilo", DbType.Int32, ligneCommande.Qtekilo);
+                Helper.AddInParameter("QteDemiKilo", DbType.Int32, ligneCommande.QteDemiKilo);
+                Helper.AddInParameter("CommandeId", DbType.Int32, ligneCommande.Commande.Id);
+                Helper.AddInParameter("ProduitId", DbType.Int32, ligneCommande.Produit.Id);
+
+                isUpdated = Helper.ExecuteNonQuery();
             }
 
             return isUpdated;
@@ -91,7 +93,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
                 helper.AddInParameter("CommandeId", DbType.Int32, selectedCommande.Id);
                 using (var reader = helper.ExecuteQuery())
                 {
-                    
+
                     while (reader.Read())
                     {
                         ligneCommandes.Add(new LigneCommande

@@ -107,6 +107,9 @@ namespace Com.GlagSoft.GsCommande
 
         private void AfficherListeCommande()
         {
+            ucListeProduit1.LoadAll();
+            btnImprimer.Enabled = ucListeProduit1.IsShowPrintButton;
+
             ucListeProduit1.Visible = true;
             ucCommandeAjouter1.Visible = false;
             ucCommandeRecherche1.Visible = false;

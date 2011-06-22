@@ -303,8 +303,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
-        private System.Windows.Forms.TextBox txtClient;
+        public System.Windows.Forms.DateTimePicker dateTimePicker;
+        public System.Windows.Forms.TextBox txtClient;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblNomClient;
         private System.Windows.Forms.ImageList imageList1;

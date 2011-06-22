@@ -206,32 +206,35 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 66);
             this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.panel1.Size = new System.Drawing.Size(708, 346);
             this.panel1.TabIndex = 4;
             // 
             // ucListeProduit1
             // 
             this.ucListeProduit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucListeProduit1.Location = new System.Drawing.Point(0, 0);
+            this.ucListeProduit1.Location = new System.Drawing.Point(0, 20);
             this.ucListeProduit1.Name = "ucListeProduit1";
-            this.ucListeProduit1.Size = new System.Drawing.Size(708, 346);
+            this.ucListeProduit1.Size = new System.Drawing.Size(708, 326);
             this.ucListeProduit1.TabIndex = 5;
             // 
             // ucCommandeRecherche1
             // 
             this.ucCommandeRecherche1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucCommandeRecherche1.Location = new System.Drawing.Point(0, 0);
+            this.ucCommandeRecherche1.Location = new System.Drawing.Point(0, 20);
             this.ucCommandeRecherche1.Name = "ucCommandeRecherche1";
             this.ucCommandeRecherche1.SelectedCommande = null;
-            this.ucCommandeRecherche1.Size = new System.Drawing.Size(708, 346);
+            this.ucCommandeRecherche1.Size = new System.Drawing.Size(708, 326);
             this.ucCommandeRecherche1.TabIndex = 1;
             // 
             // ucCommandeAjouter1
             // 
+            this.ucCommandeAjouter1.CommandeForUpdate = null;
             this.ucCommandeAjouter1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucCommandeAjouter1.Location = new System.Drawing.Point(0, 0);
+            this.ucCommandeAjouter1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucCommandeAjouter1.Location = new System.Drawing.Point(0, 20);
             this.ucCommandeAjouter1.Name = "ucCommandeAjouter1";
-            this.ucCommandeAjouter1.Size = new System.Drawing.Size(708, 346);
+            this.ucCommandeAjouter1.Size = new System.Drawing.Size(708, 326);
             this.ucCommandeAjouter1.TabIndex = 0;
             // 
             // MainForm

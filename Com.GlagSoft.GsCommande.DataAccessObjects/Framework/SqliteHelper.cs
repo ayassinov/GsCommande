@@ -43,7 +43,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
                 throw new Exception("Transaction est encours !! en mode non transaction");
         }
 
-        public SqliteHelper()
+        private SqliteHelper()
         {
         }
 
