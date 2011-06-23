@@ -265,17 +265,34 @@ namespace Com.GlagSoft.GsCommande.forms
 
         private void Cancel()
         {
-            txtLibelle.Text = string.Empty;
-            btnAnnuler.Visible = false;
-            _modeAffichage = forms.ModeAffichage.Browse;
+            try
+            {
+                txtLibelle.Text = string.Empty;
+                btnAnnuler.Visible = false;
+                _modeAffichage = forms.ModeAffichage.Browse;
+
+            }
+            catch (Exception exception)
+            {
+                GestionException.TraiterException(exception, "Gestion des produits");
+            }
+
             ModeAffichage();
         }
 
         private void Modify()
         {
-            _modeAffichage = forms.ModeAffichage.Update;
-            _produit = dgvProduits.SelectedRows[0].DataBoundItem as Produit;
-            ModeAffichage();
+            try
+            {
+                _modeAffichage = forms.ModeAffichage.Update;
+                _produit = dgvProduits.SelectedRows[0].DataBoundItem as Produit;
+                ModeAffichage();
+            }
+            catch (Exception exception)
+            {
+                GestionException.TraiterException(exception, "Gestion des produits");
+            }
+
         }
 
         private void lstfamille_SelectedIndexChanged(object sender, EventArgs e)

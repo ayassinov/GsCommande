@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/23/2011 11:57:27" ReportInfo.Modified="06/23/2011 12:25:31" ReportInfo.CreatorVersion="1.6.19.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="produitBindingSource" ReferenceName="produitBindingSource" DataType="Com.GlagSoft.GsCommande.Objects.Produit, Com.GlagSoft.GsCommande.Objects, Version=0.9.4190.32062, Culture=neutral, PublicKeyToken=null" Enabled="true">
+      <Column Name="Id" DataType="System.Int32"/>
+      <Column Name="Code" DataType="System.Int32"/>
+      <Column Name="Libelle" DataType="System.String"/>
+      <Column Name="Famille" DataType="Com.GlagSoft.GsCommande.Objects.Famille, Com.GlagSoft.GsCommande.Objects, Version=0.9.4190.32062, Culture=neutral, PublicKeyToken=null">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Libelle" DataType="System.String"/>
+      </Column>
+      <Column Name="TotalQteKilo" DataType="System.Int32"/>
+      <Column Name="TotalQteDemiKilo" DataType="System.Int32"/>
+      <Column Name="FamilleString" DataType="System.String"/>
+    </BusinessObjectDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="56.7">
+      <TextObject Name="Text1" Left="264.6" Top="9.45" Width="160.65" Height="18.9" Text="Liste des produits" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text2" Left="567" Top="9.45" Width="170.1" Height="18.9" Text="[Date]"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="60.7" Width="718.2" Height="28.35"/>
+    <DataBand Name="Data1" Top="93.05" Width="718.2" Height="22.68" DataSource="produitBindingSource">
+      <TableObject Name="Table1" Left="9.45" Width="700.3" Height="22.68" Border.Lines="All">
+        <TableColumn Name="Column1" Width="102.06"/>
+        <TableColumn Name="Column2" Width="177.66"/>
+        <TableColumn Name="Column3" Width="215.46"/>
+        <TableColumn Name="Column4" Width="103.06"/>
+        <TableColumn Name="Column5" Width="102.06"/>
+        <TableRow Name="Row1" Height="22.68">
+          <TableCell Name="Cell1" Text="[produitBindingSource.Code]"/>
+          <TableCell Name="Cell2" Text="[produitBindingSource.FamilleString]"/>
+          <TableCell Name="Cell3" Text="[produitBindingSource.Libelle]"/>
+          <TableCell Name="Cell4" Text="[produitBindingSource.TotalQteKilo]"/>
+          <TableCell Name="Cell5" Text="[produitBindingSource.TotalQteDemiKilo]"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="119.73" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

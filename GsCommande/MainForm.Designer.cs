@@ -32,6 +32,24 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuConfiguration = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.réinitialiserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuResetCommande = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuResetTotal = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBachup = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.modèleDuRapportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.commandeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAddCommand = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuChercherCommande = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuGestionFamille = new System.Windows.Forms.ToolStripMenuItem();
+            this.gérerLesfamillesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuGestionProduit = new System.Windows.Forms.ToolStripMenuItem();
+            this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAPropos = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnSauvegarder = new System.Windows.Forms.ToolStripButton();
             this.btnDetail = new System.Windows.Forms.ToolStripButton();
@@ -47,6 +65,8 @@
             this.ucListeProduit1 = new Com.GlagSoft.GsCommande.uc.UcListeProduit();
             this.ucCommandeRecherche1 = new Com.GlagSoft.GsCommande.uc.UcCommandeRecherche();
             this.ucCommandeAjouter1 = new Com.GlagSoft.GsCommande.uc.UcCommandeAjouter();
+            this.mnListerProduit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -63,7 +83,10 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fichierToolStripMenuItem});
+            this.fichierToolStripMenuItem,
+            this.commandeToolStripMenuItem,
+            this.mnuGestionFamille,
+            this.aideToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 2);
@@ -74,9 +97,152 @@
             // 
             // fichierToolStripMenuItem
             // 
+            this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuConfiguration,
+            this.toolStripSeparator5,
+            this.réinitialiserToolStripMenuItem,
+            this.mnuBachup,
+            this.toolStripSeparator3,
+            this.modèleDuRapportToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.mnuExit});
             this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
             this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 19);
             this.fichierToolStripMenuItem.Text = "F&ichier";
+            // 
+            // mnuConfiguration
+            // 
+            this.mnuConfiguration.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.config;
+            this.mnuConfiguration.Name = "mnuConfiguration";
+            this.mnuConfiguration.Size = new System.Drawing.Size(212, 22);
+            this.mnuConfiguration.Text = "&Configuration";
+            this.mnuConfiguration.Click += new System.EventHandler(this.mnuReset_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(209, 6);
+            // 
+            // réinitialiserToolStripMenuItem
+            // 
+            this.réinitialiserToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuResetCommande,
+            this.mnuResetTotal});
+            this.réinitialiserToolStripMenuItem.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.restore;
+            this.réinitialiserToolStripMenuItem.Name = "réinitialiserToolStripMenuItem";
+            this.réinitialiserToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.réinitialiserToolStripMenuItem.Text = "Réinitialisation";
+            // 
+            // mnuResetCommande
+            // 
+            this.mnuResetCommande.Image = global::Com.GlagSoft.GsCommande.Properties.Resources._warning;
+            this.mnuResetCommande.Name = "mnuResetCommande";
+            this.mnuResetCommande.Size = new System.Drawing.Size(152, 22);
+            this.mnuResetCommande.Text = "Commandes";
+            this.mnuResetCommande.Click += new System.EventHandler(this.mnuResetCommande_Click);
+            // 
+            // mnuResetTotal
+            // 
+            this.mnuResetTotal.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.danger;
+            this.mnuResetTotal.Name = "mnuResetTotal";
+            this.mnuResetTotal.Size = new System.Drawing.Size(152, 22);
+            this.mnuResetTotal.Text = "Totale";
+            this.mnuResetTotal.Click += new System.EventHandler(this.mnuResetTotal_Click);
+            // 
+            // mnuBachup
+            // 
+            this.mnuBachup.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.load;
+            this.mnuBachup.Name = "mnuBachup";
+            this.mnuBachup.Size = new System.Drawing.Size(212, 22);
+            this.mnuBachup.Text = "Sauvegarde / Restauration";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(209, 6);
+            // 
+            // modèleDuRapportToolStripMenuItem
+            // 
+            this.modèleDuRapportToolStripMenuItem.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.designer;
+            this.modèleDuRapportToolStripMenuItem.Name = "modèleDuRapportToolStripMenuItem";
+            this.modèleDuRapportToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.modèleDuRapportToolStripMenuItem.Text = "Modifier les rapports";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(209, 6);
+            // 
+            // mnuExit
+            // 
+            this.mnuExit.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Exit;
+            this.mnuExit.Name = "mnuExit";
+            this.mnuExit.Size = new System.Drawing.Size(212, 22);
+            this.mnuExit.Text = "&Quitter";
+            this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
+            // 
+            // commandeToolStripMenuItem
+            // 
+            this.commandeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAddCommand,
+            this.mnuChercherCommande});
+            this.commandeToolStripMenuItem.Name = "commandeToolStripMenuItem";
+            this.commandeToolStripMenuItem.Size = new System.Drawing.Size(82, 19);
+            this.commandeToolStripMenuItem.Text = "Commande";
+            // 
+            // mnuAddCommand
+            // 
+            this.mnuAddCommand.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Create;
+            this.mnuAddCommand.Name = "mnuAddCommand";
+            this.mnuAddCommand.Size = new System.Drawing.Size(152, 22);
+            this.mnuAddCommand.Text = "&Ajouter";
+            // 
+            // mnuChercherCommande
+            // 
+            this.mnuChercherCommande.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Search;
+            this.mnuChercherCommande.Name = "mnuChercherCommande";
+            this.mnuChercherCommande.Size = new System.Drawing.Size(152, 22);
+            this.mnuChercherCommande.Text = "&Chercher";
+            // 
+            // mnuGestionFamille
+            // 
+            this.mnuGestionFamille.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gérerLesfamillesToolStripMenuItem,
+            this.mnuGestionProduit,
+            this.toolStripSeparator7,
+            this.mnListerProduit});
+            this.mnuGestionFamille.Name = "mnuGestionFamille";
+            this.mnuGestionFamille.Size = new System.Drawing.Size(58, 19);
+            this.mnuGestionFamille.Text = "Produit";
+            // 
+            // gérerLesfamillesToolStripMenuItem
+            // 
+            this.gérerLesfamillesToolStripMenuItem.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.tag_blue_edit;
+            this.gérerLesfamillesToolStripMenuItem.Name = "gérerLesfamillesToolStripMenuItem";
+            this.gérerLesfamillesToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.gérerLesfamillesToolStripMenuItem.Text = "Gérer les &familles";
+            // 
+            // mnuGestionProduit
+            // 
+            this.mnuGestionProduit.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.tag_yellow_edit;
+            this.mnuGestionProduit.Name = "mnuGestionProduit";
+            this.mnuGestionProduit.Size = new System.Drawing.Size(166, 22);
+            this.mnuGestionProduit.Text = "Gérer les &produits";
+            // 
+            // aideToolStripMenuItem
+            // 
+            this.aideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAPropos});
+            this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
+            this.aideToolStripMenuItem.Size = new System.Drawing.Size(43, 19);
+            this.aideToolStripMenuItem.Text = "&Aide";
+            // 
+            // mnuAPropos
+            // 
+            this.mnuAPropos.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.about;
+            this.mnuAPropos.Name = "mnuAPropos";
+            this.mnuAPropos.Size = new System.Drawing.Size(122, 22);
+            this.mnuAPropos.Text = "A &propos";
             // 
             // toolStrip1
             // 
@@ -132,6 +298,7 @@
             this.btnImprimer.Size = new System.Drawing.Size(84, 37);
             this.btnImprimer.Text = "&Imprimer";
             this.btnImprimer.ToolTipText = "Imprimer (CTRL+P)";
+            this.btnImprimer.Click += new System.EventHandler(this.btnImprimer_Click);
             // 
             // toolStripSeparator1
             // 
@@ -178,22 +345,22 @@
             // 
             // btnGestionFamille
             // 
-            this.btnGestionFamille.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Notes;
+            this.btnGestionFamille.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.tag_blue_edit;
             this.btnGestionFamille.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnGestionFamille.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGestionFamille.Name = "btnGestionFamille";
-            this.btnGestionFamille.Size = new System.Drawing.Size(124, 28);
+            this.btnGestionFamille.Size = new System.Drawing.Size(132, 36);
             this.btnGestionFamille.Text = "Gérer les &familles";
             this.btnGestionFamille.ToolTipText = "Gérer les familles (F11)";
             this.btnGestionFamille.Click += new System.EventHandler(this.btnGestionFamille_Click);
             // 
             // btnGestionProduit
             // 
-            this.btnGestionProduit.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Notes;
+            this.btnGestionProduit.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.tag_yellow_edit;
             this.btnGestionProduit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnGestionProduit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGestionProduit.Name = "btnGestionProduit";
-            this.btnGestionProduit.Size = new System.Drawing.Size(143, 28);
+            this.btnGestionProduit.Size = new System.Drawing.Size(151, 36);
             this.btnGestionProduit.Text = "Gestion des &produits";
             this.btnGestionProduit.ToolTipText = "Gestion des produits (F12)";
             this.btnGestionProduit.Click += new System.EventHandler(this.btnGestionProduit_Click);
@@ -213,6 +380,7 @@
             // ucListeProduit1
             // 
             this.ucListeProduit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucListeProduit1.IsShowPrintButton = false;
             this.ucListeProduit1.Location = new System.Drawing.Point(0, 20);
             this.ucListeProduit1.Name = "ucListeProduit1";
             this.ucListeProduit1.Size = new System.Drawing.Size(708, 326);
@@ -236,6 +404,18 @@
             this.ucCommandeAjouter1.Name = "ucCommandeAjouter1";
             this.ucCommandeAjouter1.Size = new System.Drawing.Size(708, 326);
             this.ucCommandeAjouter1.TabIndex = 0;
+            // 
+            // mnListerProduit
+            // 
+            this.mnListerProduit.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Report;
+            this.mnListerProduit.Name = "mnListerProduit";
+            this.mnListerProduit.Size = new System.Drawing.Size(166, 22);
+            this.mnListerProduit.Text = "Liste des &produits";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(163, 6);
             // 
             // MainForm
             // 
@@ -284,5 +464,25 @@
         private uc.UcCommandeRecherche ucCommandeRecherche1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private uc.UcListeProduit ucListeProduit1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem mnuExit;
+        private System.Windows.Forms.ToolStripMenuItem mnuConfiguration;
+        private System.Windows.Forms.ToolStripMenuItem commandeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuAddCommand;
+        private System.Windows.Forms.ToolStripMenuItem mnuChercherCommande;
+        private System.Windows.Forms.ToolStripMenuItem mnuGestionFamille;
+        private System.Windows.Forms.ToolStripMenuItem gérerLesfamillesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuGestionProduit;
+        private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuAPropos;
+        private System.Windows.Forms.ToolStripMenuItem mnuBachup;
+        private System.Windows.Forms.ToolStripMenuItem réinitialiserToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuResetCommande;
+        private System.Windows.Forms.ToolStripMenuItem mnuResetTotal;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem modèleDuRapportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem mnListerProduit;
     }
 }

@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Windows.Forms;
 using Com.GlagSoft.GsCommande.forms;
+using Com.GlagSoft.GsCommande.Outils;
+using Com.GlagSoft.GsCommande.Services;
 
 namespace Com.GlagSoft.GsCommande
 {
     public partial class MainForm : Form
     {
+        MaintenanceService _maintenanceService = new MaintenanceService();
+
         FormProduitGestion _formProduitGestion = new FormProduitGestion();
         FormFamilleGestion _formFamilleGestion = new FormFamilleGestion();
         FormCommandeDetail _fomCommandeDetail = new FormCommandeDetail();
+        FormConfiguration _formConfiguration = new FormConfiguration();
 
         public MainForm()
         {
@@ -211,5 +216,64 @@ namespace Com.GlagSoft.GsCommande
         {
             OpenCommandeDetail();
         }
+
+        private void btnImprimer_Click(object sender, EventArgs e)
+        {
+            ucListeProduit1.Imprimer();
+        }
+
+        private void mnuReset_Click(object sender, EventArgs e)
+        {
+            var form = new FormConfiguration();
+            form.LoadAll();
+            form.ShowDialog();
+
+            AfficherAjoutCommande();
+        }
+
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void mnuResetCommande_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(@"Êtes-vous sûr de vouloir supprimer définitivement toutes les commandes de la base de données ?",
+                @"Maintenance",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            try
+            {
+                _maintenanceService.CleanDataBase();
+                AfficherAjoutCommande();
+            }
+            catch (Exception exception)
+            {
+                GestionException.TraiterException(exception, "Maintenance");
+            }
+        }
+
+        private void mnuResetTotal_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(@"Êtes-vous sûr de vouloir supprimer définitivement toutes les données ?",
+                @"Maintenance",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            try
+            {
+                _maintenanceService.CleanAll();
+                AfficherAjoutCommande();
+            }
+            catch (Exception exception)
+            {
+                GestionException.TraiterException(exception, "Maintenance");
+            }
+        }
+
+
     }
 }

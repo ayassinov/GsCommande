@@ -56,6 +56,10 @@
       <Project>{A50D6DC6-09BB-40C0-A944-0CFCB7136F29}</Project>
       <Name>Com.GlagSoft.GsCommande.Objects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Com.GlagSoft.GsCommande.Outils\Com.GlagSoft.GsCommande.Outils.csproj">
+      <Project>{F575F6BC-051E-463F-A017-95C39C4410D0}</Project>
+      <Name>Com.GlagSoft.GsCommande.Outils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

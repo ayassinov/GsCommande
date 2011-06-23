@@ -203,9 +203,8 @@
             this.lblCode.AutoSize = true;
             this.lblCode.Location = new System.Drawing.Point(77, 58);
             this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(42, 13);
+            this.lblCode.Size = new System.Drawing.Size(0, 13);
             this.lblCode.TabIndex = 5;
-            this.lblCode.Text = "lblCode";
             // 
             // lblFamille
             // 

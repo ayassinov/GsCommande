@@ -2,13 +2,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
 {
     public class BaseData
     {
-        private SqliteHelper _helper;
-
-        public SqliteHelper Helper
-        {
-            get { return _helper ?? (_helper = SqliteHelper.Helper); }
-            set { _helper = value; }
-        }
+        protected readonly SqliteHelper Helper = SqliteHelper.Helper;
 
         public void BeginTransaction()
         {

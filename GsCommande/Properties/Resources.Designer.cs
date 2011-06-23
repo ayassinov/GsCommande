@@ -60,6 +60,20 @@ namespace Com.GlagSoft.GsCommande.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap _warning {
+            get {
+                object obj = ResourceManager.GetObject("_warning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap about {
+            get {
+                object obj = ResourceManager.GetObject("about", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap all {
             get {
                 object obj = ResourceManager.GetObject("all", resourceCulture);
@@ -74,6 +88,13 @@ namespace Com.GlagSoft.GsCommande.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap config {
+            get {
+                object obj = ResourceManager.GetObject("config", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Create {
             get {
                 object obj = ResourceManager.GetObject("Create", resourceCulture);
@@ -81,9 +102,23 @@ namespace Com.GlagSoft.GsCommande.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap danger {
+            get {
+                object obj = ResourceManager.GetObject("danger", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Delete {
             get {
                 object obj = ResourceManager.GetObject("Delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap designer {
+            get {
+                object obj = ResourceManager.GetObject("designer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -112,6 +147,13 @@ namespace Com.GlagSoft.GsCommande.Properties {
         internal static System.Drawing.Bitmap List {
             get {
                 object obj = ResourceManager.GetObject("List", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap load {
+            get {
+                object obj = ResourceManager.GetObject("load", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -179,6 +221,13 @@ namespace Com.GlagSoft.GsCommande.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap restore {
+            get {
+                object obj = ResourceManager.GetObject("restore", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Save {
             get {
                 object obj = ResourceManager.GetObject("Save", resourceCulture);
@@ -196,6 +245,20 @@ namespace Com.GlagSoft.GsCommande.Properties {
         internal static System.Drawing.Bitmap shipping {
             get {
                 object obj = ResourceManager.GetObject("shipping", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap tag_blue_edit {
+            get {
+                object obj = ResourceManager.GetObject("tag_blue_edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap tag_yellow_edit {
+            get {
+                object obj = ResourceManager.GetObject("tag_yellow_edit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

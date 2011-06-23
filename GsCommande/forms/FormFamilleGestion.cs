@@ -29,7 +29,15 @@ namespace Com.GlagSoft.GsCommande.forms
 
         public void LoadAll()
         {
-            lstFamille.DataSource = _familleService.ListAll();
+            try
+            {
+                lstFamille.DataSource = _familleService.ListAll();
+            }
+            catch (Exception exception)
+            {
+                GestionException.TraiterException(exception, "Gestion des familles");
+            }
+
 
             SwitchToAddMode(true); //add mode
         }

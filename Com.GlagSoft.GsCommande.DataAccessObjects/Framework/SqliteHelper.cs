@@ -1,11 +1,14 @@
 using System;
 using System.Data;
 using System.Data.SQLite;
+using Com.GlagSoft.GsCommande.Outils;
 
 namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
 {
     public class SqliteHelper : IDisposable
     {
+        private static readonly string ConnString = string.Format("Data Source={0}", GestionParametre.Instance.DataBaseFilePath);
+
         private static SqliteHelper _helper = new SqliteHelper();
 
         public static SqliteHelper Helper
@@ -18,8 +21,6 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
                 return _helper;
             }
         }
-
-        private const string ConnString = "Data Source=gscommande.db";
 
         private IDbConnection _connection;
 
@@ -77,11 +78,11 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
         public void PrepareCommand(string sqlText)
         {
             _command = new SQLiteCommand
-                                   {
-                                       Connection = (SQLiteConnection)Connection,
-                                       CommandText = sqlText,
-                                       CommandType = CommandType.Text
-                                   };
+                               {
+                                   Connection = (SQLiteConnection)Connection,
+                                   CommandText = sqlText,
+                                   CommandType = CommandType.Text
+                               };
 
             if (_command.Connection.State == ConnectionState.Closed)
                 _command.Connection.Open();

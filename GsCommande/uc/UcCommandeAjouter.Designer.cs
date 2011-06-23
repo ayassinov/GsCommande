@@ -69,7 +69,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(620, 94);
+            this.groupBox1.Size = new System.Drawing.Size(620, 69);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Commande";
@@ -77,14 +77,14 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker.Location = new System.Drawing.Point(435, 50);
+            this.dateTimePicker.Location = new System.Drawing.Point(442, 30);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(127, 20);
             this.dateTimePicker.TabIndex = 1;
             // 
             // txtClient
             // 
-            this.txtClient.Location = new System.Drawing.Point(55, 50);
+            this.txtClient.Location = new System.Drawing.Point(62, 30);
             this.txtClient.Name = "txtClient";
             this.txtClient.Size = new System.Drawing.Size(332, 20);
             this.txtClient.TabIndex = 0;
@@ -92,7 +92,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(393, 53);
+            this.label4.Location = new System.Drawing.Point(400, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 1;
@@ -101,7 +101,7 @@
             // lblNomClient
             // 
             this.lblNomClient.AutoSize = true;
-            this.lblNomClient.Location = new System.Drawing.Point(10, 53);
+            this.lblNomClient.Location = new System.Drawing.Point(17, 33);
             this.lblNomClient.Name = "lblNomClient";
             this.lblNomClient.Size = new System.Drawing.Size(39, 13);
             this.lblNomClient.TabIndex = 1;
@@ -119,7 +119,7 @@
             this.dgvLigneCommande.AllowUserToDeleteRows = false;
             this.dgvLigneCommande.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
@@ -160,7 +160,7 @@
             this.dgvLigneCommande.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
             this.dgvLigneCommande.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvLigneCommande.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLigneCommande.Size = new System.Drawing.Size(614, 300);
+            this.dgvLigneCommande.Size = new System.Drawing.Size(614, 325);
             this.dgvLigneCommande.TabIndex = 1;
             // 
             // LibelleFamille
@@ -214,9 +214,9 @@
             this.groupBox2.Controls.Add(this.dgvLigneCommande);
             this.groupBox2.Controls.Add(this.toolStrip1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 94);
+            this.groupBox2.Location = new System.Drawing.Point(0, 69);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(620, 354);
+            this.groupBox2.Size = new System.Drawing.Size(620, 379);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Produits";
@@ -229,6 +229,7 @@
             this.btnModifier,
             this.btnSupprimer});
             this.toolStrip1.Location = new System.Drawing.Point(3, 16);
+            this.toolStrip1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.toolStrip1.MinimumSize = new System.Drawing.Size(0, 35);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -239,10 +240,9 @@
             // btnAjouter
             // 
             this.btnAjouter.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Create;
-            this.btnAjouter.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAjouter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(218, 32);
+            this.btnAjouter.Size = new System.Drawing.Size(210, 32);
             this.btnAjouter.Text = "Ajouter un produit à la commande";
             this.btnAjouter.ToolTipText = "Ajouter un produit à la commande (F5)";
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
@@ -250,10 +250,9 @@
             // btnModifier
             // 
             this.btnModifier.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Modify;
-            this.btnModifier.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnModifier.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(155, 32);
+            this.btnModifier.Size = new System.Drawing.Size(147, 32);
             this.btnModifier.Text = "Modifier les quantitées";
             this.btnModifier.ToolTipText = "Modifier les quantitées (F6)";
             this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
@@ -261,10 +260,9 @@
             // btnSupprimer
             // 
             this.btnSupprimer.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Remove;
-            this.btnSupprimer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSupprimer.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(236, 32);
+            this.btnSupprimer.Size = new System.Drawing.Size(228, 32);
             this.btnSupprimer.Text = "Supprimer le produit de la commande";
             this.btnSupprimer.ToolTipText = "Supprimer le produit de la commande (F7)";
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
@@ -287,6 +285,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcCommandeAjouter";
             this.Size = new System.Drawing.Size(620, 448);
+            this.EnabledChanged += new System.EventHandler(this.UcCommandeAjouter_EnabledChanged);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLigneCommande)).EndInit();

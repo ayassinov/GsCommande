@@ -69,9 +69,11 @@ namespace Com.GlagSoft.GsCommande.uc
 
                 commande = _commandeService.Create(commande);
 
+                Reset();
+
                 MessageBox.Show(string.Format("La commande numéro {0}  a été ajouter avec succès", commande.Id),
                                 @"Ajout commande", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                
             }
             catch (Exception exception)
             {
@@ -214,6 +216,18 @@ namespace Com.GlagSoft.GsCommande.uc
 
 
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void UcCommandeAjouter_EnabledChanged(object sender, EventArgs e)
+        {
+            if(this.Enabled)
+            {
+                dgvLigneCommande.Enabled = true;
+            }
+            else
+            {
+                dgvLigneCommande.Enabled = false;
+            }
         }
     }
 }

@@ -37,26 +37,30 @@ namespace Com.GlagSoft.GsCommande.forms
                 {
                     this.Text = string.Format("GsCommande - Modification de la commande N° {0}", SelectedCommande.Id);
                     toolStripStatusLabel1.Text = this.Text;
+                    SelectedCommande = _commandeService.Get(SelectedCommande.Id);
+                    var liste = _ligneCommandeService.ListByCommande(SelectedCommande);
+                    SelectedCommande.LigneCommande = new List<LigneCommande>(liste);
+                    ucCommandeAjouter1.LigneCommandes = new List<LigneCommande>(liste);
+                    ucCommandeAjouter1.CommandeForUpdate = SelectedCommande;
+                    ucCommandeAjouter1.LoadForUpdate();
 
                     if (SelectedCommande.IsLivree)
                     {
                         btnLivrer.Enabled = false;
                         btnSave.Enabled = false;
                         btnSupprimer.Enabled = false;
-                        ucCommandeAjouter1.Visible = false;
+                        btnAnnulerLivraison.Visible = true;
                         label1.Text =
                             string.Format("Cette Commande a été livrée le {0}. \n \t Il n'est pas possible de la modifier.",
                             SelectedCommande.DateLivraison.Value.ToShortDateString());
+                        pnlCommandeLivree.Visible = true;
+                        ucCommandeAjouter1.Enabled = false;
                     }
                     else
                     {
-                        SelectedCommande = _commandeService.Get(SelectedCommande.Id);
-                        var liste = _ligneCommandeService.ListByCommande(SelectedCommande);
-                        SelectedCommande.LigneCommande = new List<LigneCommande>(liste);
-                        ucCommandeAjouter1.LigneCommandes = new List<LigneCommande>(liste);
-                        ucCommandeAjouter1.CommandeForUpdate = SelectedCommande;
-                        ucCommandeAjouter1.LoadForUpdate();
-
+                        pnlCommandeLivree.Visible = false;
+                        btnAnnulerLivraison.Visible = true;
+                        ucCommandeAjouter1.Enabled = true;
                     }
                 }
                 else
@@ -131,10 +135,27 @@ namespace Com.GlagSoft.GsCommande.forms
 
         public void UpdateModification()
         {
-            PrepareLigneCommandeForUpdate();
-            if (ValidateForUpdate())
+            try
             {
-                _commandeService.UpdateTransaction(SelectedCommande);
+                PrepareLigneCommandeForUpdate();
+
+                if (ValidateForUpdate())
+                {
+                    SelectedCommande.NomPrenomClient = ucCommandeAjouter1.txtClient.Text;
+                    SelectedCommande.DateCommande = ucCommandeAjouter1.dateTimePicker.Value.Date;
+                    _commandeService.UpdateTransaction(SelectedCommande);
+                    MessageBox.Show(@"La mise à jour a été effectué avec succès");
+                }
+                else
+                {
+                    MessageBox.Show(@"Il faut faire au moins un changement pour sauvegarder les modifications",
+                                    @"Modification de la commande",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception exception)
+            {
+                GestionException.TraiterException(exception, "Modification de la commande");
             }
         }
 
@@ -193,7 +214,7 @@ namespace Com.GlagSoft.GsCommande.forms
         {
             try
             {
-                if (MessageBox.Show(@"Vous êtes sur de vouloir supprimer cette commande ? \n Cette action est irréversible!",
+                if (MessageBox.Show(@"Vous êtes sur de vouloir supprimer cette commande ? Cette action est irréversible!",
                     @"Modification de la commande",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.No)
@@ -214,7 +235,6 @@ namespace Com.GlagSoft.GsCommande.forms
 
         private void btnSave_Click(object sender, System.EventArgs e)
         {
-            // sauvegarder toutes les nouvelles modifications :s
             UpdateModification();
         }
 

@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>_management.ico</ApplicationIcon>
+    <ApplicationIcon>app.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\SolutionInfo.cs">
@@ -61,6 +61,12 @@
     </Compile>
     <Compile Include="forms\FormCommandeDetail.Designer.cs">
       <DependentUpon>FormCommandeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\FormConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FormConfiguration.Designer.cs">
+      <DependentUpon>FormConfiguration.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\FormFamilleGestion.cs">
       <SubType>Form</SubType>
@@ -79,6 +85,12 @@
     </Compile>
     <Compile Include="forms\FormProduitSelect.Designer.cs">
       <DependentUpon>FormProduitSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\GsCommande.cs" />
+    <Compile Include="Properties\GsCommande.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>GsCommande.settings</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -114,6 +126,10 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\GsCommande.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>GsCommande.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Properties\DataSources\Com.GlagSoft.GsCommande.Objects.Commande.datasource" />
     <None Include="Properties\DataSources\Com.GlagSoft.GsCommande.Objects.Famille.datasource" />
     <None Include="Properties\DataSources\Com.GlagSoft.GsCommande.Objects.LigneCommande.datasource" />
@@ -133,6 +149,9 @@
   <ItemGroup>
     <EmbeddedResource Include="forms\FormCommandeDetail.resx">
       <DependentUpon>FormCommandeDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\FormConfiguration.resx">
+      <DependentUpon>FormConfiguration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FormFamilleGestion.resx">
       <DependentUpon>FormFamilleGestion.cs</DependentUpon>
@@ -236,10 +255,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\designer.png" />
+    <None Include="Resources\about.png" />
+    <None Include="Resources\tag_yellow_edit.png" />
+    <None Include="Resources\tag-blue_edit.png" />
+    <None Include="Resources\danger.png" />
+    <None Include="Resources\-warning.png" />
+    <None Include="Resources\restore.png" />
+    <None Include="Resources\config.png" />
+    <None Include="Resources\backup.png" />
+    <None Include="Resources\load.png" />
     <None Include="Resources\finished-work.png" />
     <None Include="Resources\shipping.png" />
     <None Include="Resources\view_detail.png" />
-    <Content Include="_management.ico" />
+    <Content Include="app.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
