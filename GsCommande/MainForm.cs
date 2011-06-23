@@ -13,12 +13,23 @@ namespace Com.GlagSoft.GsCommande
         FormProduitGestion _formProduitGestion = new FormProduitGestion();
         FormFamilleGestion _formFamilleGestion = new FormFamilleGestion();
         FormCommandeDetail _fomCommandeDetail = new FormCommandeDetail();
-        FormConfiguration _formConfiguration = new FormConfiguration();
+
+        public bool IsDataBaseValide { get; set; }
 
         public MainForm()
         {
             InitializeComponent();
             AfficherAjoutCommande();
+            
+            if (!IsDataBaseValide)
+            {
+                var form = new FormConfiguration();
+                form.StartPosition = FormStartPosition.CenterScreen;
+                form.LoadAll();
+                form.ShowDialog();
+
+                AfficherAjoutCommande();
+            }
         }
 
         private void OpenGestionProduit()

@@ -7,7 +7,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
 {
     public class SqliteHelper : IDisposable
     {
-        private static readonly string ConnString = string.Format("Data Source={0}", GestionParametre.Instance.DataBaseFilePath);
+        private static string ConnString = GestionParametre.Instance.ConnexionString;
 
         private static SqliteHelper _helper = new SqliteHelper();
 

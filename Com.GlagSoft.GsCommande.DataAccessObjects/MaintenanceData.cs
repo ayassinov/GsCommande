@@ -64,5 +64,19 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
                 helper.ExecuteNonQuery();
             }
         }
+
+        public bool IsDataBaseValid()
+        {
+            var isValide = false;
+            using (var helper = new SqliteHelper("SELECT name FROM sqlite_master WHERE name='Commande'"))
+            {
+                using (var reader = helper.ExecuteQuery())
+                {
+                    if (reader.Read())
+                        isValide = true;
+                }
+            }
+            return isValide;
+        }
     }
 }

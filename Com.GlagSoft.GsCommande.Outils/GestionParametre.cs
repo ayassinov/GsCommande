@@ -8,17 +8,15 @@ namespace Com.GlagSoft.GsCommande.Outils
 
         public string DataBaseFilePath { get; set; }
         public string RestoreFolder { get; set; }
-
-
-        private void LoadDefaultParameter()
+        public string ConnexionString
         {
-
+            get 
+            { 
+                var s = string.Format("Data Source={0}", DataBaseFilePath);
+                return s;
+            }
         }
 
-        public void RefreshParameters()
-        {
-
-        }
-
+       
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using Com.GlagSoft.GsCommande.DataAccessObjects;
+using Com.GlagSoft.GsCommande.Outils;
 
 namespace Com.GlagSoft.GsCommande.Services
 {
@@ -46,6 +47,22 @@ namespace Com.GlagSoft.GsCommande.Services
                 _maintenanceData.RollBack();
                 throw;
             }
+        }
+
+        public bool IsDataBaseValid()
+        {
+            var isValide = false;
+
+            try
+            {
+                isValide = _maintenanceData.IsDataBaseValid();
+            }
+            catch (Exception exception)
+            {
+                GestionException.LogOnly(exception);
+            }
+
+            return isValide;
         }
     }
 }

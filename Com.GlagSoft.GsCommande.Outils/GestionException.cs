@@ -14,5 +14,10 @@ namespace Com.GlagSoft.GsCommande.Outils
         {
             MessageBox.Show(msg, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        public static void LogOnly(Exception exception)
+        {
+            //todo log Exception
+        }
     }
 }
