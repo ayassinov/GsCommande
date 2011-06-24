@@ -82,13 +82,12 @@
             // grbListeDesProduits
             // 
             this.grbListeDesProduits.Controls.Add(this.dgvProduits);
-            this.grbListeDesProduits.Location = new System.Drawing.Point(203, 0);
+            this.grbListeDesProduits.Location = new System.Drawing.Point(206, 0);
             this.grbListeDesProduits.Name = "grbListeDesProduits";
-            this.grbListeDesProduits.Size = new System.Drawing.Size(418, 475);
+            this.grbListeDesProduits.Size = new System.Drawing.Size(418, 467);
             this.grbListeDesProduits.TabIndex = 1;
             this.grbListeDesProduits.TabStop = false;
             this.grbListeDesProduits.Text = "Liste des produits :";
-            this.grbListeDesProduits.Visible = false;
             // 
             // dgvProduits
             // 
@@ -110,7 +109,7 @@
             this.dgvProduits.Name = "dgvProduits";
             this.dgvProduits.ReadOnly = true;
             this.dgvProduits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduits.Size = new System.Drawing.Size(412, 456);
+            this.dgvProduits.Size = new System.Drawing.Size(412, 448);
             this.dgvProduits.TabIndex = 0;
             this.dgvProduits.SelectionChanged += new System.EventHandler(this.dgvProduits_SelectionChanged);
             // 
@@ -160,7 +159,7 @@
             this.grbAddProduct.Controls.Add(this.label1);
             this.grbAddProduct.Location = new System.Drawing.Point(206, 0);
             this.grbAddProduct.Name = "grbAddProduct";
-            this.grbAddProduct.Size = new System.Drawing.Size(415, 475);
+            this.grbAddProduct.Size = new System.Drawing.Size(418, 138);
             this.grbAddProduct.TabIndex = 2;
             this.grbAddProduct.TabStop = false;
             this.grbAddProduct.Text = "Ajouter produit";

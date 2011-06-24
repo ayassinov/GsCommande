@@ -15,6 +15,8 @@ namespace Com.GlagSoft.GsCommande
         FormFamilleGestion _formFamilleGestion = new FormFamilleGestion();
         FormCommandeDetail _fomCommandeDetail = new FormCommandeDetail();
 
+        bool _formProduitGestionClosed = false;
+
         public bool IsClosed { get; set; }
 
         public MainForm(bool isDataBaseValide)
@@ -33,7 +35,7 @@ namespace Com.GlagSoft.GsCommande
                 form.CloseConfigurationForm += CloseConfigurationForm;
                 form.LoadAll();
                 form.ShowDialog();
-                
+
                 AfficherAjoutCommande();
             }
             else
@@ -44,10 +46,12 @@ namespace Com.GlagSoft.GsCommande
 
         private void OpenGestionProduit()
         {
+            _formProduitGestionClosed = false;
             _formProduitGestion = new FormProduitGestion();
-            _formProduitGestion.LoadAll();
             _formProduitGestion.CloseGestionProduitForm += CloseGestionProduitForm;
-            _formProduitGestion.ShowDialog();
+            _formProduitGestion.LoadAll();
+            if (!_formProduitGestionClosed)
+                _formProduitGestion.ShowDialog();
         }
 
         private void OpenGestionFamille()
@@ -85,6 +89,7 @@ namespace Com.GlagSoft.GsCommande
 
         private void CloseGestionProduitForm()
         {
+            _formProduitGestionClosed = true;
             _formProduitGestion.Close();
             _formProduitGestion.Dispose();
         }
@@ -255,7 +260,7 @@ namespace Com.GlagSoft.GsCommande
             form.FirstStart = false;
             form.LoadAll();
             form.ShowDialog();
-            
+
             AfficherAjoutCommande();
         }
 

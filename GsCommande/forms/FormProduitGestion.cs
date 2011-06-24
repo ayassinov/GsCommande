@@ -8,6 +8,7 @@ namespace Com.GlagSoft.GsCommande.forms
 {
     partial class FormProduitGestion : Form
     {
+        private FormFamilleGestion _formFamilleGestion;
         private readonly FamilleService _familleService = new FamilleService();
         private readonly ProduitService _produitService = new ProduitService();
 
@@ -29,6 +30,7 @@ namespace Com.GlagSoft.GsCommande.forms
         public FormProduitGestion()
         {
             InitializeComponent();
+
         }
 
         /// <summary>
@@ -75,10 +77,11 @@ namespace Com.GlagSoft.GsCommande.forms
                                         MessageBoxButtons.OKCancel,
                                         MessageBoxIcon.Question) == DialogResult.OK)
                     {
-                        OnCloseForm();
-                        var formFamille = new FormFamilleGestion();
-                        formFamille.LoadAll();
-                        formFamille.ShowDialog();
+
+                        _formFamilleGestion = new FormFamilleGestion();
+                        _formFamilleGestion.CloseGestionFamilleForm += new FormFamilleGestion.CloseFormHandler(CloseGestionFamilleForm);
+                        _formFamilleGestion.LoadAll();
+                        _formFamilleGestion.ShowDialog();
                     }
                     else
                     {
@@ -92,17 +95,24 @@ namespace Com.GlagSoft.GsCommande.forms
             }
         }
 
+        private void CloseGestionFamilleForm()
+        {
+            _formFamilleGestion.Close();
+            _formFamilleGestion.Dispose();
+            OnCloseForm();
+        }
+
         private void ModeAffichage()
         {
             try
             {
-
-
                 if (_modeAffichage == forms.ModeAffichage.Browse)
                 {
                     lstfamille.Enabled = true;
-                    grbAddProduct.Visible = false;
+                    grbListeDesProduits.Top = 0;
+                    grbListeDesProduits.Height = 467;
                     grbListeDesProduits.Visible = true;
+
                     btnAnnuler.Visible = false;
                     btnSave.Visible = false;
                     btnAdd.Visible = true;
@@ -119,13 +129,14 @@ namespace Com.GlagSoft.GsCommande.forms
                     grbAddProduct.Text = @"Ajouter un produit";
                     grbAddProduct.Visible = true;
                     grbListeDesProduits.Visible = true;
+
                     btnModifier.Visible = false;
                     txtLibelle.Enabled = true;
                     if (dgvProduits.Rows.Count > 0)
                     {
-                        grbAddProduct.Dock = DockStyle.Top;
-                        grbAddProduct.Height = 110;
-                        grbListeDesProduits.Dock = DockStyle.Fill;
+                        grbListeDesProduits.Top = 144;
+                        grbListeDesProduits.Height = 323;
+
                         btnAnnuler.Visible = true;
                         lstfamille.Enabled = false;
                     }
@@ -149,14 +160,14 @@ namespace Com.GlagSoft.GsCommande.forms
                 }
                 else //update
                 {
+                    grbAddProduct.Text = @"Modifier le produit";
+                    grbListeDesProduits.Visible = true;
+                    grbListeDesProduits.Top = 144;
+                    grbListeDesProduits.Height = 323;
+
                     txtLibelle.Enabled = true;
                     btnModifier.Visible = false;
                     lstfamille.Enabled = false;
-                    grbAddProduct.Text = @"Modifier le produit";
-                    grbAddProduct.Visible = true;
-                    grbListeDesProduits.Visible = false;
-                    grbAddProduct.Dock = DockStyle.Fill;
-
                     btnAnnuler.Visible = dgvProduits.Rows.Count > 0;
                     btnSave.Visible = true;
                     btnAdd.Visible = false;
@@ -287,6 +298,7 @@ namespace Com.GlagSoft.GsCommande.forms
         {
             try
             {
+                //_isAjoutMode = true;
                 _modeAffichage = forms.ModeAffichage.Update;
                 _produit = dgvProduits.SelectedRows[0].DataBoundItem as Produit;
                 ModeAffichage();
