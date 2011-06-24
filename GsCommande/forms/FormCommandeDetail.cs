@@ -59,7 +59,7 @@ namespace Com.GlagSoft.GsCommande.forms
                     else
                     {
                         pnlCommandeLivree.Visible = false;
-                        btnAnnulerLivraison.Visible = true;
+                        btnAnnulerLivraison.Visible = false;
                         ucCommandeAjouter1.Enabled = true;
                     }
                 }

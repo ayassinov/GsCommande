@@ -74,18 +74,17 @@
             this.panel1.Controls.Add(this.grbAddProduct);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(9, 31);
+            this.panel1.Location = new System.Drawing.Point(0, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(621, 475);
+            this.panel1.Size = new System.Drawing.Size(624, 475);
             this.panel1.TabIndex = 0;
             // 
             // grbListeDesProduits
             // 
             this.grbListeDesProduits.Controls.Add(this.dgvProduits);
-            this.grbListeDesProduits.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbListeDesProduits.Location = new System.Drawing.Point(200, 0);
+            this.grbListeDesProduits.Location = new System.Drawing.Point(203, 0);
             this.grbListeDesProduits.Name = "grbListeDesProduits";
-            this.grbListeDesProduits.Size = new System.Drawing.Size(421, 475);
+            this.grbListeDesProduits.Size = new System.Drawing.Size(418, 475);
             this.grbListeDesProduits.TabIndex = 1;
             this.grbListeDesProduits.TabStop = false;
             this.grbListeDesProduits.Text = "Liste des produits :";
@@ -111,7 +110,7 @@
             this.dgvProduits.Name = "dgvProduits";
             this.dgvProduits.ReadOnly = true;
             this.dgvProduits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduits.Size = new System.Drawing.Size(415, 456);
+            this.dgvProduits.Size = new System.Drawing.Size(412, 456);
             this.dgvProduits.TabIndex = 0;
             this.dgvProduits.SelectionChanged += new System.EventHandler(this.dgvProduits_SelectionChanged);
             // 
@@ -159,10 +158,9 @@
             this.grbAddProduct.Controls.Add(this.txtLibelle);
             this.grbAddProduct.Controls.Add(this.label2);
             this.grbAddProduct.Controls.Add(this.label1);
-            this.grbAddProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbAddProduct.Location = new System.Drawing.Point(200, 0);
+            this.grbAddProduct.Location = new System.Drawing.Point(206, 0);
             this.grbAddProduct.Name = "grbAddProduct";
-            this.grbAddProduct.Size = new System.Drawing.Size(421, 475);
+            this.grbAddProduct.Size = new System.Drawing.Size(415, 475);
             this.grbAddProduct.TabIndex = 2;
             this.grbAddProduct.TabStop = false;
             this.grbAddProduct.Text = "Ajouter produit";
@@ -268,9 +266,9 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(9, 506);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 506);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(621, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(624, 22);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
@@ -286,11 +284,11 @@
             this.btnModifier,
             this.btnDelete,
             this.btnAnnuler});
-            this.toolStrip1.Location = new System.Drawing.Point(9, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(621, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(624, 31);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -369,7 +367,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 528);
+            this.ClientSize = new System.Drawing.Size(624, 528);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -377,7 +375,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormProduitGestion";
-            this.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

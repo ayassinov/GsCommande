@@ -48,6 +48,8 @@
             this.mnuGestionFamille = new System.Windows.Forms.ToolStripMenuItem();
             this.gérerLesfamillesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuGestionProduit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnListerProduit = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAPropos = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -65,8 +67,6 @@
             this.ucListeProduit1 = new Com.GlagSoft.GsCommande.uc.UcListeProduit();
             this.ucCommandeRecherche1 = new Com.GlagSoft.GsCommande.uc.UcCommandeRecherche();
             this.ucCommandeAjouter1 = new Com.GlagSoft.GsCommande.uc.UcCommandeAjouter();
-            this.mnListerProduit = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -137,7 +137,7 @@
             // 
             this.mnuResetCommande.Image = global::Com.GlagSoft.GsCommande.Properties.Resources._warning;
             this.mnuResetCommande.Name = "mnuResetCommande";
-            this.mnuResetCommande.Size = new System.Drawing.Size(152, 22);
+            this.mnuResetCommande.Size = new System.Drawing.Size(142, 22);
             this.mnuResetCommande.Text = "Commandes";
             this.mnuResetCommande.Click += new System.EventHandler(this.mnuResetCommande_Click);
             // 
@@ -145,7 +145,7 @@
             // 
             this.mnuResetTotal.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.danger;
             this.mnuResetTotal.Name = "mnuResetTotal";
-            this.mnuResetTotal.Size = new System.Drawing.Size(152, 22);
+            this.mnuResetTotal.Size = new System.Drawing.Size(142, 22);
             this.mnuResetTotal.Text = "Totale";
             this.mnuResetTotal.Click += new System.EventHandler(this.mnuResetTotal_Click);
             // 
@@ -155,6 +155,7 @@
             this.mnuBachup.Name = "mnuBachup";
             this.mnuBachup.Size = new System.Drawing.Size(212, 22);
             this.mnuBachup.Text = "Sauvegarde / Restauration";
+            this.mnuBachup.Click += new System.EventHandler(this.mnuBachup_Click);
             // 
             // toolStripSeparator3
             // 
@@ -194,14 +195,14 @@
             // 
             this.mnuAddCommand.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Create;
             this.mnuAddCommand.Name = "mnuAddCommand";
-            this.mnuAddCommand.Size = new System.Drawing.Size(152, 22);
+            this.mnuAddCommand.Size = new System.Drawing.Size(122, 22);
             this.mnuAddCommand.Text = "&Ajouter";
             // 
             // mnuChercherCommande
             // 
             this.mnuChercherCommande.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Search;
             this.mnuChercherCommande.Name = "mnuChercherCommande";
-            this.mnuChercherCommande.Size = new System.Drawing.Size(152, 22);
+            this.mnuChercherCommande.Size = new System.Drawing.Size(122, 22);
             this.mnuChercherCommande.Text = "&Chercher";
             // 
             // mnuGestionFamille
@@ -228,6 +229,18 @@
             this.mnuGestionProduit.Name = "mnuGestionProduit";
             this.mnuGestionProduit.Size = new System.Drawing.Size(166, 22);
             this.mnuGestionProduit.Text = "Gérer les &produits";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(163, 6);
+            // 
+            // mnListerProduit
+            // 
+            this.mnListerProduit.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Report;
+            this.mnListerProduit.Name = "mnListerProduit";
+            this.mnListerProduit.Size = new System.Drawing.Size(166, 22);
+            this.mnListerProduit.Text = "Liste des &produits";
             // 
             // aideToolStripMenuItem
             // 
@@ -404,18 +417,6 @@
             this.ucCommandeAjouter1.Name = "ucCommandeAjouter1";
             this.ucCommandeAjouter1.Size = new System.Drawing.Size(708, 326);
             this.ucCommandeAjouter1.TabIndex = 0;
-            // 
-            // mnListerProduit
-            // 
-            this.mnListerProduit.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Report;
-            this.mnListerProduit.Name = "mnListerProduit";
-            this.mnListerProduit.Size = new System.Drawing.Size(166, 22);
-            this.mnListerProduit.Text = "Liste des &produits";
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(163, 6);
             // 
             // MainForm
             // 

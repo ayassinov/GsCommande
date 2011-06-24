@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Com.GlagSoft.GsCommande.forms;
+using Com.GlagSoft.GsCommande.Objects;
 using Com.GlagSoft.GsCommande.Outils;
 using Com.GlagSoft.GsCommande.Services;
 
@@ -14,20 +15,29 @@ namespace Com.GlagSoft.GsCommande
         FormFamilleGestion _formFamilleGestion = new FormFamilleGestion();
         FormCommandeDetail _fomCommandeDetail = new FormCommandeDetail();
 
-        public bool IsDataBaseValide { get; set; }
+        public bool IsClosed { get; set; }
 
-        public MainForm()
+        public MainForm(bool isDataBaseValide)
         {
             InitializeComponent();
-            AfficherAjoutCommande();
-            
-            if (!IsDataBaseValide)
+
+            IsClosed = false;
+
+            if (!isDataBaseValide)
             {
                 var form = new FormConfiguration();
                 form.StartPosition = FormStartPosition.CenterScreen;
+                form.ShowInTaskbar = true;
+                form.TopMost = true;
+                form.FirstStart = true;
+                form.CloseConfigurationForm += CloseConfigurationForm;
                 form.LoadAll();
                 form.ShowDialog();
-
+                
+                AfficherAjoutCommande();
+            }
+            else
+            {
                 AfficherAjoutCommande();
             }
         }
@@ -65,6 +75,12 @@ namespace Com.GlagSoft.GsCommande
         private void btnGestionFamille_Click(object sender, EventArgs e)
         {
             OpenGestionFamille();
+        }
+
+        private void CloseConfigurationForm()
+        {
+            IsClosed = true;
+            this.Close();
         }
 
         private void CloseGestionProduitForm()
@@ -236,14 +252,16 @@ namespace Com.GlagSoft.GsCommande
         private void mnuReset_Click(object sender, EventArgs e)
         {
             var form = new FormConfiguration();
+            form.FirstStart = false;
             form.LoadAll();
             form.ShowDialog();
-
+            
             AfficherAjoutCommande();
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
         {
+            IsClosed = true;
             this.Close();
         }
 
@@ -257,6 +275,7 @@ namespace Com.GlagSoft.GsCommande
 
             try
             {
+                _maintenanceService.BackupDataBase(BackupRaison.ClearCommandeAction);
                 _maintenanceService.CleanDataBase();
                 AfficherAjoutCommande();
             }
@@ -276,6 +295,7 @@ namespace Com.GlagSoft.GsCommande
 
             try
             {
+                _maintenanceService.BackupDataBase(BackupRaison.ClearAllDataAction);
                 _maintenanceService.CleanAll();
                 AfficherAjoutCommande();
             }
@@ -283,6 +303,13 @@ namespace Com.GlagSoft.GsCommande
             {
                 GestionException.TraiterException(exception, "Maintenance");
             }
+        }
+
+        private void mnuBachup_Click(object sender, EventArgs e)
+        {
+            var formBackup = new FormBackup();
+            formBackup.LoadAll();
+            formBackup.ShowDialog();
         }
 
 

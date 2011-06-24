@@ -247,7 +247,9 @@
             this.dgvCommandes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCommandes.Size = new System.Drawing.Size(760, 297);
             this.dgvCommandes.TabIndex = 0;
+            this.dgvCommandes.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCommandes_RowHeaderMouseDoubleClick);
             this.dgvCommandes.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.dgvCommandes.DoubleClick += new System.EventHandler(this.dgvCommandes_DoubleClick);
             // 
             // idDataGridViewTextBoxColumn
             // 

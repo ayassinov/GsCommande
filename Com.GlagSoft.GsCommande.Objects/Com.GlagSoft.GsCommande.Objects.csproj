@@ -41,6 +41,7 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="DataBaseFile.cs" />
     <Compile Include="Commande.cs" />
     <Compile Include="Famille.cs" />
     <Compile Include="LigneCommande.cs" />

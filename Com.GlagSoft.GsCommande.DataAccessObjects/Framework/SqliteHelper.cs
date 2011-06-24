@@ -9,19 +9,6 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
     {
         private static string ConnString = GestionParametre.Instance.ConnexionString;
 
-        private static SqliteHelper _helper = new SqliteHelper();
-
-        public static SqliteHelper Helper
-        {
-            get
-            {
-                if (_helper == null)
-                    _helper = new SqliteHelper();
-
-                return _helper;
-            }
-        }
-
         private IDbConnection _connection;
 
         private IDbCommand _command;
@@ -44,9 +31,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
                 throw new Exception("Transaction est encours !! en mode non transaction");
         }
 
-        private SqliteHelper()
-        {
-        }
+        public SqliteHelper() { }
 
         public void BeginTransaction()
         {

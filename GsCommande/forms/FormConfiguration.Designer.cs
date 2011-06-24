@@ -35,6 +35,7 @@
             this.lblDbFile = new System.Windows.Forms.Label();
             this.txtDbFilePath = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnQuitter = new System.Windows.Forms.Button();
             this.btnConfirmer = new System.Windows.Forms.Button();
             this.openFileDialogdb = new System.Windows.Forms.OpenFileDialog();
@@ -113,6 +114,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnAnnuler);
             this.groupBox2.Controls.Add(this.btnQuitter);
             this.groupBox2.Controls.Add(this.btnConfirmer);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -122,6 +124,18 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
+            // btnAnnuler
+            // 
+            this.btnAnnuler.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.No;
+            this.btnAnnuler.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAnnuler.Location = new System.Drawing.Point(305, 18);
+            this.btnAnnuler.Name = "btnAnnuler";
+            this.btnAnnuler.Size = new System.Drawing.Size(77, 36);
+            this.btnAnnuler.TabIndex = 0;
+            this.btnAnnuler.Text = "        Annuler";
+            this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
+            // 
             // btnQuitter
             // 
             this.btnQuitter.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Exit;
@@ -130,7 +144,7 @@
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.Size = new System.Drawing.Size(77, 36);
             this.btnQuitter.TabIndex = 0;
-            this.btnQuitter.Text = "         Fermer";
+            this.btnQuitter.Text = "         Quitter";
             this.btnQuitter.UseVisualStyleBackColor = true;
             this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
@@ -188,6 +202,7 @@
         private System.Windows.Forms.Button btnQuitter;
         private System.Windows.Forms.Button btnOuvrirDossier;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.Button btnAnnuler;
 
     }
 }

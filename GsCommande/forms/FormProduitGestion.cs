@@ -13,6 +13,7 @@ namespace Com.GlagSoft.GsCommande.forms
 
         private Produit _produit = null;
         private Famille _famille = null;
+        private bool _isAjoutMode = false;
 
         private ModeAffichage _modeAffichage = forms.ModeAffichage.Browse;
 
@@ -258,6 +259,7 @@ namespace Com.GlagSoft.GsCommande.forms
 
         private void Add()
         {
+            _isAjoutMode = true;
             _produit = null;
             _modeAffichage = forms.ModeAffichage.Insert;
             ModeAffichage();
@@ -267,6 +269,7 @@ namespace Com.GlagSoft.GsCommande.forms
         {
             try
             {
+                _isAjoutMode = false;
                 txtLibelle.Text = string.Empty;
                 btnAnnuler.Visible = false;
                 _modeAffichage = forms.ModeAffichage.Browse;
@@ -333,7 +336,10 @@ namespace Com.GlagSoft.GsCommande.forms
                     if (dgvProduits.SelectedRows.Count > 0)
                     {
                         _produit = dgvProduits.SelectedRows[0].DataBoundItem as Produit;
-                        _modeAffichage = forms.ModeAffichage.Browse;
+                        if (_isAjoutMode)
+                            _modeAffichage = forms.ModeAffichage.Insert;
+                        else
+                            _modeAffichage = forms.ModeAffichage.Browse;
                         ModeAffichage();
                     }
                     else

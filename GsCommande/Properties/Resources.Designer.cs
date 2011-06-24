@@ -81,6 +81,20 @@ namespace Com.GlagSoft.GsCommande.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap backup_and_restore {
+            get {
+                object obj = ResourceManager.GetObject("backup_and_restore", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap backup_manager {
+            get {
+                object obj = ResourceManager.GetObject("backup_manager", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap clear {
             get {
                 object obj = ResourceManager.GetObject("clear", resourceCulture);
@@ -119,6 +133,13 @@ namespace Com.GlagSoft.GsCommande.Properties {
         internal static System.Drawing.Bitmap designer {
             get {
                 object obj = ResourceManager.GetObject("designer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap drive_delete {
+            get {
+                object obj = ResourceManager.GetObject("drive_delete", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -10,47 +10,91 @@ namespace Com.GlagSoft.GsCommande.forms
     {
         readonly MaintenanceService _maintenanceService = new MaintenanceService();
 
+        public delegate void CloseFormHandler();
+        public event CloseFormHandler CloseConfigurationForm;
+
+        private void OnCloseForm()
+        {
+            if (CloseConfigurationForm != null)
+                CloseConfigurationForm();
+        }
+
         public FormConfiguration()
         {
             InitializeComponent();
         }
 
-        private bool IsDataBaseValid(string pathToDataBase)
-        {
-            try
-            {
-                GestionParametre.Instance.DataBaseFilePath = pathToDataBase;
-                GestionParametre.Instance.RestoreFolder = Properties.GsCommande.Default.BackUpPath;
-            }
-            catch (Exception exception)
-            {
-                GestionException.LogOnly(exception);
-                return false;
-            }
-
-            return _maintenanceService.IsDataBaseValid();
-        }
-
-        private void btnQuitter_Click(object sender, System.EventArgs e)
-        {
-            if (IsDataBaseValid(GestionParametre.Instance.DataBaseFilePath))
-                Close();
-            else
-                MessageBox.Show(@"La connexion à la base de données a échoué, veuillez sélectionner un fichier valide.",
-                                @"Gestion des paramètres", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+        public bool FirstStart { get; set; }
 
         public void LoadAll()
         {
+
+            if (FirstStart)
+            {
+                btnQuitter.Visible = true;
+                btnAnnuler.Visible = false;
+            }
+            else
+            {
+                btnQuitter.Visible = false;
+                btnAnnuler.Visible = true;
+            }
+
             try
             {
-                txtDbFilePath.Text = Properties.GsCommande.Default.DataBaseFilePath;
-                txtRestoreFolder.Text = Properties.GsCommande.Default.BackUpPath;
+                txtDbFilePath.Text = GestionParametre.Instance.DataBaseFilePath;
+                txtRestoreFolder.Text = GestionParametre.Instance.RestoreFolder;
             }
             catch (Exception exception)
             {
                 GestionException.TraiterException(exception, "Gestion des paramètres");
             }
+        }
+
+        private bool IsDataBaseValid()
+        {
+            GestionParametre.Instance.DataBaseFilePath = txtDbFilePath.Text;
+            return _maintenanceService.IsDataBaseValid();
+        }
+
+        private bool IsBackupFolderValid()
+        {
+            var isValid = false;
+
+            try
+            {
+                isValid = Directory.Exists(txtRestoreFolder.Text);
+            }
+            catch (Exception exception)
+            {
+                GestionException.LogOnly(exception);
+            }
+
+            return isValid;
+        }
+
+        private void ValidateAndClose()
+        {
+            //for testing Purpose
+            txtDbFilePath.Text = Properties.GsCommande.Default.DataBaseFilePath;
+            txtRestoreFolder.Text = Properties.GsCommande.Default.BackUpPath;
+
+            var isCanClose = false;
+
+            if (IsDataBaseValid())
+                isCanClose = true;
+            else
+                MessageBox.Show(@"La connexion à la base de données a échoué, veuillez sélectionner un fichier valide.",
+                                @"Gestion des paramètres", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            if (IsBackupFolderValid())
+                isCanClose = true;
+            else
+                MessageBox.Show(@"Le dossier que vous avez choisie pour la sauvegarde et la restauration n'est pas valide.",
+                              @"Gestion des paramètres", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            if (isCanClose)
+                Close();
         }
 
         private void btnConfirmer_Click(object sender, EventArgs e)
@@ -76,9 +120,19 @@ namespace Com.GlagSoft.GsCommande.forms
                 return;
             }
 
+            if (!IsBackupFolderValid())
+            {
+                MessageBox.Show(
+                    @"Le dossier que vous avez choisie pour la sauvegarde et la restauration n'est pas valide.",
+                    @"Gestion des paramètres", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+
             try
             {
-                if (!IsDataBaseValid(txtDbFilePath.Text.Replace(@"\\", @"\").ToString()))
+                if (!IsDataBaseValid())
                 {
                     MessageBox.Show(
                         @"La connexion à la base de données a échoué, veuillez sélectionner un fichier valide.",
@@ -87,13 +141,14 @@ namespace Com.GlagSoft.GsCommande.forms
                     return;
                 }
 
-                Properties.GsCommande.Default.DataBaseFilePath = txtDbFilePath.Text.Replace(@"\\", @"\");
+                Properties.GsCommande.Default.DataBaseFilePath = txtDbFilePath.Text;
                 Properties.GsCommande.Default.BackUpPath = txtRestoreFolder.Text;
                 Properties.GsCommande.Default.Save();
 
-                GestionParametre.Instance.DataBaseFilePath = Properties.GsCommande.Default.DataBaseFilePath;
-                GestionParametre.Instance.RestoreFolder = Properties.GsCommande.Default.BackUpPath;
+                GestionParametre.Instance.DataBaseFilePath = txtDbFilePath.Text;
+                GestionParametre.Instance.RestoreFolder = txtRestoreFolder.Text;
 
+                //sauvegarde effectué on peut fermer !!!
                 this.Close();
             }
             catch (Exception exception)
@@ -102,19 +157,36 @@ namespace Com.GlagSoft.GsCommande.forms
             }
         }
 
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            //Exit Application.
+            Close();
+            OnCloseForm();
+        }
+
         private void btnOuvrirFichierBase_Click(object sender, EventArgs e)
         {
             openFileDialogdb.InitialDirectory = Application.StartupPath;
+
             if (openFileDialogdb.ShowDialog() == DialogResult.OK)
             {
-                string directoryPath = Path.GetDirectoryName(openFileDialogdb.FileName);
                 txtDbFilePath.Text = openFileDialogdb.FileName;
             }
         }
 
         private void btnOuvrirDossier_Click(object sender, EventArgs e)
         {
+            folderBrowserDialog.SelectedPath = Application.StartupPath;
 
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtRestoreFolder.Text = folderBrowserDialog.SelectedPath;
+            }
+        }
+
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            ValidateAndClose();
         }
     }
 }

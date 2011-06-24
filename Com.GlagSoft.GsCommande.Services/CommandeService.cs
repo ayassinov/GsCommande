@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Com.GlagSoft.GsCommande.DataAccessObjects;
+using Com.GlagSoft.GsCommande.DataAccessObjects.Framework;
 using Com.GlagSoft.GsCommande.Objects;
 
 namespace Com.GlagSoft.GsCommande.Services
@@ -13,7 +14,7 @@ namespace Com.GlagSoft.GsCommande.Services
 
         public Commande Create(Commande commande)
         {
-            _commandeData.BeginTransaction();
+            BaseData.BeginTransaction();
 
             try
             {
@@ -33,11 +34,11 @@ namespace Com.GlagSoft.GsCommande.Services
                     throw new Exception("Commande non créer");
                 }
 
-                _commandeData.Commit();
+                BaseData.Commit();
             }
             catch (Exception)
             {
-                _commandeData.RollBack();
+                BaseData.RollBack();
                 throw;
             }
 
@@ -46,7 +47,7 @@ namespace Com.GlagSoft.GsCommande.Services
 
         public void Delete(Commande commande)
         {
-            _commandeData.BeginTransaction();
+            BaseData.BeginTransaction();
             try
             {
                 bool isDeleted = _commandeData.DeleteTransaction(commande);
@@ -62,11 +63,11 @@ namespace Com.GlagSoft.GsCommande.Services
                     throw new Exception("Une erreur s'est produite lors de la suppression de la commande");
                 }
 
-                _commandeData.Commit();
+                BaseData.Commit();
             }
             catch (Exception)
             {
-                _commandeData.RollBack();
+                BaseData.RollBack();
                 throw;
             }
         }
@@ -74,7 +75,7 @@ namespace Com.GlagSoft.GsCommande.Services
         public void UpdateTransaction(Commande commande)
         {
 
-            _commandeData.BeginTransaction();
+            BaseData.BeginTransaction();
             try
             {
                 var isUpdated = _commandeData.UpdateTransaction(commande);
@@ -94,11 +95,11 @@ namespace Com.GlagSoft.GsCommande.Services
                     throw new Exception("Une erreur s'est produite lors de la mise à jour de la commande");
                 }
 
-                _commandeData.Commit();
+                BaseData.Commit();
             }
-            catch (Exception exception)
+            catch (Exception )
             {
-                _commandeData.RollBack();
+                BaseData.RollBack();
                 throw;
             }
         }

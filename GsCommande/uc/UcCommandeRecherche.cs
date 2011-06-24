@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Com.GlagSoft.GsCommande.forms;
 using Com.GlagSoft.GsCommande.Objects;
 using Com.GlagSoft.GsCommande.Outils;
 using Com.GlagSoft.GsCommande.Services;
@@ -9,6 +10,7 @@ namespace Com.GlagSoft.GsCommande.uc
 {
     public partial class UcCommandeRecherche : UserControl
     {
+        FormCommandeDetail _fomCommandeDetail = new FormCommandeDetail();
         private CommandeService _commandeservice = new CommandeService();
         private bool _toInclue = false;
 
@@ -49,11 +51,6 @@ namespace Com.GlagSoft.GsCommande.uc
             {
                 GestionException.TraiterException(exception, "Recherche commande");
             }
-        }
-
-        public void LoadLastSearch()
-        {
-
         }
 
         public void Reset()
@@ -104,6 +101,37 @@ namespace Com.GlagSoft.GsCommande.uc
                 SelectedCommande = dgvCommandes.SelectedRows[0].DataBoundItem as Commande;
                 OnChangeSelectedCommande();
             }
+        }
+
+        private void dgvCommandes_DoubleClick(object sender, EventArgs e)
+        {
+            if (dgvCommandes.SelectedRows.Count > 0)
+            {
+                SelectedCommande = dgvCommandes.SelectedRows[0].DataBoundItem as Commande;
+                OnChangeSelectedCommande();
+                OpenCommandeDetail();
+            }
+        }
+
+        private void OpenCommandeDetail()
+        {
+            _fomCommandeDetail = new FormCommandeDetail();
+            _fomCommandeDetail.CloseCommandeDetailForm += CloseCommandeDetailForm;
+            _fomCommandeDetail.SelectedCommande = SelectedCommande;
+            _fomCommandeDetail.LoadAll();
+            _fomCommandeDetail.ShowDialog();
+        }
+
+        private void CloseCommandeDetailForm()
+        {
+            _fomCommandeDetail.Close();
+            _fomCommandeDetail.Dispose();
+            Recherche(); // reload the last search result.
+        }
+
+        private void dgvCommandes_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
         }
     }
 }

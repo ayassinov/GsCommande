@@ -30,8 +30,8 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnQuitter = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnLivrer = new System.Windows.Forms.ToolStripButton();
+            this.btnAnnulerLivraison = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSupprimer = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -39,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ucCommandeAjouter1 = new Com.GlagSoft.GsCommande.uc.UcCommandeAjouter();
             this.pnlCommandeLivree = new System.Windows.Forms.Panel();
-            this.btnAnnulerLivraison = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.pnlCommandeLivree.SuspendLayout();
@@ -50,11 +49,10 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnQuitter,
+            this.toolStripSeparator1,
             this.btnSave,
-            this.toolStripSeparator2,
             this.btnLivrer,
             this.btnAnnulerLivraison,
-            this.toolStripSeparator1,
             this.btnSupprimer});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -85,11 +83,6 @@
             this.btnSave.Text = "S&auvegarder";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
-            // 
             // btnLivrer
             // 
             this.btnLivrer.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.shipping;
@@ -100,6 +93,17 @@
             this.btnLivrer.Size = new System.Drawing.Size(72, 36);
             this.btnLivrer.Text = "&Livrer";
             this.btnLivrer.Click += new System.EventHandler(this.btnLivrer_Click);
+            // 
+            // btnAnnulerLivraison
+            // 
+            this.btnAnnulerLivraison.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.No;
+            this.btnAnnulerLivraison.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAnnulerLivraison.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnAnnulerLivraison.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAnnulerLivraison.Name = "btnAnnulerLivraison";
+            this.btnAnnulerLivraison.Size = new System.Drawing.Size(127, 36);
+            this.btnAnnulerLivraison.Text = "Annuler Livraison";
+            this.btnAnnulerLivraison.Click += new System.EventHandler(this.btnAnnulerLivraison_Click);
             // 
             // toolStripSeparator1
             // 
@@ -164,17 +168,6 @@
             this.pnlCommandeLivree.TabIndex = 7;
             this.pnlCommandeLivree.Visible = false;
             // 
-            // btnAnnulerLivraison
-            // 
-            this.btnAnnulerLivraison.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.No;
-            this.btnAnnulerLivraison.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnnulerLivraison.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnAnnulerLivraison.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAnnulerLivraison.Name = "btnAnnulerLivraison";
-            this.btnAnnulerLivraison.Size = new System.Drawing.Size(127, 36);
-            this.btnAnnulerLivraison.Text = "Annuler Livraison";
-            this.btnAnnulerLivraison.Click += new System.EventHandler(this.btnAnnulerLivraison_Click);
-            // 
             // FormCommandeDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,7 +202,6 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripButton btnQuitter;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton btnLivrer;
         private System.Windows.Forms.ToolStripButton btnSupprimer;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
