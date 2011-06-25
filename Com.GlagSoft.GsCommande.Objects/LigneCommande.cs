@@ -30,6 +30,16 @@ namespace Com.GlagSoft.GsCommande.Objects
             }
         }
 
+        public string CodeProduit
+        {
+            get
+            {
+                if (this.Produit == null)
+                    return string.Empty;
+                return Produit.Code.ToString();
+            }
+        }
+
         public LigneCommande()
         {
             StateEnum = State.Unchanged;

@@ -125,7 +125,12 @@ namespace Com.GlagSoft.GsCommande.Services
 
         public List<Commande> Recherche(Commande commande)
         {
-            return _commandeData.Recherche(commande);
+            var commandes = _commandeData.Recherche(commande);
+            foreach (var cmd in commandes)
+            {
+                cmd.LigneCommande = _ligneCommandeService.ListByCommande(cmd);
+            }
+            return commandes;
         }
 
 

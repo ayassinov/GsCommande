@@ -27,7 +27,7 @@ namespace Com.GlagSoft.GsCommande
         {
             try
             {
-                GestionParametre.Instance.DataBaseFilePath = Properties.GsCommande.Default.DataBaseFilePath;
+                GestionParametre.Instance.DataBaseFilePath = Properties.Settings.Default.DataBaseFilePath;
             }
             catch (Exception exception)
             {
@@ -45,7 +45,7 @@ namespace Com.GlagSoft.GsCommande
 
             try
             {
-                GestionParametre.Instance.RestoreFolder = Properties.GsCommande.Default.BackUpPath;
+                GestionParametre.Instance.RestoreFolder = Properties.Settings.Default.BackUpPath;
                 isValide = Directory.Exists(GestionParametre.Instance.RestoreFolder);
             }
             catch (Exception exception)

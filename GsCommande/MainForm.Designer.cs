@@ -67,6 +67,7 @@
             this.ucListeProduit1 = new Com.GlagSoft.GsCommande.uc.UcListeProduit();
             this.ucCommandeRecherche1 = new Com.GlagSoft.GsCommande.uc.UcCommandeRecherche();
             this.ucCommandeAjouter1 = new Com.GlagSoft.GsCommande.uc.UcCommandeAjouter();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -263,6 +264,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnSauvegarder,
             this.btnDetail,
+            this.toolStripButton1,
             this.btnImprimer,
             this.toolStripSeparator1,
             this.btnAjouterCommande,
@@ -418,6 +420,15 @@
             this.ucCommandeAjouter1.Size = new System.Drawing.Size(708, 326);
             this.ucCommandeAjouter1.TabIndex = 0;
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 37);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,5 +496,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem mnListerProduit;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

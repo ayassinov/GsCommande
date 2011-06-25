@@ -7,7 +7,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
 {
     public class SqliteHelper : IDisposable
     {
-        private static string ConnString = GestionParametre.Instance.ConnexionString;
+        //private static string ConnString = GestionParametre.Instance.ConnexionString;
 
         private IDbConnection _connection;
 
@@ -19,7 +19,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects.Framework
 
         private IDbConnection Connection
         {
-            get { return _connection ?? (_connection = new SQLiteConnection(ConnString)); }
+            get { return _connection ?? (_connection = new SQLiteConnection(GestionParametre.Instance.ConnexionString)); }
         }
 
         public SqliteHelper(string sqlText)

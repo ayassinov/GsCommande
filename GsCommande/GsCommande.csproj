@@ -62,10 +62,19 @@
     <ManifestKeyFile>GsCommande_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Com.GlagSoft.GsCommande.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\SolutionInfo.cs">
@@ -107,12 +116,6 @@
     <Compile Include="forms\FormProduitSelect.Designer.cs">
       <DependentUpon>FormProduitSelect.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\GsCommande.cs" />
-    <Compile Include="Properties\GsCommande.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>GsCommande.settings</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +128,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="uc\UcCommandeAjouter.cs">
       <SubType>UserControl</SubType>
@@ -147,11 +155,8 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\Com.GlagSoft.GsCommande.Objects.BbFile.datasource" />
-    <None Include="Properties\GsCommande.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>GsCommande.Designer.cs</LastGenOutput>
-    </None>
     <None Include="Properties\DataSources\Com.GlagSoft.GsCommande.Objects.Commande.datasource" />
     <None Include="Properties\DataSources\Com.GlagSoft.GsCommande.Objects.Famille.datasource" />
     <None Include="Properties\DataSources\Com.GlagSoft.GsCommande.Objects.LigneCommande.datasource" />
@@ -206,6 +211,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Resources\Create.png" />
   </ItemGroup>
   <ItemGroup>

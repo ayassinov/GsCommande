@@ -78,6 +78,7 @@ namespace Com.GlagSoft.GsCommande.uc
         private void btnAll_Click(object sender, EventArgs e)
         {
             _toInclue = false;
+            Reset();
             Recherche();
         }
 

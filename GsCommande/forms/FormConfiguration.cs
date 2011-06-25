@@ -76,8 +76,8 @@ namespace Com.GlagSoft.GsCommande.forms
         private void ValidateAndClose()
         {
             //for testing Purpose
-            txtDbFilePath.Text = Properties.GsCommande.Default.DataBaseFilePath;
-            txtRestoreFolder.Text = Properties.GsCommande.Default.BackUpPath;
+            txtDbFilePath.Text = Properties.Settings.Default.DataBaseFilePath;
+            txtRestoreFolder.Text = Properties.Settings.Default.BackUpPath;
 
             var isCanClose = false;
 
@@ -141,9 +141,9 @@ namespace Com.GlagSoft.GsCommande.forms
                     return;
                 }
 
-                Properties.GsCommande.Default.DataBaseFilePath = txtDbFilePath.Text;
-                Properties.GsCommande.Default.BackUpPath = txtRestoreFolder.Text;
-                Properties.GsCommande.Default.Save();
+                Properties.Settings.Default.DataBaseFilePath = txtDbFilePath.Text;
+                Properties.Settings.Default.BackUpPath = txtRestoreFolder.Text;
+                Properties.Settings.Default.Save();
 
                 GestionParametre.Instance.DataBaseFilePath = txtDbFilePath.Text;
                 GestionParametre.Instance.RestoreFolder = txtRestoreFolder.Text;
