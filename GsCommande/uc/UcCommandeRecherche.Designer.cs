@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker = new Com.GlagSoft.GsCommande.Outils.NullableDateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,6 +57,7 @@
             this.grbDetail = new System.Windows.Forms.GroupBox();
             this.dgvLigneCommande = new System.Windows.Forms.DataGridView();
             this.ligneCommandeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.libelleFamilleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.libelleProduitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qtekiloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +72,10 @@
             this.grbDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLigneCommande)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ligneCommandeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -95,7 +100,7 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker.Location = new System.Drawing.Point(627, 17);
+            this.dateTimePicker.Location = new System.Drawing.Point(586, 18);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.NullValue = "_";
             this.dateTimePicker.Size = new System.Drawing.Size(96, 20);
@@ -105,7 +110,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(585, 21);
+            this.label4.Location = new System.Drawing.Point(544, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 8;
@@ -114,7 +119,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(244, 20);
+            this.label2.Location = new System.Drawing.Point(223, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 5;
@@ -134,7 +139,7 @@
             // 
             // txtClient
             // 
-            this.txtClient.Location = new System.Drawing.Point(289, 17);
+            this.txtClient.Location = new System.Drawing.Point(268, 18);
             this.txtClient.Name = "txtClient";
             this.txtClient.Size = new System.Drawing.Size(255, 20);
             this.txtClient.TabIndex = 3;
@@ -225,9 +230,10 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvCommandes);
-            this.groupBox2.Location = new System.Drawing.Point(0, 110);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(449, 316);
+            this.groupBox2.Size = new System.Drawing.Size(734, 316);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Commandes";
@@ -237,9 +243,9 @@
             this.dgvCommandes.AllowUserToAddRows = false;
             this.dgvCommandes.AllowUserToDeleteRows = false;
             this.dgvCommandes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvCommandes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvCommandes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCommandes.AutoGenerateColumns = false;
             this.dgvCommandes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCommandes.BackgroundColor = System.Drawing.Color.White;
@@ -257,9 +263,8 @@
             this.dgvCommandes.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
             this.dgvCommandes.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvCommandes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCommandes.Size = new System.Drawing.Size(443, 297);
+            this.dgvCommandes.Size = new System.Drawing.Size(728, 297);
             this.dgvCommandes.TabIndex = 0;
-            this.dgvCommandes.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCommandes_RowHeaderMouseDoubleClick);
             this.dgvCommandes.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dgvCommandes.DoubleClick += new System.EventHandler(this.dgvCommandes_DoubleClick);
             // 
@@ -298,9 +303,10 @@
             // grbDetail
             // 
             this.grbDetail.Controls.Add(this.dgvLigneCommande);
-            this.grbDetail.Location = new System.Drawing.Point(452, 110);
+            this.grbDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grbDetail.Location = new System.Drawing.Point(0, 0);
             this.grbDetail.Name = "grbDetail";
-            this.grbDetail.Size = new System.Drawing.Size(584, 313);
+            this.grbDetail.Size = new System.Drawing.Size(300, 316);
             this.grbDetail.TabIndex = 2;
             this.grbDetail.TabStop = false;
             this.grbDetail.Text = "Detail de la commande :";
@@ -310,23 +316,23 @@
             this.dgvLigneCommande.AllowUserToAddRows = false;
             this.dgvLigneCommande.AllowUserToDeleteRows = false;
             this.dgvLigneCommande.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvLigneCommande.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvLigneCommande.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvLigneCommande.AutoGenerateColumns = false;
             this.dgvLigneCommande.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLigneCommande.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLigneCommande.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLigneCommande.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvLigneCommande.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLigneCommande.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.libelleFamilleDataGridViewTextBoxColumn,
@@ -334,24 +340,24 @@
             this.qtekiloDataGridViewTextBoxColumn,
             this.qteDemiKiloDataGridViewTextBoxColumn});
             this.dgvLigneCommande.DataSource = this.ligneCommandeBindingSource;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLigneCommande.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvLigneCommande.Dock = System.Windows.Forms.DockStyle.Right;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLigneCommande.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvLigneCommande.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLigneCommande.GridColor = System.Drawing.Color.White;
-            this.dgvLigneCommande.Location = new System.Drawing.Point(9, 16);
+            this.dgvLigneCommande.Location = new System.Drawing.Point(3, 16);
             this.dgvLigneCommande.MultiSelect = false;
             this.dgvLigneCommande.Name = "dgvLigneCommande";
             this.dgvLigneCommande.ReadOnly = true;
-            this.dgvLigneCommande.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
+            this.dgvLigneCommande.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
             this.dgvLigneCommande.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvLigneCommande.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLigneCommande.Size = new System.Drawing.Size(572, 294);
+            this.dgvLigneCommande.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvLigneCommande.Size = new System.Drawing.Size(294, 297);
             this.dgvLigneCommande.TabIndex = 3;
             // 
             // ligneCommandeBindingSource
@@ -359,31 +365,50 @@
             this.ligneCommandeBindingSource.DataMember = "LigneCommande";
             this.ligneCommandeBindingSource.DataSource = this.commandeBindingSource;
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 110);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.grbDetail);
+            this.splitContainer1.Size = new System.Drawing.Size(1039, 316);
+            this.splitContainer1.SplitterDistance = 734;
+            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.TabIndex = 3;
+            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
+            // 
             // libelleFamilleDataGridViewTextBoxColumn
             // 
             this.libelleFamilleDataGridViewTextBoxColumn.DataPropertyName = "LibelleFamille";
-            this.libelleFamilleDataGridViewTextBoxColumn.HeaderText = "LibelleFamille";
+            this.libelleFamilleDataGridViewTextBoxColumn.HeaderText = "Famille";
             this.libelleFamilleDataGridViewTextBoxColumn.Name = "libelleFamilleDataGridViewTextBoxColumn";
             this.libelleFamilleDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // libelleProduitDataGridViewTextBoxColumn
             // 
             this.libelleProduitDataGridViewTextBoxColumn.DataPropertyName = "LibelleProduit";
-            this.libelleProduitDataGridViewTextBoxColumn.HeaderText = "LibelleProduit";
+            this.libelleProduitDataGridViewTextBoxColumn.HeaderText = "Produit";
             this.libelleProduitDataGridViewTextBoxColumn.Name = "libelleProduitDataGridViewTextBoxColumn";
             this.libelleProduitDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // qtekiloDataGridViewTextBoxColumn
             // 
             this.qtekiloDataGridViewTextBoxColumn.DataPropertyName = "Qtekilo";
-            this.qtekiloDataGridViewTextBoxColumn.HeaderText = "Qtekilo";
+            this.qtekiloDataGridViewTextBoxColumn.HeaderText = "1 Kg";
             this.qtekiloDataGridViewTextBoxColumn.Name = "qtekiloDataGridViewTextBoxColumn";
             this.qtekiloDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // qteDemiKiloDataGridViewTextBoxColumn
             // 
             this.qteDemiKiloDataGridViewTextBoxColumn.DataPropertyName = "QteDemiKilo";
-            this.qteDemiKiloDataGridViewTextBoxColumn.HeaderText = "QteDemiKilo";
+            this.qteDemiKiloDataGridViewTextBoxColumn.HeaderText = "1/2 Kg";
             this.qteDemiKiloDataGridViewTextBoxColumn.Name = "qteDemiKiloDataGridViewTextBoxColumn";
             this.qteDemiKiloDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -391,8 +416,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.grbDetail);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.groupBox1);
             this.Name = "UcCommandeRecherche";
             this.Size = new System.Drawing.Size(1039, 426);
@@ -407,6 +431,10 @@
             this.grbDetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLigneCommande)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ligneCommandeBindingSource)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -436,10 +464,11 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.GroupBox grbDetail;
         private System.Windows.Forms.DataGridView dgvLigneCommande;
+        private System.Windows.Forms.BindingSource ligneCommandeBindingSource;
+        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridViewTextBoxColumn libelleFamilleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn libelleProduitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn qtekiloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn qteDemiKiloDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource ligneCommandeBindingSource;
     }
 }

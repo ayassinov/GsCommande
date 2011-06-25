@@ -44,8 +44,10 @@ namespace Com.GlagSoft.GsCommande.uc
                                    };
 
                 List<Commande> commandes = _commandeservice.Recherche(commande);
-                dgvCommandes.DataSource = commandes;
-                //OnChangeSelectedCommande();
+                commandeBindingSource.DataSource = commandes;
+                ligneCommandeBindingSource.DataSource = commandeBindingSource;
+                dgvCommandes.AutoResizeColumns();
+                dgvLigneCommande.AutoResizeColumns();
             }
             catch (Exception exception)
             {
@@ -60,7 +62,8 @@ namespace Com.GlagSoft.GsCommande.uc
             txtClient.Text = string.Empty;
             numericUpDown1.Text = string.Empty;
             numericUpDown1.Value = 0;
-            dgvCommandes.DataSource = new List<Commande>();
+            commandeBindingSource.DataSource = new List<Commande>();
+         //   ligneCommandeBindingSource.DataSource = new List<LigneCommande>();
             OnChangeSelectedCommande();
         }
 
@@ -130,9 +133,11 @@ namespace Com.GlagSoft.GsCommande.uc
             Recherche(); // reload the last search result.
         }
 
-        private void dgvCommandes_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+     
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
         {
-
-        }
+dgvCommandes.AutoResizeColumns();
+                dgvLigneCommande.AutoResizeColumns();
+        } 
     }
 }
