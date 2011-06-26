@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 using Com.GlagSoft.GsCommande.forms;
 using Com.GlagSoft.GsCommande.Objects;
@@ -63,7 +64,7 @@ namespace Com.GlagSoft.GsCommande.uc
             numericUpDown1.Text = string.Empty;
             numericUpDown1.Value = 0;
             commandeBindingSource.DataSource = new List<Commande>();
-         //   ligneCommandeBindingSource.DataSource = new List<LigneCommande>();
+            //   ligneCommandeBindingSource.DataSource = new List<LigneCommande>();
             OnChangeSelectedCommande();
         }
 
@@ -133,11 +134,15 @@ namespace Com.GlagSoft.GsCommande.uc
             Recherche(); // reload the last search result.
         }
 
-     
         private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
         {
-dgvCommandes.AutoResizeColumns();
-                dgvLigneCommande.AutoResizeColumns();
-        } 
+            dgvCommandes.AutoResizeColumns();
+            dgvLigneCommande.AutoResizeColumns();
+        }
+
+        private void dgvCommandes_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.dgvCommandes.Sort(dgvCommandes.Columns[e.ColumnIndex], ListSortDirection.Ascending);
+        }
     }
 }
