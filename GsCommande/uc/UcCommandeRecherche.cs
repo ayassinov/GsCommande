@@ -49,6 +49,7 @@ namespace Com.GlagSoft.GsCommande.uc
                 ligneCommandeBindingSource.DataSource = commandeBindingSource;
                 dgvCommandes.AutoResizeColumns();
                 dgvLigneCommande.AutoResizeColumns();
+                OnChangeSelectedCommande();
             }
             catch (Exception exception)
             {
@@ -64,7 +65,6 @@ namespace Com.GlagSoft.GsCommande.uc
             numericUpDown1.Text = string.Empty;
             numericUpDown1.Value = 0;
             commandeBindingSource.DataSource = new List<Commande>();
-            //   ligneCommandeBindingSource.DataSource = new List<LigneCommande>();
             OnChangeSelectedCommande();
         }
 
