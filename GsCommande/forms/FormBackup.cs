@@ -75,8 +75,6 @@ namespace Com.GlagSoft.GsCommande.forms
 
         private void btnRestaurer_Click(object sender, EventArgs e)
         {
-
-
             if (dgvdbFiles.SelectedRows.Count > 0)
             {
                 try
@@ -93,7 +91,7 @@ namespace Com.GlagSoft.GsCommande.forms
 
                     _maintenanceService.RestaurerBase(selectedfile);
 
-                    LoadAll();
+                    Close();
                 }
                 catch (Exception exception)
                 {

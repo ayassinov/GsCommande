@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using Com.GlagSoft.GsCommande.forms;
 using Com.GlagSoft.GsCommande.Objects;
@@ -42,6 +43,8 @@ namespace Com.GlagSoft.GsCommande
             {
                 AfficherAjoutCommande();
             }
+
+            toolStripStatusLabel1.Text = string.Format("Base de données crée le : {0}", GestionParametre.Instance.DataBaseCreationDate);
         }
 
         private void OpenGestionProduit()
@@ -315,8 +318,8 @@ namespace Com.GlagSoft.GsCommande
             var formBackup = new FormBackup();
             formBackup.LoadAll();
             formBackup.ShowDialog();
+            toolStripStatusLabel1.Text = string.Format("Base de données crée le : {0}", GestionParametre.Instance.DataBaseCreationDate);
+            AfficherAjoutCommande();
         }
-
-
     }
 }

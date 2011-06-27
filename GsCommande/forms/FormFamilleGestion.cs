@@ -10,9 +10,11 @@ namespace Com.GlagSoft.GsCommande.forms
     partial class FormFamilleGestion : Form
     {
         private readonly FamilleService _familleService = new FamilleService();
+
         private Famille _famille;
-        
+
         public delegate void CloseFormHandler();
+
         public event CloseFormHandler CloseGestionFamilleForm;
 
         public FormFamilleGestion()

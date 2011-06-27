@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using Com.GlagSoft.GsCommande.Outils;
+using Com.GlagSoft.GsCommande.Properties;
 using Com.GlagSoft.GsCommande.Services;
 
 namespace Com.GlagSoft.GsCommande
@@ -16,6 +17,7 @@ namespace Com.GlagSoft.GsCommande
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            LoadDefaultSettings();
             var isDataBaseValide = IsDataBaseValid();
             var isDirectoryValide = IsBackupFolderValide();
             var mainform = new MainForm(isDataBaseValide && isDirectoryValide);
@@ -54,6 +56,21 @@ namespace Com.GlagSoft.GsCommande
             }
 
             return isValide;
+        }
+
+        private static void LoadDefaultSettings()
+        {
+            if (string.IsNullOrEmpty(Settings.Default.DataBaseFilePath))
+            {
+                Settings.Default.DataBaseFilePath = GestionParametre.Instance.LoadDbFileDefaultValue();
+                Settings.Default.Save();
+            }
+
+            if (string.IsNullOrEmpty(Settings.Default.BackUpPath))
+            {
+                Settings.Default.BackUpPath = GestionParametre.Instance.LoadBackupDefaultValue();
+                Settings.Default.Save();
+            }
         }
     }
 }

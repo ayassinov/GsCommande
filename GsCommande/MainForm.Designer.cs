@@ -67,6 +67,8 @@
             this.ucListeProduit1 = new Com.GlagSoft.GsCommande.uc.UcListeProduit();
             this.ucCommandeRecherche1 = new Com.GlagSoft.GsCommande.uc.UcCommandeRecherche();
             this.ucCommandeAjouter1 = new Com.GlagSoft.GsCommande.uc.UcCommandeAjouter();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -74,9 +76,11 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(3, 412);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(3, 433);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(708, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(764, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -91,7 +95,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 2);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(708, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(764, 26);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -276,7 +280,7 @@
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(708, 40);
+            this.toolStrip1.Size = new System.Drawing.Size(764, 40);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -346,7 +350,7 @@
             this.btnListeProduits.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnListeProduits.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnListeProduits.Name = "btnListeProduits";
-            this.btnListeProduits.Size = new System.Drawing.Size(127, 28);
+            this.btnListeProduits.Size = new System.Drawing.Size(127, 37);
             this.btnListeProduits.Text = "&Liste des Produits";
             this.btnListeProduits.ToolTipText = "Liste des Produits (F4)";
             this.btnListeProduits.Click += new System.EventHandler(this.btnListeProduits_Click);
@@ -387,7 +391,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 66);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(708, 346);
+            this.panel1.Size = new System.Drawing.Size(764, 367);
             this.panel1.TabIndex = 4;
             // 
             // ucListeProduit1
@@ -396,7 +400,7 @@
             this.ucListeProduit1.IsShowPrintButton = false;
             this.ucListeProduit1.Location = new System.Drawing.Point(0, 20);
             this.ucListeProduit1.Name = "ucListeProduit1";
-            this.ucListeProduit1.Size = new System.Drawing.Size(708, 326);
+            this.ucListeProduit1.Size = new System.Drawing.Size(764, 347);
             this.ucListeProduit1.TabIndex = 5;
             // 
             // ucCommandeRecherche1
@@ -405,7 +409,7 @@
             this.ucCommandeRecherche1.Location = new System.Drawing.Point(0, 20);
             this.ucCommandeRecherche1.Name = "ucCommandeRecherche1";
             this.ucCommandeRecherche1.SelectedCommande = null;
-            this.ucCommandeRecherche1.Size = new System.Drawing.Size(708, 326);
+            this.ucCommandeRecherche1.Size = new System.Drawing.Size(764, 347);
             this.ucCommandeRecherche1.TabIndex = 1;
             // 
             // ucCommandeAjouter1
@@ -415,14 +419,19 @@
             this.ucCommandeAjouter1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucCommandeAjouter1.Location = new System.Drawing.Point(0, 20);
             this.ucCommandeAjouter1.Name = "ucCommandeAjouter1";
-            this.ucCommandeAjouter1.Size = new System.Drawing.Size(708, 326);
+            this.ucCommandeAjouter1.Size = new System.Drawing.Size(764, 347);
             this.ucCommandeAjouter1.TabIndex = 0;
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 434);
+            this.ClientSize = new System.Drawing.Size(770, 455);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -435,6 +444,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GsCommande - Version 1.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -485,5 +496,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem mnListerProduit;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
