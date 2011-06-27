@@ -161,6 +161,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="NLog.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\Com.GlagSoft.GsCommande.Objects.BbFile.datasource" />
     <None Include="Properties\DataSources\Com.GlagSoft.GsCommande.Objects.Commande.datasource" />
@@ -172,6 +173,7 @@
     <Reference Include="FastReport, Version=1.6.19.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL" />
     <Reference Include="FastReport.Bars, Version=1.6.19.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c" />
     <Reference Include="FastReport.Editor, Version=1.6.19.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c" />
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
