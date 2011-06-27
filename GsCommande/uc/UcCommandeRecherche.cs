@@ -108,7 +108,7 @@ namespace Com.GlagSoft.GsCommande.uc
             }
         }
 
-        private void dgvCommandes_DoubleClick(object sender, EventArgs e)
+        private void dgvCommandes_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (dgvCommandes.SelectedRows.Count > 0)
             {
@@ -116,22 +116,6 @@ namespace Com.GlagSoft.GsCommande.uc
                 OnChangeSelectedCommande();
                 OpenCommandeDetail();
             }
-        }
-
-        private void OpenCommandeDetail()
-        {
-            _fomCommandeDetail = new FormCommandeDetail();
-            _fomCommandeDetail.CloseCommandeDetailForm += CloseCommandeDetailForm;
-            _fomCommandeDetail.SelectedCommande = SelectedCommande;
-            _fomCommandeDetail.LoadAll();
-            _fomCommandeDetail.ShowDialog();
-        }
-
-        private void CloseCommandeDetailForm()
-        {
-            _fomCommandeDetail.Close();
-            _fomCommandeDetail.Dispose();
-            Recherche(); // reload the last search result.
         }
 
         private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
@@ -142,6 +126,9 @@ namespace Com.GlagSoft.GsCommande.uc
 
         private void dgvCommandes_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (dgvCommandes.RowCount == 0)
+                return;
+
             Sort(e.ColumnIndex);
         }
 
@@ -177,6 +164,22 @@ namespace Com.GlagSoft.GsCommande.uc
             newColumn.HeaderCell.SortGlyphDirection =
                 direction == ListSortDirection.Ascending ?
                 SortOrder.Ascending : SortOrder.Descending;
+        }
+
+        private void OpenCommandeDetail()
+        {
+            _fomCommandeDetail = new FormCommandeDetail();
+            _fomCommandeDetail.CloseCommandeDetailForm += CloseCommandeDetailForm;
+            _fomCommandeDetail.SelectedCommande = SelectedCommande;
+            _fomCommandeDetail.LoadAll();
+            _fomCommandeDetail.ShowDialog();
+        }
+
+        private void CloseCommandeDetailForm()
+        {
+            _fomCommandeDetail.Close();
+            _fomCommandeDetail.Dispose();
+            Recherche(); // reload the last search result.
         }
     }
 }

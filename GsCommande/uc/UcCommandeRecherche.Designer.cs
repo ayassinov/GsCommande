@@ -49,6 +49,10 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvCommandes = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateCommandeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomPrenomClientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isLivreeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.commandeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grbDetail = new System.Windows.Forms.GroupBox();
             this.dgvLigneCommande = new System.Windows.Forms.DataGridView();
@@ -58,10 +62,6 @@
             this.qteDemiKiloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ligneCommandeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateCommandeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomPrenomClientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isLivreeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
@@ -266,8 +266,39 @@
             this.dgvCommandes.Size = new System.Drawing.Size(728, 297);
             this.dgvCommandes.TabIndex = 0;
             this.dgvCommandes.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCommandes_ColumnHeaderMouseClick);
+            this.dgvCommandes.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCommandes_RowHeaderMouseDoubleClick);
             this.dgvCommandes.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            this.dgvCommandes.DoubleClick += new System.EventHandler(this.dgvCommandes_DoubleClick);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dateCommandeDataGridViewTextBoxColumn
+            // 
+            this.dateCommandeDataGridViewTextBoxColumn.DataPropertyName = "DateCommande";
+            this.dateCommandeDataGridViewTextBoxColumn.HeaderText = "Date commande";
+            this.dateCommandeDataGridViewTextBoxColumn.Name = "dateCommandeDataGridViewTextBoxColumn";
+            this.dateCommandeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateCommandeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // nomPrenomClientDataGridViewTextBoxColumn
+            // 
+            this.nomPrenomClientDataGridViewTextBoxColumn.DataPropertyName = "NomPrenomClient";
+            this.nomPrenomClientDataGridViewTextBoxColumn.HeaderText = "Nom Client";
+            this.nomPrenomClientDataGridViewTextBoxColumn.Name = "nomPrenomClientDataGridViewTextBoxColumn";
+            this.nomPrenomClientDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomPrenomClientDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // isLivreeDataGridViewCheckBoxColumn
+            // 
+            this.isLivreeDataGridViewCheckBoxColumn.DataPropertyName = "IsLivree";
+            this.isLivreeDataGridViewCheckBoxColumn.HeaderText = "Est livré";
+            this.isLivreeDataGridViewCheckBoxColumn.Name = "isLivreeDataGridViewCheckBoxColumn";
+            this.isLivreeDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // commandeBindingSource
             // 
@@ -384,37 +415,6 @@
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 3;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Code";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dateCommandeDataGridViewTextBoxColumn
-            // 
-            this.dateCommandeDataGridViewTextBoxColumn.DataPropertyName = "DateCommande";
-            this.dateCommandeDataGridViewTextBoxColumn.HeaderText = "Date commande";
-            this.dateCommandeDataGridViewTextBoxColumn.Name = "dateCommandeDataGridViewTextBoxColumn";
-            this.dateCommandeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateCommandeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // nomPrenomClientDataGridViewTextBoxColumn
-            // 
-            this.nomPrenomClientDataGridViewTextBoxColumn.DataPropertyName = "NomPrenomClient";
-            this.nomPrenomClientDataGridViewTextBoxColumn.HeaderText = "Nom Client";
-            this.nomPrenomClientDataGridViewTextBoxColumn.Name = "nomPrenomClientDataGridViewTextBoxColumn";
-            this.nomPrenomClientDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nomPrenomClientDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // isLivreeDataGridViewCheckBoxColumn
-            // 
-            this.isLivreeDataGridViewCheckBoxColumn.DataPropertyName = "IsLivree";
-            this.isLivreeDataGridViewCheckBoxColumn.HeaderText = "Est livré";
-            this.isLivreeDataGridViewCheckBoxColumn.Name = "isLivreeDataGridViewCheckBoxColumn";
-            this.isLivreeDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // UcCommandeRecherche
             // 
