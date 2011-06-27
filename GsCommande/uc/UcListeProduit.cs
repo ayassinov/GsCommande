@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 using Com.GlagSoft.GsCommande.Objects;
 using Com.GlagSoft.GsCommande.Outils;
@@ -10,7 +11,7 @@ namespace Com.GlagSoft.GsCommande.uc
     public partial class UcListeProduit : UserControl
     {
         private ProduitService _produitService = new ProduitService();
-        List<Produit> _produits = new List<Produit>();
+        SortableBindingList<Produit> _produits = new SortableBindingList<Produit>();
 
         public bool IsShowPrintButton { get; set; }
 
@@ -46,6 +47,48 @@ namespace Com.GlagSoft.GsCommande.uc
                 GestionException.TraiterException(exception, "Liste des produits");
                 throw;
             }
+        }
+
+        private void dgvProduits_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dgvProduits.RowCount == 0)
+                return;
+
+            Sort(e.ColumnIndex);
+        }
+
+        private void Sort(int selectedColumnIndex)
+        {
+
+            ListSortDirection direction;
+            var newColumn = dgvProduits.Columns[selectedColumnIndex];
+            var oldColumn = dgvProduits.SortedColumn;
+            // If oldColumn is null, then the DataGridView is not currently sorted.
+            if (oldColumn != null)
+            {
+                // Sort the same column again, reversing the SortOrder.
+                if (oldColumn == newColumn &&
+                    dgvProduits.SortOrder == SortOrder.Ascending)
+                {
+                    direction = ListSortDirection.Descending;
+                }
+                else
+                {
+                    // Sort a new column and remove the old SortGlyph.
+                    direction = ListSortDirection.Ascending;
+                    oldColumn.HeaderCell.SortGlyphDirection = SortOrder.None;
+                }
+            }
+            else
+            {
+                direction = ListSortDirection.Ascending;
+            }
+
+            dgvProduits.Sort(newColumn, direction);
+
+            newColumn.HeaderCell.SortGlyphDirection =
+                direction == ListSortDirection.Ascending ?
+                SortOrder.Ascending : SortOrder.Descending;
         }
     }
 }

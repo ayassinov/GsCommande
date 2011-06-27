@@ -38,6 +38,9 @@
             FastReport.PreviewSettings previewSettings1 = new FastReport.PreviewSettings();
             FastReport.ReportSettings reportSettings1 = new FastReport.ReportSettings();
             this.dgvProduits = new System.Windows.Forms.DataGridView();
+            this.produitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportListeProduit = new FastReport.Report();
+            this.environmentSettings1 = new FastReport.EnvironmentSettings();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.familleStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.libelleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,9 +48,6 @@
             this.totalQteDemiKiloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.familleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.produitBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportListeProduit = new FastReport.Report();
-            this.environmentSettings1 = new FastReport.EnvironmentSettings();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportListeProduit)).BeginInit();
@@ -93,59 +93,7 @@
             this.dgvProduits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProduits.Size = new System.Drawing.Size(587, 357);
             this.dgvProduits.TabIndex = 0;
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Code Produit";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // familleStringDataGridViewTextBoxColumn
-            // 
-            this.familleStringDataGridViewTextBoxColumn.DataPropertyName = "FamilleString";
-            this.familleStringDataGridViewTextBoxColumn.FillWeight = 300F;
-            this.familleStringDataGridViewTextBoxColumn.HeaderText = "Libelle Famille";
-            this.familleStringDataGridViewTextBoxColumn.Name = "familleStringDataGridViewTextBoxColumn";
-            this.familleStringDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // libelleDataGridViewTextBoxColumn
-            // 
-            this.libelleDataGridViewTextBoxColumn.DataPropertyName = "Libelle";
-            this.libelleDataGridViewTextBoxColumn.FillWeight = 300F;
-            this.libelleDataGridViewTextBoxColumn.HeaderText = "Libelle Produit";
-            this.libelleDataGridViewTextBoxColumn.Name = "libelleDataGridViewTextBoxColumn";
-            this.libelleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalQteKiloDataGridViewTextBoxColumn
-            // 
-            this.totalQteKiloDataGridViewTextBoxColumn.DataPropertyName = "TotalQteKilo";
-            this.totalQteKiloDataGridViewTextBoxColumn.HeaderText = "Total Qte Kg";
-            this.totalQteKiloDataGridViewTextBoxColumn.Name = "totalQteKiloDataGridViewTextBoxColumn";
-            this.totalQteKiloDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalQteDemiKiloDataGridViewTextBoxColumn
-            // 
-            this.totalQteDemiKiloDataGridViewTextBoxColumn.DataPropertyName = "TotalQteDemiKilo";
-            this.totalQteDemiKiloDataGridViewTextBoxColumn.HeaderText = "Total Qte 1/2 Kg";
-            this.totalQteDemiKiloDataGridViewTextBoxColumn.Name = "totalQteDemiKiloDataGridViewTextBoxColumn";
-            this.totalQteDemiKiloDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // familleDataGridViewTextBoxColumn
-            // 
-            this.familleDataGridViewTextBoxColumn.DataPropertyName = "Famille";
-            this.familleDataGridViewTextBoxColumn.HeaderText = "Famille";
-            this.familleDataGridViewTextBoxColumn.Name = "familleDataGridViewTextBoxColumn";
-            this.familleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.familleDataGridViewTextBoxColumn.Visible = false;
+            this.dgvProduits.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProduits_ColumnHeaderMouseClick);
             // 
             // produitBindingSource
             // 
@@ -178,6 +126,64 @@
             this.environmentSettings1.ReportSettings = reportSettings1;
             this.environmentSettings1.UIStyle = FastReport.Utils.UIStyle.Office2007Blue;
             // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Code Produit";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // familleStringDataGridViewTextBoxColumn
+            // 
+            this.familleStringDataGridViewTextBoxColumn.DataPropertyName = "FamilleString";
+            this.familleStringDataGridViewTextBoxColumn.FillWeight = 300F;
+            this.familleStringDataGridViewTextBoxColumn.HeaderText = "Libelle Famille";
+            this.familleStringDataGridViewTextBoxColumn.Name = "familleStringDataGridViewTextBoxColumn";
+            this.familleStringDataGridViewTextBoxColumn.ReadOnly = true;
+            this.familleStringDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // libelleDataGridViewTextBoxColumn
+            // 
+            this.libelleDataGridViewTextBoxColumn.DataPropertyName = "Libelle";
+            this.libelleDataGridViewTextBoxColumn.FillWeight = 300F;
+            this.libelleDataGridViewTextBoxColumn.HeaderText = "Libelle Produit";
+            this.libelleDataGridViewTextBoxColumn.Name = "libelleDataGridViewTextBoxColumn";
+            this.libelleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.libelleDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // totalQteKiloDataGridViewTextBoxColumn
+            // 
+            this.totalQteKiloDataGridViewTextBoxColumn.DataPropertyName = "TotalQteKilo";
+            this.totalQteKiloDataGridViewTextBoxColumn.HeaderText = "Total Qte Kg";
+            this.totalQteKiloDataGridViewTextBoxColumn.Name = "totalQteKiloDataGridViewTextBoxColumn";
+            this.totalQteKiloDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalQteKiloDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // totalQteDemiKiloDataGridViewTextBoxColumn
+            // 
+            this.totalQteDemiKiloDataGridViewTextBoxColumn.DataPropertyName = "TotalQteDemiKilo";
+            this.totalQteDemiKiloDataGridViewTextBoxColumn.HeaderText = "Total Qte 1/2 Kg";
+            this.totalQteDemiKiloDataGridViewTextBoxColumn.Name = "totalQteDemiKiloDataGridViewTextBoxColumn";
+            this.totalQteDemiKiloDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalQteDemiKiloDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // familleDataGridViewTextBoxColumn
+            // 
+            this.familleDataGridViewTextBoxColumn.DataPropertyName = "Famille";
+            this.familleDataGridViewTextBoxColumn.HeaderText = "Famille";
+            this.familleDataGridViewTextBoxColumn.Name = "familleDataGridViewTextBoxColumn";
+            this.familleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.familleDataGridViewTextBoxColumn.Visible = false;
+            // 
             // UcListeProduit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,6 +202,8 @@
 
         private System.Windows.Forms.DataGridView dgvProduits;
         private System.Windows.Forms.BindingSource produitBindingSource;
+        private FastReport.Report reportListeProduit;
+        private FastReport.EnvironmentSettings environmentSettings1;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn familleStringDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn libelleDataGridViewTextBoxColumn;
@@ -203,7 +211,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalQteDemiKiloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn familleDataGridViewTextBoxColumn;
-        private FastReport.Report reportListeProduit;
-        private FastReport.EnvironmentSettings environmentSettings1;
     }
 }

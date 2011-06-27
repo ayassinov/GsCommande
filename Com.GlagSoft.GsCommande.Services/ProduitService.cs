@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Com.GlagSoft.GsCommande.DataAccessObjects;
 using Com.GlagSoft.GsCommande.DataAccessObjects.Framework;
 using Com.GlagSoft.GsCommande.Objects;
+using Com.GlagSoft.GsCommande.Outils;
 
 namespace Com.GlagSoft.GsCommande.Services
 {
@@ -15,7 +16,7 @@ namespace Com.GlagSoft.GsCommande.Services
             return _produitData.GetByFamille(famille);
         }
 
-        public List<Produit> ListProduitStock()
+        public SortableBindingList<Produit> ListProduitStock()
         {
             return _produitData.ListProduitStock();
         }

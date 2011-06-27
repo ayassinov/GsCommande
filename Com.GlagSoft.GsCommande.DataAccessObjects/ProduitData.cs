@@ -4,6 +4,7 @@ using System.Data;
 using System.Text;
 using Com.GlagSoft.GsCommande.DataAccessObjects.Framework;
 using Com.GlagSoft.GsCommande.Objects;
+using Com.GlagSoft.GsCommande.Outils;
 
 namespace Com.GlagSoft.GsCommande.DataAccessObjects
 {
@@ -34,7 +35,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             return produits;
         }
 
-        public List<Produit> ListProduitStock()
+        public SortableBindingList<Produit> ListProduitStock()
         {
             var sb = new StringBuilder();
             sb.Append("SELECT p.Id as IdProduit, p.code, p.Libelle as LibelleProduit,");
@@ -44,7 +45,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             sb.Append("  WHERE  l.CommandeId = c.Id AND l.ProduitId = p.Id AND p.FamilleId = f.id AND c.IsLivree = 0");
             sb.Append(" group by p.id order by f.id, p.code ");
 
-            var produits = new List<Produit>();
+            var produits = new SortableBindingList<Produit>();
             using (var helper = new SqliteHelper(sb.ToString()))
             {
                 using (var reader = helper.ExecuteQuery())
