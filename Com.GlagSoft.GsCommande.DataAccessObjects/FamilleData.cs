@@ -53,7 +53,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
         {
             var familles = new List<Famille>();
 
-            using (var helper = new SqliteHelper("SELECT Id, Libelle FROM Famille ORDER BY Libelle"))
+            using (var helper = new SqliteHelper("SELECT Id, Libelle FROM Famille ORDER BY Id"))
             {
                 using (var reader = helper.ExecuteQuery())
                 {
