@@ -1,4 +1,4 @@
 ﻿using System.Reflection;
 
 [assembly: AssemblyTitle("GsCommande")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Application pour la gestion des commandes des clients.")]

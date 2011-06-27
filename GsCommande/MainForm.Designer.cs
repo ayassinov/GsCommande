@@ -269,8 +269,9 @@
             // 
             this.mnuAPropos.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.about;
             this.mnuAPropos.Name = "mnuAPropos";
-            this.mnuAPropos.Size = new System.Drawing.Size(122, 22);
+            this.mnuAPropos.Size = new System.Drawing.Size(152, 22);
             this.mnuAPropos.Text = "A &propos";
+            this.mnuAPropos.Click += new System.EventHandler(this.mnuAPropos_Click);
             // 
             // toolStrip1
             // 
@@ -448,7 +449,7 @@
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GsCommande - Version 1.0";
+            this.Text = "GsCommande - Version ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

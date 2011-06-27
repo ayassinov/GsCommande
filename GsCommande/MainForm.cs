@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 using Com.GlagSoft.GsCommande.forms;
 using Com.GlagSoft.GsCommande.Objects;
@@ -45,6 +46,7 @@ namespace Com.GlagSoft.GsCommande
             }
 
             toolStripStatusLabel1.Text = string.Format("Base de données crée le : {0}", GestionParametre.Instance.DataBaseCreationDate);
+            this.Text = this.Text + " " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         private void OpenGestionProduit()
@@ -365,6 +367,12 @@ namespace Com.GlagSoft.GsCommande
         private void modèleDuRapportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ucListeProduit1.reportListeProduit.Design(true);
+        }
+
+        private void mnuAPropos_Click(object sender, EventArgs e)
+        {
+            var aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
         }
     }
 }
