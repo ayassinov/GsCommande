@@ -72,8 +72,6 @@ namespace Com.GlagSoft.GsCommande.Services
         {
             var fileToCopy = Path.Combine(GestionParametre.Instance.RestoreFolder, selectedFile.FileName);
 
-            File.Delete(GestionParametre.Instance.DataBaseFilePath);
-
             File.Copy(fileToCopy, GestionParametre.Instance.DataBaseFilePath, true);
         }
 
