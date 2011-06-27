@@ -253,13 +253,27 @@ namespace Com.GlagSoft.GsCommande.forms
         {
             try
             {
-                if (MessageBox.Show(@"Vous confirmer la suppression du produit : " + _produit.Libelle,
+                if (MessageBox.Show(string.Format(@"Vous confirmer la suppression du produit : {0} ?", _produit.Libelle),
                                     @"Gestion des produits",
                                     MessageBoxButtons.YesNo,
                                     MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    _produitService.Delete(_produit);
-                    LoadAll();
+
+                    if (_produitService.IsCanDelete(_produit))
+                    {
+                        _produitService.Delete(_produit);
+                        LoadAll();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show(@"Il est impossible de supprimer le produit, car il est associé à une ou plusieurs commandes." +
+                           @" Il faut annuler les commandes liées à ce produit avant de continuer.",
+                                       @"Gestion des produits",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Information);
+                    }
+
                 }
             }
             catch (Exception exception)

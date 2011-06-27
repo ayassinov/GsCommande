@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
@@ -161,6 +162,21 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
                 }
             }
             return code;
+        }
+
+        public bool IsCanDelete(Produit produit)
+        {
+            var isCanDelete = true;
+            using (var helper = new SqliteHelper("SELECT ProduitId FROM LigneCommande Where ProduitId = @Id"))
+            {
+                helper.AddInParameter("Id", DbType.Int32, produit.Id);
+                using (var reader = helper.ExecuteQuery())
+                {
+                    if (reader.Read())
+                        isCanDelete = false;
+                }
+            }
+            return isCanDelete;
         }
     }
 }

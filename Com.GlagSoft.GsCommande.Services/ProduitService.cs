@@ -6,7 +6,6 @@ namespace Com.GlagSoft.GsCommande.Services
 {
     public class ProduitService
     {
-
         private readonly ProduitData _produitData = new ProduitData();
 
         public List<Produit> GetByFamille(Famille famille)
@@ -47,6 +46,11 @@ namespace Com.GlagSoft.GsCommande.Services
                 result = 0;
 
             return ++result;
+        }
+
+        public bool IsCanDelete(Produit produit)
+        {
+            return _produitData.IsCanDelete(produit);
         }
     }
 }
