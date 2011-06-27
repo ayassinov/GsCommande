@@ -26,23 +26,27 @@ namespace Com.GlagSoft.GsCommande.uc
 
         public void Reset()
         {
-            dgvLigneCommande.DataSource = new List<Commande>();
+            LigneCommandes = new List<LigneCommande>();
+            ligneCommandeBindingSource.DataSource = new List<LigneCommande>();
+            dgvLigneCommande.DataSource = ligneCommandeBindingSource;
+
             txtClient.Text = string.Empty;
             dateTimePicker.Value = DateTime.Now.Date;
-            LoadAll();
+
+            ShowHideButtons();
         }
 
         public void LoadForUpdate()
         {
-            dgvLigneCommande.DataSource = LigneCommandes;
+            ligneCommandeBindingSource.DataSource = LigneCommandes;
             if (dgvLigneCommande.RowCount > 0)
                 dgvLigneCommande.Rows[0].Selected = true;
             txtClient.Text = CommandeForUpdate.NomPrenomClient;
             dateTimePicker.Value = CommandeForUpdate.DateCommande.Value.Date;
-            LoadAll();
+            ShowHideButtons();
         }
 
-        private void LoadAll()
+        private void ShowHideButtons()
         {
             btnModifier.Enabled = dgvLigneCommande.SelectedRows.Count > 0;
             btnSupprimer.Enabled = dgvLigneCommande.SelectedRows.Count > 0;
@@ -73,7 +77,7 @@ namespace Com.GlagSoft.GsCommande.uc
 
                 MessageBox.Show(string.Format("La commande numéro {0}  a été ajouter avec succès", commande.Id),
                                 @"Ajout commande", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
             }
             catch (Exception exception)
             {
@@ -134,9 +138,9 @@ namespace Com.GlagSoft.GsCommande.uc
 
             var i = dgvLigneCommande.SelectedRows[0].Index;
             LigneCommandes.Remove(LigneCommandes[i]);
-            dgvLigneCommande.DataSource = new List<LigneCommande>();
-            dgvLigneCommande.DataSource = LigneCommandes;
-            LoadAll();
+            ligneCommandeBindingSource.DataSource = new List<LigneCommande>();
+            ligneCommandeBindingSource.DataSource = LigneCommandes;
+            ShowHideButtons();
         }
 
         private void OpenSelectionForm()
@@ -154,25 +158,23 @@ namespace Com.GlagSoft.GsCommande.uc
                 {
                     var i = dgvLigneCommande.SelectedRows[0].Index;
                     LigneCommandes[i] = _form.LigneCommande;
-                    dgvLigneCommande.DataSource = new List<LigneCommande>();
-                    dgvLigneCommande.DataSource = LigneCommandes;
                 }
                 else
                 {
                     LigneCommandes.Add(_form.LigneCommande);
-                    dgvLigneCommande.DataSource = new List<LigneCommande>();
-                    dgvLigneCommande.DataSource = LigneCommandes;
                 }
+
+                ligneCommandeBindingSource.DataSource = new List<LigneCommande>();
+                ligneCommandeBindingSource.DataSource = LigneCommandes;
             }
         }
 
         private void form_CloseFormProduitSelect()
         {
             SaveChangeToGrid();
-            LoadAll();
+            ShowHideButtons();
 
             _form.LigneCommande = null;
-            //   _form.Close();
             _form.Dispose();
         }
 
@@ -220,14 +222,7 @@ namespace Com.GlagSoft.GsCommande.uc
 
         private void UcCommandeAjouter_EnabledChanged(object sender, EventArgs e)
         {
-            if(this.Enabled)
-            {
-                dgvLigneCommande.Enabled = true;
-            }
-            else
-            {
-                dgvLigneCommande.Enabled = false;
-            }
+            dgvLigneCommande.Enabled = this.Enabled;
         }
     }
 }
