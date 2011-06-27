@@ -118,6 +118,10 @@ namespace Com.GlagSoft.GsCommande
             ucCommandeAjouter1.Visible = true;
             ucListeProduit1.Visible = false;
 
+            mnuAddCommand.Enabled = false;
+            mnuChercherCommande.Enabled = true;
+            mnuListerProduit.Enabled = true;
+
             btnSauvegarder.Visible = true;
             btnDetail.Visible = false;
             btnImprimer.Visible = false;
@@ -136,6 +140,10 @@ namespace Com.GlagSoft.GsCommande
             ucCommandeAjouter1.Visible = false;
             ucListeProduit1.Visible = false;
 
+            mnuAddCommand.Enabled = true;
+            mnuChercherCommande.Enabled = false;
+            mnuListerProduit.Enabled = true;
+
             btnSauvegarder.Visible = false;
             btnDetail.Visible = true;
             btnImprimer.Visible = false;
@@ -153,6 +161,10 @@ namespace Com.GlagSoft.GsCommande
             ucListeProduit1.Visible = true;
             ucCommandeAjouter1.Visible = false;
             ucCommandeRecherche1.Visible = false;
+
+            mnuAddCommand.Enabled = true;
+            mnuChercherCommande.Enabled = true;
+            mnuListerProduit.Enabled = false;
 
             btnSauvegarder.Visible = false;
             btnDetail.Visible = false;
@@ -320,6 +332,39 @@ namespace Com.GlagSoft.GsCommande
             formBackup.ShowDialog();
             toolStripStatusLabel1.Text = string.Format("Base de données crée le : {0}", GestionParametre.Instance.DataBaseCreationDate);
             AfficherAjoutCommande();
+        }
+
+        private void mnuAddCommand_Click(object sender, EventArgs e)
+        {
+            if (mnuAddCommand.Enabled)
+                AfficherAjoutCommande();
+        }
+
+        private void mnuChercherCommande_Click(object sender, EventArgs e)
+        {
+            if (mnuChercherCommande.Enabled)
+                AfficherRechercheCommmande();
+        }
+
+        private void mnuListerProduit_Click(object sender, EventArgs e)
+        {
+            if (mnuListerProduit.Enabled)
+                AfficherListeCommande();
+        }
+
+        private void gérerLesfamillesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenGestionFamille();
+        }
+
+        private void mnuGestionProduit_Click(object sender, EventArgs e)
+        {
+            OpenGestionProduit();
+        }
+
+        private void modèleDuRapportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ucListeProduit1.reportListeProduit.Design(true);
         }
     }
 }

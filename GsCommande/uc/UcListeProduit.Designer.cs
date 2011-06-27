@@ -202,7 +202,7 @@
 
         private System.Windows.Forms.DataGridView dgvProduits;
         private System.Windows.Forms.BindingSource produitBindingSource;
-        private FastReport.Report reportListeProduit;
+        public FastReport.Report reportListeProduit;
         private FastReport.EnvironmentSettings environmentSettings1;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn familleStringDataGridViewTextBoxColumn;
