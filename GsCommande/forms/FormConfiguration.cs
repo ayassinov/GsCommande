@@ -188,5 +188,10 @@ namespace Com.GlagSoft.GsCommande.forms
         {
             ValidateAndClose();
         }
+
+        private void FormConfiguration_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            OnCloseForm();
+        }
     }
 }

@@ -27,9 +27,8 @@ namespace Com.GlagSoft.GsCommande.uc
         public void Reset()
         {
             LigneCommandes = new List<LigneCommande>();
-            ligneCommandeBindingSource.DataSource = new List<LigneCommande>();
-            dgvLigneCommande.DataSource = ligneCommandeBindingSource;
-
+            dgvLigneCommande.DataSource = new List<LigneCommande>();
+    
             txtClient.Text = string.Empty;
             dateTimePicker.Value = DateTime.Now.Date;
 
@@ -38,8 +37,9 @@ namespace Com.GlagSoft.GsCommande.uc
 
         public void LoadForUpdate()
         {
-            ligneCommandeBindingSource.DataSource = LigneCommandes;
-            if (dgvLigneCommande.RowCount > 0)
+           dgvLigneCommande.DataSource = LigneCommandes;
+
+           if (dgvLigneCommande.RowCount > 0)
                 dgvLigneCommande.Rows[0].Selected = true;
             txtClient.Text = CommandeForUpdate.NomPrenomClient;
             dateTimePicker.Value = CommandeForUpdate.DateCommande.Value.Date;
@@ -138,8 +138,8 @@ namespace Com.GlagSoft.GsCommande.uc
 
             var i = dgvLigneCommande.SelectedRows[0].Index;
             LigneCommandes.Remove(LigneCommandes[i]);
-            ligneCommandeBindingSource.DataSource = new List<LigneCommande>();
-            ligneCommandeBindingSource.DataSource = LigneCommandes;
+            dgvLigneCommande.DataSource = new List<LigneCommande>();
+            dgvLigneCommande.DataSource = LigneCommandes;
             ShowHideButtons();
         }
 
@@ -164,8 +164,8 @@ namespace Com.GlagSoft.GsCommande.uc
                     LigneCommandes.Add(_form.LigneCommande);
                 }
 
-                ligneCommandeBindingSource.DataSource = new List<LigneCommande>();
-                ligneCommandeBindingSource.DataSource = LigneCommandes;
+                dgvLigneCommande.DataSource = new List<LigneCommande>();
+                dgvLigneCommande.DataSource = LigneCommandes;
             }
         }
 

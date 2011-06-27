@@ -181,6 +181,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GsCommande - Paramètres";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormConfiguration_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

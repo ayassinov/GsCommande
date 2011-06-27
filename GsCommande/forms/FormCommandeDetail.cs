@@ -236,6 +236,7 @@ namespace Com.GlagSoft.GsCommande.forms
         private void btnSave_Click(object sender, System.EventArgs e)
         {
             UpdateModification();
+            OnCloseForm();
         }
 
         private void FormCommandeDetail_FormClosed(object sender, FormClosedEventArgs e)

@@ -31,6 +31,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvdbFiles = new System.Windows.Forms.DataGridView();
+            this.fileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BackupRaisonString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullPathName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bbFileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnFermer = new System.Windows.Forms.ToolStripButton();
@@ -41,10 +45,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblBackupPath = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.fileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BackupRaisonString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullPathName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdbFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bbFileBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -88,6 +88,37 @@
             this.dgvdbFiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvdbFiles.Size = new System.Drawing.Size(647, 348);
             this.dgvdbFiles.TabIndex = 1;
+            // 
+            // fileNameDataGridViewTextBoxColumn
+            // 
+            this.fileNameDataGridViewTextBoxColumn.DataPropertyName = "FileName";
+            this.fileNameDataGridViewTextBoxColumn.FillWeight = 90F;
+            this.fileNameDataGridViewTextBoxColumn.HeaderText = "Fichier";
+            this.fileNameDataGridViewTextBoxColumn.Name = "fileNameDataGridViewTextBoxColumn";
+            this.fileNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // creationDateDataGridViewTextBoxColumn
+            // 
+            this.creationDateDataGridViewTextBoxColumn.DataPropertyName = "CreationDate";
+            this.creationDateDataGridViewTextBoxColumn.FillWeight = 80F;
+            this.creationDateDataGridViewTextBoxColumn.HeaderText = "Date Création";
+            this.creationDateDataGridViewTextBoxColumn.Name = "creationDateDataGridViewTextBoxColumn";
+            this.creationDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // BackupRaisonString
+            // 
+            this.BackupRaisonString.DataPropertyName = "BackupRaisonString";
+            this.BackupRaisonString.HeaderText = "Commentaire";
+            this.BackupRaisonString.Name = "BackupRaisonString";
+            this.BackupRaisonString.ReadOnly = true;
+            // 
+            // FullPathName
+            // 
+            this.FullPathName.DataPropertyName = "FullPathName";
+            this.FullPathName.HeaderText = "FullPathName";
+            this.FullPathName.Name = "FullPathName";
+            this.FullPathName.ReadOnly = true;
+            this.FullPathName.Visible = false;
             // 
             // bbFileBindingSource
             // 
@@ -182,37 +213,6 @@
             this.label1.Size = new System.Drawing.Size(136, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Répertoire de sauvegarde :";
-            // 
-            // fileNameDataGridViewTextBoxColumn
-            // 
-            this.fileNameDataGridViewTextBoxColumn.DataPropertyName = "FileName";
-            this.fileNameDataGridViewTextBoxColumn.FillWeight = 90F;
-            this.fileNameDataGridViewTextBoxColumn.HeaderText = "Fichier";
-            this.fileNameDataGridViewTextBoxColumn.Name = "fileNameDataGridViewTextBoxColumn";
-            this.fileNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // creationDateDataGridViewTextBoxColumn
-            // 
-            this.creationDateDataGridViewTextBoxColumn.DataPropertyName = "CreationDate";
-            this.creationDateDataGridViewTextBoxColumn.FillWeight = 80F;
-            this.creationDateDataGridViewTextBoxColumn.HeaderText = "Date Création";
-            this.creationDateDataGridViewTextBoxColumn.Name = "creationDateDataGridViewTextBoxColumn";
-            this.creationDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // BackupRaisonString
-            // 
-            this.BackupRaisonString.DataPropertyName = "BackupRaisonString";
-            this.BackupRaisonString.HeaderText = "Commentaire";
-            this.BackupRaisonString.Name = "BackupRaisonString";
-            this.BackupRaisonString.ReadOnly = true;
-            // 
-            // FullPathName
-            // 
-            this.FullPathName.DataPropertyName = "FullPathName";
-            this.FullPathName.HeaderText = "FullPathName";
-            this.FullPathName.Name = "FullPathName";
-            this.FullPathName.ReadOnly = true;
-            this.FullPathName.Visible = false;
             // 
             // FormBackup
             // 
