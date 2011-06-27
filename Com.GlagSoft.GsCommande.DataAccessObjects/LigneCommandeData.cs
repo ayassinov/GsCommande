@@ -85,7 +85,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             sb.Append(" f.Id FamilleId ,f.Libelle LibelleFamille,");
             sb.Append(" l.QteKilo, l.QteDemiKilo FROM LigneCommande l, Produit p, Famille f  ");
             sb.Append(" WHERE l.produitId = p.Id AND p.FamilleId = f.Id AND l.CommandeId = @CommandeId");
-            sb.Append(" Order by LibelleFamille, Code");
+            sb.Append(" Order by FamilleId, Code");
 
             var ligneCommandes = new List<LigneCommande>();
 
