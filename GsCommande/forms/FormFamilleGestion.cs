@@ -128,8 +128,22 @@ namespace Com.GlagSoft.GsCommande.forms
                                     MessageBoxButtons.YesNo,
                                     MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    _familleService.Delete(_famille);
-                    LoadAll();
+                    var isCanDelete = _familleService.IsCanDelete(_famille);
+                    if (isCanDelete)
+                    {
+                        _familleService.Delete(_famille);
+                        LoadAll();
+                    }
+
+                    else
+                    {
+                        MessageBox.Show(@"Il est impossible de supprimer la famille car elle contient des produits." +
+                            @" Il faut supprimer les produits liées avant de supprimer la famille.",
+                                        @"Gestion des produits",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information);
+                    }
+
                 }
 
             }

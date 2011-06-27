@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Com.GlagSoft.GsCommande.DataAccessObjects.Framework;
@@ -69,6 +70,21 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             }
 
             return familles;
+        }
+
+        public bool IsCanDelete(Famille famille)
+        {
+            var isCanDelete = true;
+            using (var helper = new SqliteHelper("SELECT Id FROM Produit Where FamilleId = @Id"))
+            {
+                helper.AddInParameter("Id", DbType.Int32, famille.Id);
+                using (var reader = helper.ExecuteQuery())
+                {
+                    if (reader.Read())
+                        isCanDelete = false;
+                }
+            }
+            return isCanDelete;
         }
     }
 }

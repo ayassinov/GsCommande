@@ -36,5 +36,10 @@ namespace Com.GlagSoft.GsCommande.Services
             if (!isOk)
                 throw new Exception("Famille non supprimé");
         }
+
+        public bool IsCanDelete(Famille famille)
+        {
+            return _familleData.IsCanDelete(famille);
+        }
     }
 }
