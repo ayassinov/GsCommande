@@ -261,7 +261,7 @@ namespace Com.GlagSoft.GsCommande.forms
 
                     if (_produitService.IsCanDelete(_produit))
                     {
-                        _produitService.Delete(_produit);
+                        _produitService.DeleteTransaction(_produit);
                         LoadAll();
 
                     }

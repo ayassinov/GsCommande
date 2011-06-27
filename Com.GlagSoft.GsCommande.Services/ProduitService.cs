@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Com.GlagSoft.GsCommande.DataAccessObjects;
+using Com.GlagSoft.GsCommande.DataAccessObjects.Framework;
 using Com.GlagSoft.GsCommande.Objects;
 
 namespace Com.GlagSoft.GsCommande.Services
@@ -28,9 +30,37 @@ namespace Com.GlagSoft.GsCommande.Services
             return _produitData.Update(produit);
         }
 
-        public bool Delete(Produit produit)
+        public void DeleteTransaction(Produit produit)
         {
-            return _produitData.Delete(produit);
+            List<Produit> produits = _produitData.ListToUpdateAfterDelete(produit.Code);
+
+            BaseData.BeginTransaction();
+            try
+            {
+                var isDeleted = _produitData.DeleteTransaction(produit);
+                if (isDeleted)
+                {
+                    foreach (var p in produits)
+                    {
+                        if (p.Code-- < 0)
+                            p.Code = 0;
+                        isDeleted = _produitData.UpdateCodeTransaction(p);
+                        if (!isDeleted)
+                            throw new Exception("Impossible de mettre à jour le code");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Le produit n'a pas pu etre supprimer");
+                }
+
+                BaseData.Commit();
+            }
+            catch (Exception)
+            {
+                BaseData.RollBack();
+                throw;
+            }
         }
 
         public Produit Get(int id)

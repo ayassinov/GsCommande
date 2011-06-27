@@ -7,7 +7,7 @@ using Com.GlagSoft.GsCommande.Objects;
 
 namespace Com.GlagSoft.GsCommande.DataAccessObjects
 {
-    public class ProduitData
+    public class ProduitData : BaseData
     {
         public List<Produit> GetByFamille(Famille famille)
         {
@@ -104,17 +104,36 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             return isUpdated;
         }
 
-        public bool Delete(Produit produit)
+        public bool DeleteTransaction(Produit produit)
         {
             bool isDeleted;
-            using (var helper = new SqliteHelper("DELETE FROM produit WHERE Id = @Id"))
-            {
-                helper.AddInParameter("Id", DbType.Int32, produit.Id);
 
-                isDeleted = helper.ExecuteNonQuery();
+            using (Helper)
+            {
+                Helper.PrepareCommand("DELETE FROM produit WHERE Id = @Id");
+                Helper.AddInParameter("Id", DbType.Int32, produit.Id);
+
+                isDeleted = Helper.ExecuteNonQuery();
             }
 
             return isDeleted;
+        }
+
+        public bool UpdateCodeTransaction(Produit produit)
+        {
+            bool isUpdated;
+
+            using (Helper)
+            {
+                Helper.PrepareCommand("Update produit set code = @code WHERE Id = @Id");
+
+                Helper.AddInParameter("code", DbType.Int32, produit.Code);
+                Helper.AddInParameter("Id", DbType.Int32, produit.Id);
+
+                isUpdated = Helper.ExecuteNonQuery();
+            }
+
+            return isUpdated;
         }
 
         public Produit Get(int id)
@@ -177,6 +196,30 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
                 }
             }
             return isCanDelete;
+        }
+
+        public List<Produit> ListToUpdateAfterDelete(int codeProduit)
+        {
+            var produits = new List<Produit>();
+            using (var helper = new SqliteHelper("SELECT Id, Code, Libelle FROM produit WHERE Code > @Code order by code"))
+            {
+                helper.AddInParameter("Code", DbType.Int32, codeProduit);
+                using (var reader = helper.ExecuteQuery())
+                {
+                    while (reader.Read())
+                    {
+                        produits.Add(
+                            new Produit
+                            {
+                                Id = reader.GetIntFromReader("Id"),
+                                Code = reader.GetIntFromReader("Code"),
+                                Libelle = reader.GetStringFromReader("Libelle"),
+                            }
+                            );
+                    }
+                }
+            }
+            return produits;
         }
     }
 }
