@@ -10,17 +10,10 @@ namespace Com.GlagSoft.GsCommande.forms
     partial class FormFamilleGestion : Form
     {
         private readonly FamilleService _familleService = new FamilleService();
-
+        private Famille _famille;
+        
         public delegate void CloseFormHandler();
         public event CloseFormHandler CloseGestionFamilleForm;
-
-        public void OnCloseForm()
-        {
-            if (CloseGestionFamilleForm != null)
-                CloseGestionFamilleForm();
-        }
-
-        private Famille _famille;
 
         public FormFamilleGestion()
         {
@@ -31,7 +24,8 @@ namespace Com.GlagSoft.GsCommande.forms
         {
             try
             {
-                lstFamille.DataSource = _familleService.ListAll();
+                familleBindingSource.DataSource = _familleService.ListAll();
+                lstFamille.DataSource = familleBindingSource.DataSource;
             }
             catch (Exception exception)
             {
@@ -57,9 +51,9 @@ namespace Com.GlagSoft.GsCommande.forms
                     lstFamille.SelectedIndex = -1;
                     _famille = null;
 
-                    btnAdd.Visible = false;
-                    btnDelete.Visible = false;
-                    btnSave.Visible = true;
+                    btnAdd.Enabled = false;
+                    btnDelete.Enabled = false;
+                    btnSave.Enabled = true;
                 }
                 else
                 {
@@ -67,9 +61,9 @@ namespace Com.GlagSoft.GsCommande.forms
                     WriteToStatus(string.Format("Modification de la famille : {0}", _famille.Libelle));
                     txtLibelle.Text = _famille.Libelle;
 
-                    btnAdd.Visible = true;
-                    btnDelete.Visible = true;
-                    btnSave.Visible = true;
+                    btnAdd.Enabled = true;
+                    btnDelete.Enabled = true;
+                    btnSave.Enabled = true;
 
                     txtLibelle.Focus();
                 }
@@ -153,25 +147,31 @@ namespace Com.GlagSoft.GsCommande.forms
             }
         }
 
+        private void OnCloseForm()
+        {
+            if (CloseGestionFamilleForm != null)
+                CloseGestionFamilleForm();
+        }
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == (Keys.Control | Keys.S))
             {
-                if (btnSave.Visible)
+                if (btnSave.Enabled)
                     AddOrUpdateFamille(_famille != null);
                 return true;
             }
 
             if (keyData == (Keys.Control | Keys.Z))
             {
-                if (btnDelete.Visible)
+                if (btnDelete.Enabled)
                     Delete();
                 return true;
             }
 
             if (keyData == (Keys.Control | Keys.N))
             {
-                if (btnAdd.Visible)
+                if (btnAdd.Enabled)
                     SwitchToAddMode(true);
                 return true;
             }
@@ -227,11 +227,11 @@ namespace Com.GlagSoft.GsCommande.forms
             }
         }
 
-        #endregion
-
         private void btnQuitter_Click(object sender, EventArgs e)
         {
             OnCloseForm();
         }
+
+        #endregion
     }
 }
