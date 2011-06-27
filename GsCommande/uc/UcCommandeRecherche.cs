@@ -44,7 +44,7 @@ namespace Com.GlagSoft.GsCommande.uc
                                        NomPrenomClient = txtClient.Text.Trim()
                                    };
 
-                List<Commande> commandes = _commandeservice.Recherche(commande);
+                SortableBindingList<Commande> commandes = _commandeservice.Recherche(commande);
                 commandeBindingSource.DataSource = commandes;
                 ligneCommandeBindingSource.DataSource = commandeBindingSource;
                 dgvCommandes.AutoResizeColumns();
@@ -142,7 +142,41 @@ namespace Com.GlagSoft.GsCommande.uc
 
         private void dgvCommandes_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            this.dgvCommandes.Sort(dgvCommandes.Columns[e.ColumnIndex], ListSortDirection.Ascending);
+            Sort(e.ColumnIndex);
+        }
+
+        private void Sort(int selectedColumnIndex)
+        {
+
+            ListSortDirection direction;
+            var newColumn = dgvCommandes.Columns[selectedColumnIndex];
+            var oldColumn = dgvCommandes.SortedColumn;
+            // If oldColumn is null, then the DataGridView is not currently sorted.
+            if (oldColumn != null)
+            {
+                // Sort the same column again, reversing the SortOrder.
+                if (oldColumn == newColumn &&
+                    dgvCommandes.SortOrder == SortOrder.Ascending)
+                {
+                    direction = ListSortDirection.Descending;
+                }
+                else
+                {
+                    // Sort a new column and remove the old SortGlyph.
+                    direction = ListSortDirection.Ascending;
+                    oldColumn.HeaderCell.SortGlyphDirection = SortOrder.None;
+                }
+            }
+            else
+            {
+                direction = ListSortDirection.Ascending;
+            }
+
+            dgvCommandes.Sort(newColumn, direction);
+
+            newColumn.HeaderCell.SortGlyphDirection =
+                direction == ListSortDirection.Ascending ?
+                SortOrder.Ascending : SortOrder.Descending;
         }
     }
 }

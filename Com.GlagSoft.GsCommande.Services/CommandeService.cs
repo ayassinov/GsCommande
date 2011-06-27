@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Com.GlagSoft.GsCommande.DataAccessObjects;
 using Com.GlagSoft.GsCommande.DataAccessObjects.Framework;
 using Com.GlagSoft.GsCommande.Objects;
+using Com.GlagSoft.GsCommande.Outils;
 
 namespace Com.GlagSoft.GsCommande.Services
 {
@@ -123,7 +124,7 @@ namespace Com.GlagSoft.GsCommande.Services
             return _commandeData.Get(id);
         }
 
-        public List<Commande> Recherche(Commande commande)
+        public SortableBindingList<Commande> Recherche(Commande commande)
         {
             var commandes = _commandeData.Recherche(commande);
             foreach (var cmd in commandes)

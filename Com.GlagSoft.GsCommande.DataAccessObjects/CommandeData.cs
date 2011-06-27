@@ -5,6 +5,7 @@ using System.Data.SQLite;
 using System.Text;
 using Com.GlagSoft.GsCommande.DataAccessObjects.Framework;
 using Com.GlagSoft.GsCommande.Objects;
+using Com.GlagSoft.GsCommande.Outils;
 
 namespace Com.GlagSoft.GsCommande.DataAccessObjects
 {
@@ -60,7 +61,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             return isUpdated;
         }
 
-        public List<Commande> Recherche(Commande commande)
+        public SortableBindingList<Commande> Recherche(Commande commande)
         {
             var sb = new StringBuilder("SELECT Id, DateCommande, NomPrenomClient, IsLivree, DateLivraison FROM Commande WHERE 1 = 1");
 
@@ -78,7 +79,7 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
 
             sb.Append(" ORDER BY Id ");
 
-            var commandes = new List<Commande>();
+            var commandes = new SortableBindingList<Commande>();
 
             using (var helper = new SqliteHelper(sb.ToString()))
             {
