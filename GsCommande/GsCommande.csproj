@@ -161,7 +161,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="NLog.config" />
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\Com.GlagSoft.GsCommande.Objects.BbFile.datasource" />
     <None Include="Properties\DataSources\Com.GlagSoft.GsCommande.Objects.Commande.datasource" />

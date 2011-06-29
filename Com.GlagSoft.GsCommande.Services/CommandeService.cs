@@ -27,7 +27,7 @@ namespace Com.GlagSoft.GsCommande.Services
                         ligneCommande.Commande = commande;
                         bool isCreated = _ligneCommandeService.CreateTransaction(ligneCommande);
                         if (!isCreated)
-                            throw new Exception("Ligne Commande non creer");
+                            throw new Exception("Ligne Commande non créer");
                     }
                 }
                 else
