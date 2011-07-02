@@ -38,9 +38,6 @@
             FastReport.PreviewSettings previewSettings1 = new FastReport.PreviewSettings();
             FastReport.ReportSettings reportSettings1 = new FastReport.ReportSettings();
             this.dgvProduits = new System.Windows.Forms.DataGridView();
-            this.produitBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportListeProduit = new FastReport.Report();
-            this.environmentSettings1 = new FastReport.EnvironmentSettings();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.familleStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.libelleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +45,9 @@
             this.totalQteDemiKiloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.familleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.produitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportListeProduit = new FastReport.Report();
+            this.environmentSettings1 = new FastReport.EnvironmentSettings();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportListeProduit)).BeginInit();
@@ -94,37 +94,6 @@
             this.dgvProduits.Size = new System.Drawing.Size(587, 357);
             this.dgvProduits.TabIndex = 0;
             this.dgvProduits.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProduits_ColumnHeaderMouseClick);
-            // 
-            // produitBindingSource
-            // 
-            this.produitBindingSource.DataSource = typeof(Com.GlagSoft.GsCommande.Objects.Produit);
-            // 
-            // reportListeProduit
-            // 
-            this.reportListeProduit.ReportResourceString = resources.GetString("reportListeProduit.ReportResourceString");
-            this.reportListeProduit.RegisterData(this.produitBindingSource, "produitBindingSource");
-            // 
-            // environmentSettings1
-            // 
-            designerSettings1.ApplicationConnection = null;
-            designerSettings1.DefaultFont = new System.Drawing.Font("Arial", 10F);
-            designerSettings1.Icon = ((System.Drawing.Icon)(resources.GetObject("designerSettings1.Icon")));
-            designerSettings1.Restrictions = designerRestrictions1;
-            designerSettings1.Text = "";
-            this.environmentSettings1.DesignerSettings = designerSettings1;
-            emailSettings1.Address = "";
-            emailSettings1.Host = "";
-            emailSettings1.MessageTemplate = "";
-            emailSettings1.Name = "";
-            emailSettings1.Password = "";
-            emailSettings1.UserName = "";
-            this.environmentSettings1.EmailSettings = emailSettings1;
-            previewSettings1.Icon = ((System.Drawing.Icon)(resources.GetObject("previewSettings1.Icon")));
-            previewSettings1.Text = "";
-            previewSettings1.TopMost = true;
-            this.environmentSettings1.PreviewSettings = previewSettings1;
-            this.environmentSettings1.ReportSettings = reportSettings1;
-            this.environmentSettings1.UIStyle = FastReport.Utils.UIStyle.Office2007Blue;
             // 
             // codeDataGridViewTextBoxColumn
             // 
@@ -183,6 +152,37 @@
             this.familleDataGridViewTextBoxColumn.Name = "familleDataGridViewTextBoxColumn";
             this.familleDataGridViewTextBoxColumn.ReadOnly = true;
             this.familleDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // produitBindingSource
+            // 
+            this.produitBindingSource.DataSource = typeof(Com.GlagSoft.GsCommande.Objects.Produit);
+            // 
+            // reportListeProduit
+            // 
+            this.reportListeProduit.ReportResourceString = resources.GetString("reportListeProduit.ReportResourceString");
+            this.reportListeProduit.RegisterData(this.produitBindingSource, "produitBindingSource");
+            // 
+            // environmentSettings1
+            // 
+            designerSettings1.ApplicationConnection = null;
+            designerSettings1.DefaultFont = new System.Drawing.Font("Arial", 10F);
+            designerSettings1.Icon = ((System.Drawing.Icon)(resources.GetObject("designerSettings1.Icon")));
+            designerSettings1.Restrictions = designerRestrictions1;
+            designerSettings1.Text = "";
+            this.environmentSettings1.DesignerSettings = designerSettings1;
+            emailSettings1.Address = "";
+            emailSettings1.Host = "";
+            emailSettings1.MessageTemplate = "";
+            emailSettings1.Name = "";
+            emailSettings1.Password = "";
+            emailSettings1.UserName = "";
+            this.environmentSettings1.EmailSettings = emailSettings1;
+            previewSettings1.Icon = ((System.Drawing.Icon)(resources.GetObject("previewSettings1.Icon")));
+            previewSettings1.Text = "";
+            previewSettings1.TopMost = true;
+            this.environmentSettings1.PreviewSettings = previewSettings1;
+            this.environmentSettings1.ReportSettings = reportSettings1;
+            this.environmentSettings1.UIStyle = FastReport.Utils.UIStyle.Office2007Blue;
             // 
             // UcListeProduit
             // 

@@ -125,13 +125,13 @@
   </metadata>
   <data name="reportListeProduit.ReportResourceString" xml:space="preserve">
     <value>﻿&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;Report ScriptLanguage="CSharp" ReportInfo.Created="06/23/2011 11:57:27" ReportInfo.Modified="06/27/2011 11:18:06" ReportInfo.CreatorVersion="1.6.19.0"&gt;
+&lt;Report ScriptLanguage="CSharp" ReportInfo.Created="06/23/2011 11:57:27" ReportInfo.Modified="07/02/2011 09:48:03" ReportInfo.CreatorVersion="1.6.19.0"&gt;
   &lt;Dictionary&gt;
-    &lt;BusinessObjectDataSource Name="produitBindingSource" ReferenceName="produitBindingSource" DataType="Com.GlagSoft.GsCommande.Objects.Produit, Com.GlagSoft.GsCommande.Objects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Enabled="true"&gt;
+    &lt;BusinessObjectDataSource Name="produitBindingSource" ReferenceName="produitBindingSource" DataType="Com.GlagSoft.GsCommande.Objects.Produit, Com.GlagSoft.GsCommande.Objects, Version=1.0.4200.17286, Culture=neutral, PublicKeyToken=null" Enabled="true"&gt;
       &lt;Column Name="Id" DataType="System.Int32"/&gt;
       &lt;Column Name="Code" DataType="System.Int32"/&gt;
       &lt;Column Name="Libelle" DataType="System.String"/&gt;
-      &lt;Column Name="Famille" DataType="Com.GlagSoft.GsCommande.Objects.Famille, Com.GlagSoft.GsCommande.Objects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"&gt;
+      &lt;Column Name="Famille" DataType="Com.GlagSoft.GsCommande.Objects.Famille, Com.GlagSoft.GsCommande.Objects, Version=1.0.4200.17286, Culture=neutral, PublicKeyToken=null"&gt;
         &lt;Column Name="Id" DataType="System.Int32"/&gt;
         &lt;Column Name="Libelle" DataType="System.String"/&gt;
       &lt;/Column&gt;
@@ -141,27 +141,9 @@
     &lt;/BusinessObjectDataSource&gt;
   &lt;/Dictionary&gt;
   &lt;ReportPage Name="Page1"&gt;
-    &lt;ReportTitleBand Name="ReportTitle1" Width="718.2" Height="56.7"&gt;
-      &lt;TextObject Name="Text1" Left="264.6" Top="9.45" Width="160.65" Height="18.9" Text="Liste des produits" Font="Arial, 12pt, style=Bold"/&gt;
-      &lt;TextObject Name="Text2" Left="567" Top="9.45" Width="170.1" Height="18.9" Text="[Date]"/&gt;
-    &lt;/ReportTitleBand&gt;
+    &lt;ReportTitleBand Name="ReportTitle1" Width="718.2" Height="56.7"/&gt;
     &lt;PageHeaderBand Name="PageHeader1" Top="60.7" Width="718.2" Height="28.35"/&gt;
-    &lt;DataBand Name="Data1" Top="93.05" Width="718.2" Height="22.68" DataSource="produitBindingSource"&gt;
-      &lt;TableObject Name="Table1" Left="9.45" Width="700.3" Height="22.68" Border.Lines="All"&gt;
-        &lt;TableColumn Name="Column1" Width="102.06"/&gt;
-        &lt;TableColumn Name="Column2" Width="177.66"/&gt;
-        &lt;TableColumn Name="Column3" Width="215.46"/&gt;
-        &lt;TableColumn Name="Column4" Width="103.06"/&gt;
-        &lt;TableColumn Name="Column5" Width="102.06"/&gt;
-        &lt;TableRow Name="Row1" Height="22.68"&gt;
-          &lt;TableCell Name="Cell1" Text="[produitBindingSource.Code]"/&gt;
-          &lt;TableCell Name="Cell2" Text="[produitBindingSource.FamilleString]"/&gt;
-          &lt;TableCell Name="Cell3" Text="[produitBindingSource.Libelle]"/&gt;
-          &lt;TableCell Name="Cell4" Text="[produitBindingSource.TotalQteKilo]"/&gt;
-          &lt;TableCell Name="Cell5" Text="[produitBindingSource.TotalQteDemiKilo]"/&gt;
-        &lt;/TableRow&gt;
-      &lt;/TableObject&gt;
-    &lt;/DataBand&gt;
+    &lt;DataBand Name="Data1" Top="93.05" Width="718.2" Height="22.68" DataSource="produitBindingSource"/&gt;
     &lt;PageFooterBand Name="PageFooter1" Top="119.73" Width="718.2" Height="18.9"/&gt;
   &lt;/ReportPage&gt;
 &lt;/Report&gt;
