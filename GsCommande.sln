@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.GlagSoft.GsCommande.Out
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.GlagSoft.GsCommande.Services", "Com.GlagSoft.GsCommande.Services\Com.GlagSoft.GsCommande.Services.csproj", "{00B9F255-1E4C-426A-A7CD-59E3978D8C05}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GsCommande.Setup", "GsCommande.Setup\GsCommande.Setup.vdproj", "{F58E1EE7-C507-4CC8-ADB2-A206345270C7}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GsCommande.Setup", "GsCommande.Setup\GsCommande.Setup.vdproj", "{9FFCE666-65FB-4D20-BA93-6FA91450278A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,12 +81,12 @@ Global
 		{00B9F255-1E4C-426A-A7CD-59E3978D8C05}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{00B9F255-1E4C-426A-A7CD-59E3978D8C05}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{00B9F255-1E4C-426A-A7CD-59E3978D8C05}.Release|x86.ActiveCfg = Release|Any CPU
-		{F58E1EE7-C507-4CC8-ADB2-A206345270C7}.Debug|Any CPU.ActiveCfg = Debug
-		{F58E1EE7-C507-4CC8-ADB2-A206345270C7}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{F58E1EE7-C507-4CC8-ADB2-A206345270C7}.Debug|x86.ActiveCfg = Debug
-		{F58E1EE7-C507-4CC8-ADB2-A206345270C7}.Release|Any CPU.ActiveCfg = Release
-		{F58E1EE7-C507-4CC8-ADB2-A206345270C7}.Release|Mixed Platforms.ActiveCfg = Release
-		{F58E1EE7-C507-4CC8-ADB2-A206345270C7}.Release|x86.ActiveCfg = Release
+		{9FFCE666-65FB-4D20-BA93-6FA91450278A}.Debug|Any CPU.ActiveCfg = Debug
+		{9FFCE666-65FB-4D20-BA93-6FA91450278A}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{9FFCE666-65FB-4D20-BA93-6FA91450278A}.Debug|x86.ActiveCfg = Debug
+		{9FFCE666-65FB-4D20-BA93-6FA91450278A}.Release|Any CPU.ActiveCfg = Release
+		{9FFCE666-65FB-4D20-BA93-6FA91450278A}.Release|Mixed Platforms.ActiveCfg = Release
+		{9FFCE666-65FB-4D20-BA93-6FA91450278A}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
