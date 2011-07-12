@@ -398,7 +398,16 @@ namespace Com.GlagSoft.GsCommande
 
         private void mnuModeleDuRapportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ucListeProduit1.reportListeProduit.Design(true);
+            try
+            {
+                ucListeProduit1.reportListeProduit.Load("listeproduit.frx");
+                ucListeProduit1.reportListeProduit.Design(true);
+            }
+            catch (Exception exception)
+            {
+                GestionException.TraiterException(exception, "GsCommande");
+            }
+
         }
 
         private void mnuAPropos_Click(object sender, EventArgs e)

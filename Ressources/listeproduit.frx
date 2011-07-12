@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="06/23/2011 11:57:27" ReportInfo.Modified="07/02/2011 09:44:05" ReportInfo.CreatorVersion="1.6.19.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/23/2011 11:57:27" ReportInfo.Modified="07/12/2011 13:40:54" ReportInfo.CreatorVersion="1.6.19.0">
   <Dictionary>
-    <BusinessObjectDataSource Name="produitBindingSource" ReferenceName="produitBindingSource" DataType="Com.GlagSoft.GsCommande.Objects.Produit, Com.GlagSoft.GsCommande.Objects, Version=1.0.4200.17286, Culture=neutral, PublicKeyToken=null" Enabled="true">
+    <BusinessObjectDataSource Name="produitBindingSource" ReferenceName="produitBindingSource" DataType="Com.GlagSoft.GsCommande.Outils.SortableBindingList`1[[Com.GlagSoft.GsCommande.Objects.Produit, Com.GlagSoft.GsCommande.Objects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Com.GlagSoft.GsCommande.Outils, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Enabled="true">
       <Column Name="Id" DataType="System.Int32"/>
       <Column Name="Code" DataType="System.Int32"/>
       <Column Name="Libelle" DataType="System.String"/>
-      <Column Name="Famille" DataType="Com.GlagSoft.GsCommande.Objects.Famille, Com.GlagSoft.GsCommande.Objects, Version=1.0.4200.17286, Culture=neutral, PublicKeyToken=null">
+      <Column Name="Famille" DataType="Com.GlagSoft.GsCommande.Objects.Famille, Com.GlagSoft.GsCommande.Objects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
         <Column Name="Id" DataType="System.Int32"/>
         <Column Name="Libelle" DataType="System.String"/>
       </Column>
@@ -18,24 +18,38 @@
     <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="56.7">
       <TextObject Name="Text1" Left="264.6" Top="9.45" Width="160.65" Height="18.9" Text="Liste des produits" Font="Arial, 12pt, style=Bold"/>
       <TextObject Name="Text2" Left="567" Top="9.45" Width="170.1" Height="18.9" Text="[Date]"/>
+      <LineObject Name="Line1" Left="-9.45" Top="9.45" Diagonal="true"/>
     </ReportTitleBand>
-    <PageHeaderBand Name="PageHeader1" Top="60.7" Width="718.2" Height="28.35"/>
-    <DataBand Name="Data1" Top="93.05" Width="718.2" Height="22.68" DataSource="produitBindingSource">
-      <TableObject Name="Table1" Left="9.45" Width="700.3" Height="22.68" Border.Lines="All">
-        <TableColumn Name="Column1" Width="102.06"/>
-        <TableColumn Name="Column2" Width="177.66"/>
-        <TableColumn Name="Column3" Width="215.46"/>
-        <TableColumn Name="Column4" Width="103.06"/>
-        <TableColumn Name="Column5" Width="102.06"/>
-        <TableRow Name="Row1" Height="22.68">
-          <TableCell Name="Cell1" Text="[produitBindingSource.Code]"/>
-          <TableCell Name="Cell2" Text="[produitBindingSource.FamilleString]"/>
-          <TableCell Name="Cell3" Text="[produitBindingSource.Libelle]"/>
-          <TableCell Name="Cell4" Text="[produitBindingSource.TotalQteKilo]"/>
-          <TableCell Name="Cell5" Text="[produitBindingSource.TotalQteDemiKilo]"/>
-        </TableRow>
-      </TableObject>
+    <PageHeaderBand Name="PageHeader1" Top="60.7" Width="718.2" Height="18.9">
+      <TextObject Name="Text4" Left="9.45" Width="94.5" Height="18.9" Text="Code" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text6" Left="103.95" Width="160.65" Height="18.9" Text="Famille" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text8" Left="264.6" Width="236.25" Height="18.9" Text="Produit" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text10" Left="500.85" Width="94.5" Height="18.9" Text="Total Kg" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text12" Left="595.35" Width="94.5" Height="18.9" Text="Total 1/2 Kg" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <LineObject Name="Line2" Left="103.95" Height="18.9" Diagonal="true"/>
+      <LineObject Name="Line8" Left="9.45" Height="18.9" Diagonal="true"/>
+      <LineObject Name="Line9" Left="264.6" Height="18.9" Diagonal="true"/>
+      <LineObject Name="Line11" Left="689.85" Height="18.9" Diagonal="true"/>
+      <LineObject Name="Line12" Left="595.35" Height="18.9" Diagonal="true"/>
+      <LineObject Name="Line13" Left="500.85" Height="18.9" Diagonal="true"/>
+      <LineObject Name="Line14" Left="9.45" Height="18.9" Diagonal="true"/>
+      <LineObject Name="Line16" Left="9.45" Width="680.4" Diagonal="true"/>
+      <LineObject Name="Line17" Left="9.45" Top="18.9" Width="680.4" Diagonal="true"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="83.6" Width="718.2" Height="18.9" DataSource="produitBindingSource">
+      <TextObject Name="Text3" Left="9.45" Width="94.5" Height="18.9" Text="[produitBindingSource.Code]" HorzAlign="Center"/>
+      <TextObject Name="Text5" Left="103.95" Width="160.65" Height="18.9" Text="[produitBindingSource.Famille.Libelle]" HorzAlign="Center"/>
+      <TextObject Name="Text7" Left="264.6" Width="236.25" Height="18.9" Text="[produitBindingSource.Libelle]" HorzAlign="Center"/>
+      <TextObject Name="Text9" Left="500.85" Width="94.5" Height="18.9" Text="[produitBindingSource.TotalQteKilo]" HorzAlign="Center"/>
+      <TextObject Name="Text11" Left="595.35" Width="94.5" Height="18.9" Text="[produitBindingSource.TotalQteDemiKilo]" HorzAlign="Center"/>
+      <LineObject Name="Line3" Left="103.95" Height="18.9" Diagonal="true"/>
+      <LineObject Name="Line4" Left="264.6" Height="18.9" Diagonal="true"/>
+      <LineObject Name="Line5" Left="500.85" Height="18.9" Diagonal="true"/>
+      <LineObject Name="Line6" Left="595.35" Height="18.9" Diagonal="true"/>
+      <LineObject Name="Line7" Left="9.45" Height="18.9" Diagonal="true"/>
+      <LineObject Name="Line10" Left="689.85" Height="18.9" Diagonal="true"/>
+      <LineObject Name="Line15" Left="9.45" Height="18.9" Diagonal="true"/>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="119.73" Width="718.2" Height="18.9"/>
+    <PageFooterBand Name="PageFooter1" Top="106.5" Width="718.2" Height="18.9"/>
   </ReportPage>
 </Report>

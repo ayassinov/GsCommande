@@ -46,7 +46,6 @@ namespace Com.GlagSoft.GsCommande.uc
             catch (Exception exception)
             {
                 GestionException.TraiterException(exception, "Liste des produits");
-                throw;
             }
         }
 
