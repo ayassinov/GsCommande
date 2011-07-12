@@ -6,11 +6,14 @@ using Com.GlagSoft.GsCommande.forms;
 using Com.GlagSoft.GsCommande.Objects;
 using Com.GlagSoft.GsCommande.Outils;
 using Com.GlagSoft.GsCommande.Services;
+using GsUpdater.Framework;
 
 namespace Com.GlagSoft.GsCommande
 {
     public partial class MainForm : Form
     {
+        private const string UpdateUrl = "http://cloud.github.com/downloads/ayassinov/GsCommande/UpdateFeed.xml";
+
         MaintenanceService _maintenanceService = new MaintenanceService();
 
         FormProduitGestion _formProduitGestion = new FormProduitGestion();
@@ -354,7 +357,7 @@ namespace Com.GlagSoft.GsCommande
                 AfficherListeCommande();
         }
 
-        private void gérerLesfamillesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnugerLesfamillesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenGestionFamille();
         }
@@ -364,7 +367,7 @@ namespace Com.GlagSoft.GsCommande
             OpenGestionProduit();
         }
 
-        private void modèleDuRapportToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuModeleDuRapportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ucListeProduit1.reportListeProduit.Design(true);
         }
@@ -374,5 +377,39 @@ namespace Com.GlagSoft.GsCommande
             var aboutForm = new AboutForm();
             aboutForm.ShowDialog();
         }
+
+        private void mnuCheckUpdate_Click(object sender, EventArgs ee)
+        {
+            try
+            {
+                Version version = Assembly.GetExecutingAssembly().GetName().Version;
+                var isupdate = UpdateManager.Instance.CheckForUpdate(UpdateUrl, version);
+
+                if (isupdate)
+                {
+                    var formUpdate = new FormUpdate();
+                    formUpdate.Init(UpdateManager.Instance.CurrentUpdate);
+                    formUpdate.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show(@"Vous disposez de la dernière version.");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(@"Une erreur s'est produite lors de la vérification des mises à jours."
+                 + Environment.NewLine
+                 + @"Detail de l'erreur :"
+                 + Environment.NewLine
+                 + e.Message);
+            }
+        }
+
+
+
+
+
+
     }
 }
