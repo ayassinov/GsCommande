@@ -47,6 +47,7 @@
     </Compile>
     <Compile Include="GestionException.cs" />
     <Compile Include="GestionParametre.cs" />
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="NullableDateTimePicker.cs">
       <SubType>Component</SubType>
     </Compile>
