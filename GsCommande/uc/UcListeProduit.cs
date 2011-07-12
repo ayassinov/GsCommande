@@ -40,6 +40,7 @@ namespace Com.GlagSoft.GsCommande.uc
             try
             {
                 //reportListeProduit.RegisterData(_produits, "ListeProduit");
+                reportListeProduit.Load("listeproduit.frx");
                 reportListeProduit.Show(true);
             }
             catch (Exception exception)

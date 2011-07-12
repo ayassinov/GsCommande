@@ -40,18 +40,20 @@
             this.mnuResetTotal = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBachup = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.modèleDuRapportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuModifierRapport = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.commandeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAddCommand = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuChercherCommande = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuGestionFamille = new System.Windows.Forms.ToolStripMenuItem();
-            this.gérerLesfamillesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuGestiondesFamille = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuGestionProduit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuListerProduit = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCheckUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuAPropos = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnSauvegarder = new System.Windows.Forms.ToolStripButton();
@@ -112,7 +114,7 @@
             this.réinitialiserToolStripMenuItem,
             this.mnuBachup,
             this.toolStripSeparator3,
-            this.modèleDuRapportToolStripMenuItem,
+            this.mnuModifierRapport,
             this.toolStripSeparator6,
             this.mnuExit});
             this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
@@ -171,13 +173,13 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(209, 6);
             // 
-            // modèleDuRapportToolStripMenuItem
+            // mnuModifierRapport
             // 
-            this.modèleDuRapportToolStripMenuItem.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.designer;
-            this.modèleDuRapportToolStripMenuItem.Name = "modèleDuRapportToolStripMenuItem";
-            this.modèleDuRapportToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.modèleDuRapportToolStripMenuItem.Text = "Modifier les rapports";
-            this.modèleDuRapportToolStripMenuItem.Click += new System.EventHandler(this.modèleDuRapportToolStripMenuItem_Click);
+            this.mnuModifierRapport.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.designer;
+            this.mnuModifierRapport.Name = "mnuModifierRapport";
+            this.mnuModifierRapport.Size = new System.Drawing.Size(212, 22);
+            this.mnuModifierRapport.Text = "Modifier les rapports";
+            this.mnuModifierRapport.Click += new System.EventHandler(this.mnuModeleDuRapportToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
@@ -220,7 +222,7 @@
             // mnuGestionFamille
             // 
             this.mnuGestionFamille.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gérerLesfamillesToolStripMenuItem,
+            this.mnuGestiondesFamille,
             this.mnuGestionProduit,
             this.toolStripSeparator7,
             this.mnuListerProduit});
@@ -228,13 +230,13 @@
             this.mnuGestionFamille.Size = new System.Drawing.Size(58, 19);
             this.mnuGestionFamille.Text = "Produit";
             // 
-            // gérerLesfamillesToolStripMenuItem
+            // mnuGestiondesFamille
             // 
-            this.gérerLesfamillesToolStripMenuItem.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.tag_blue_edit;
-            this.gérerLesfamillesToolStripMenuItem.Name = "gérerLesfamillesToolStripMenuItem";
-            this.gérerLesfamillesToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.gérerLesfamillesToolStripMenuItem.Text = "Gérer les &familles";
-            this.gérerLesfamillesToolStripMenuItem.Click += new System.EventHandler(this.gérerLesfamillesToolStripMenuItem_Click);
+            this.mnuGestiondesFamille.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.tag_blue_edit;
+            this.mnuGestiondesFamille.Name = "mnuGestiondesFamille";
+            this.mnuGestiondesFamille.Size = new System.Drawing.Size(166, 22);
+            this.mnuGestiondesFamille.Text = "Gérer les &familles";
+            this.mnuGestiondesFamille.Click += new System.EventHandler(this.mnugerLesfamillesToolStripMenuItem_Click);
             // 
             // mnuGestionProduit
             // 
@@ -260,16 +262,30 @@
             // aideToolStripMenuItem
             // 
             this.aideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuCheckUpdate,
+            this.toolStripSeparator4,
             this.mnuAPropos});
             this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
             this.aideToolStripMenuItem.Size = new System.Drawing.Size(43, 19);
             this.aideToolStripMenuItem.Text = "&Aide";
             // 
+            // mnuCheckUpdate
+            // 
+            this.mnuCheckUpdate.Name = "mnuCheckUpdate";
+            this.mnuCheckUpdate.Size = new System.Drawing.Size(181, 22);
+            this.mnuCheckUpdate.Text = "Vérifier mise à jour...";
+            this.mnuCheckUpdate.Click += new System.EventHandler(this.mnuCheckUpdate_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(178, 6);
+            // 
             // mnuAPropos
             // 
             this.mnuAPropos.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.about;
             this.mnuAPropos.Name = "mnuAPropos";
-            this.mnuAPropos.Size = new System.Drawing.Size(152, 22);
+            this.mnuAPropos.Size = new System.Drawing.Size(181, 22);
             this.mnuAPropos.Text = "A &propos";
             this.mnuAPropos.Click += new System.EventHandler(this.mnuAPropos_Click);
             // 
@@ -490,7 +506,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuAddCommand;
         private System.Windows.Forms.ToolStripMenuItem mnuChercherCommande;
         private System.Windows.Forms.ToolStripMenuItem mnuGestionFamille;
-        private System.Windows.Forms.ToolStripMenuItem gérerLesfamillesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuGestiondesFamille;
         private System.Windows.Forms.ToolStripMenuItem mnuGestionProduit;
         private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuAPropos;
@@ -499,10 +515,12 @@
         private System.Windows.Forms.ToolStripMenuItem mnuResetCommande;
         private System.Windows.Forms.ToolStripMenuItem mnuResetTotal;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem modèleDuRapportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuModifierRapport;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem mnuListerProduit;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem mnuCheckUpdate;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }

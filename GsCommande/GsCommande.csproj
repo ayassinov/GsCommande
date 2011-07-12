@@ -122,6 +122,12 @@
     <Compile Include="forms\FormProduitSelect.Designer.cs">
       <DependentUpon>FormProduitSelect.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\FormUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FormUpdate.Designer.cs">
+      <DependentUpon>FormUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,12 @@
     <Reference Include="FastReport, Version=1.6.19.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL" />
     <Reference Include="FastReport.Bars, Version=1.6.19.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c" />
     <Reference Include="FastReport.Editor, Version=1.6.19.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c" />
+    <Reference Include="GsUpdater.Framework">
+      <HintPath>..\Ressources\GsUpdater.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip.Reduced">
+      <HintPath>..\Ressources\Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
     <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -205,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FormProduitSelect.resx">
       <DependentUpon>FormProduitSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\FormUpdate.resx">
+      <DependentUpon>FormUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -318,7 +333,6 @@
     <None Include="Resources\finished-work.png" />
     <None Include="Resources\shipping.png" />
     <None Include="Resources\view_detail.png" />
-    <Content Include="app.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
@@ -341,6 +355,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
