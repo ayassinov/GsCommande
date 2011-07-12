@@ -25,7 +25,7 @@ namespace Com.GlagSoft.GsCommande
                 var isDataBaseValide = IsDataBaseValid();
                 var isDirectoryValide = IsBackupFolderValide();
                 var mainform = new MainForm(isDataBaseValide && isDirectoryValide);
-                if (!mainform.IsClosed)
+                if (!mainform.IsNeedToClose) // il faut fermer donc on appelle pas run.
                     Application.Run(mainform);
                 mutex.ReleaseMutex();
             }

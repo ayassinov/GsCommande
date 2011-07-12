@@ -10,13 +10,16 @@ namespace Com.GlagSoft.GsCommande.forms
     {
         readonly MaintenanceService _maintenanceService = new MaintenanceService();
 
-        public delegate void CloseFormHandler();
+        private bool IsValide = false;
+
+
+        public delegate void CloseFormHandler(bool isValid);
         public event CloseFormHandler CloseConfigurationForm;
 
         private void OnCloseForm()
         {
             if (CloseConfigurationForm != null)
-                CloseConfigurationForm();
+                CloseConfigurationForm(IsValide);
         }
 
         public FormConfiguration()
@@ -94,7 +97,10 @@ namespace Com.GlagSoft.GsCommande.forms
                               @"Gestion des paramètres", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             if (isCanClose)
-                Close();
+            {
+                IsValide = true;
+                this.Close();
+            }
         }
 
         private void btnConfirmer_Click(object sender, EventArgs e)
@@ -149,6 +155,7 @@ namespace Com.GlagSoft.GsCommande.forms
                 GestionParametre.Instance.RestoreFolder = txtRestoreFolder.Text;
 
                 //sauvegarde effectué on peut fermer !!!
+                IsValide = true;
                 this.Close();
             }
             catch (Exception exception)
@@ -160,8 +167,8 @@ namespace Com.GlagSoft.GsCommande.forms
         private void btnQuitter_Click(object sender, EventArgs e)
         {
             //Exit Application.
+            IsValide = false;
             Close();
-            OnCloseForm();
         }
 
         private void btnOuvrirFichierBase_Click(object sender, EventArgs e)

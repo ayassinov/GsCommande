@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
@@ -22,13 +23,12 @@ namespace Com.GlagSoft.GsCommande
 
         bool _formProduitGestionClosed = false;
 
-        public bool IsClosed { get; set; }
+        [DefaultValue(false)]
+        public bool IsNeedToClose { get; set; }
 
         public MainForm(bool isDataBaseValide)
         {
             InitializeComponent();
-
-            IsClosed = false;
 
             if (!isDataBaseValide)
             {
@@ -112,10 +112,17 @@ namespace Com.GlagSoft.GsCommande
             OpenGestionFamille();
         }
 
-        private void CloseConfigurationForm()
+        private void CloseConfigurationForm(bool isValid)
         {
-            IsClosed = true;
-            this.Close();
+            if (isValid)//les paramètres sont valide, on ne quitte pas !
+            {
+                IsNeedToClose = false;
+            }
+            else
+            {
+                IsNeedToClose = true;
+                Close();
+            }
         }
 
         private void CloseGestionProduitForm()
@@ -309,7 +316,6 @@ namespace Com.GlagSoft.GsCommande
 
         private void mnuExit_Click(object sender, EventArgs e)
         {
-            IsClosed = true;
             this.Close();
         }
 
