@@ -69,6 +69,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_429D02EF30044D7B9C48BAA424BCF35E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_561F62E113C53E4A43DB50D1048DD72B"
         "OwnerKey" = "8:_E4398B212B6E438789A222189E0EF820"
         "MsmSig" = "8:_UNDEFINED"
@@ -93,7 +99,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_649BE20E19CA4144A710010B754722DE"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_717E9BEA1E8B4346B5CD00BDFE20A088"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A680673F6B7547349412DE2AB7093A5D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -172,12 +190,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D299CCB0C7A23991EA958945367D32B0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_E4398B212B6E438789A222189E0EF820"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -241,6 +253,12 @@
         "OwnerKey" = "8:_377C3809DC25582BED195627E5A17517"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D299CCB0C7A23991EA958945367D32B0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -259,6 +277,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -275,6 +301,27 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -479,6 +526,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_429D02EF30044D7B9C48BAA424BCF35E"
+            {
+            "SourcePath" = "8:..\\Ressources\\uninstall.bat"
+            "TargetName" = "8:uninstall.bat"
+            "Tag" = "8:"
+            "Folder" = "8:_D03EEB18C79743A9804BDBE2871EAF29"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_561F62E113C53E4A43DB50D1048DD72B"
             {
             "AssemblyRegister" = "3:1"
@@ -530,10 +597,50 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_649BE20E19CA4144A710010B754722DE"
+            {
+            "SourcePath" = "8:..\\Ressources\\msvcr100.dll"
+            "TargetName" = "8:msvcr100.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_D03EEB18C79743A9804BDBE2871EAF29"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_717E9BEA1E8B4346B5CD00BDFE20A088"
             {
             "SourcePath" = "8:..\\GsCommande\\app.ico"
             "TargetName" = "8:app.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_D03EEB18C79743A9804BDBE2871EAF29"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A680673F6B7547349412DE2AB7093A5D"
+            {
+            "SourcePath" = "8:..\\Ressources\\install.ico"
+            "TargetName" = "8:install.ico"
             "Tag" = "8:"
             "Folder" = "8:_D03EEB18C79743A9804BDBE2871EAF29"
             "Condition" = "8:"
@@ -745,12 +852,23 @@
             "{1525181F-901A-416C-8A58-119130FE478E}:_51B6A74C31174C7E85E1332FAA72FDD8"
             {
             "Name" = "8:#1919"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:ProgramMenuFolder"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_D37B0072BC1541B5B70EFB8E3BFC50BA"
+                    {
+                    "Name" = "8:GsCommande"
+                    "AlwaysCreate" = "11:TRUE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_27A15F9FDD904127AB3E784EEA6B7EC1"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_D03EEB18C79743A9804BDBE2871EAF29"
@@ -793,7 +911,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:GsCommande"
         "ProductCode" = "8:{08B997F7-05B0-40E1-BD90-DE9D0466E10F}"
-        "PackageCode" = "8:{61B1A235-32BF-45C9-9D3D-716B84023085}"
+        "PackageCode" = "8:{E3D33F5A-FAA4-4F3D-9B4E-17970DDE6A19}"
         "UpgradeCode" = "8:{BA79C08D-6D7B-4132-ACD6-969B02A5275E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -913,6 +1031,34 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_61BD2E08E72242E9B6F3F3B6A1CFD62C"
+            {
+            "Name" = "8:Uninstall.bat"
+            "Arguments" = "8:{08B997F7-05B0-40E1-BD90-DE9D0466E10F}"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_429D02EF30044D7B9C48BAA424BCF35E"
+            "Folder" = "8:_D37B0072BC1541B5B70EFB8E3BFC50BA"
+            "WorkingFolder" = "8:_D03EEB18C79743A9804BDBE2871EAF29"
+            "Icon" = "8:_A680673F6B7547349412DE2AB7093A5D"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_CAAD3731F84345219BD6CA45AEF06EAB"
+            {
+            "Name" = "8:GsCommande"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_E4398B212B6E438789A222189E0EF820"
+            "Folder" = "8:_D37B0072BC1541B5B70EFB8E3BFC50BA"
+            "WorkingFolder" = "8:_D03EEB18C79743A9804BDBE2871EAF29"
+            "Icon" = "8:_717E9BEA1E8B4346B5CD00BDFE20A088"
+            "Feature" = "8:"
+            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F19736AF24CC47E8BED82BA62497E90C"
             {
             "Name" = "8:GsCommande"
