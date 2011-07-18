@@ -367,8 +367,8 @@
             this.btnChercherCommande.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnChercherCommande.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnChercherCommande.Name = "btnChercherCommande";
-            this.btnChercherCommande.Size = new System.Drawing.Size(170, 37);
-            this.btnChercherCommande.Text = "&Chercher une commande";
+            this.btnChercherCommande.Size = new System.Drawing.Size(149, 37);
+            this.btnChercherCommande.Text = "Liste des &commandes";
             this.btnChercherCommande.ToolTipText = "Chercher une commande (F3)";
             this.btnChercherCommande.Click += new System.EventHandler(this.btnChercherCommande_Click);
             // 

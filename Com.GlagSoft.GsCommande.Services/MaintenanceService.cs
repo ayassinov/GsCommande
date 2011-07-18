@@ -63,6 +63,7 @@ namespace Com.GlagSoft.GsCommande.Services
             catch (Exception exception)
             {
                 GestionException.LogOnly(exception);
+                throw;
             }
 
             return isValide;

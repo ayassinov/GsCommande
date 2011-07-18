@@ -60,6 +60,7 @@ namespace Com.GlagSoft.GsCommande
             }
             base.WndProc(ref m);
         }
+
         private void ShowMe()
         {
             if (WindowState == FormWindowState.Minimized)
@@ -443,11 +444,5 @@ namespace Com.GlagSoft.GsCommande
                  + e.Message);
             }
         }
-
-
-
-
-
-
     }
 }

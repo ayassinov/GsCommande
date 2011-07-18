@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker = new Com.GlagSoft.GsCommande.Outils.NullableDateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,18 +40,18 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.txtClient = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAll = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.btnLivrer = new System.Windows.Forms.Button();
             this.btnRecherche = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvCommandes = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateCommandeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomPrenomClientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateCommandeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isLivreeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.commandeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grbDetail = new System.Windows.Forms.GroupBox();
@@ -86,8 +86,8 @@
             this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Controls.Add(this.txtClient);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btnAll);
-            this.groupBox1.Controls.Add(this.btnClear);
+            this.groupBox1.Controls.Add(this.btnReset);
+            this.groupBox1.Controls.Add(this.btnLivrer);
             this.groupBox1.Controls.Add(this.btnRecherche);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -136,6 +136,7 @@
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(96, 20);
             this.numericUpDown1.TabIndex = 4;
+            this.numericUpDown1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown1_KeyDown);
             // 
             // txtClient
             // 
@@ -143,6 +144,7 @@
             this.txtClient.Name = "txtClient";
             this.txtClient.Size = new System.Drawing.Size(255, 20);
             this.txtClient.TabIndex = 3;
+            this.txtClient.KeyDown += new System.Windows.Forms.KeyEventHandler(this.numericUpDown1_KeyDown);
             // 
             // label1
             // 
@@ -153,18 +155,18 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Code commande :";
             // 
-            // btnAll
+            // btnReset
             // 
-            this.btnAll.ContextMenuStrip = this.contextMenuStrip2;
-            this.btnAll.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.all;
-            this.btnAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAll.Location = new System.Drawing.Point(209, 60);
-            this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(96, 32);
-            this.btnAll.TabIndex = 0;
-            this.btnAll.Text = "     &Tout";
-            this.btnAll.UseVisualStyleBackColor = true;
-            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
+            this.btnReset.ContextMenuStrip = this.contextMenuStrip2;
+            this.btnReset.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.clear;
+            this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReset.Location = new System.Drawing.Point(209, 60);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(96, 32);
+            this.btnReset.TabIndex = 0;
+            this.btnReset.Text = "     &Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // contextMenuStrip2
             // 
@@ -184,17 +186,17 @@
             this.toolStripMenuItem2.Text = "Inclure les commandes livrées ";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
-            // btnClear
+            // btnLivrer
             // 
-            this.btnClear.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.clear;
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(311, 60);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(96, 32);
-            this.btnClear.TabIndex = 0;
-            this.btnClear.Text = "     &Reset";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnLivrer.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.shipping;
+            this.btnLivrer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLivrer.Location = new System.Drawing.Point(311, 60);
+            this.btnLivrer.Name = "btnLivrer";
+            this.btnLivrer.Size = new System.Drawing.Size(96, 32);
+            this.btnLivrer.TabIndex = 0;
+            this.btnLivrer.Text = "     &Livrer";
+            this.btnLivrer.UseVisualStyleBackColor = true;
+            this.btnLivrer.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnRecherche
             // 
@@ -243,17 +245,17 @@
             this.dgvCommandes.AllowUserToAddRows = false;
             this.dgvCommandes.AllowUserToDeleteRows = false;
             this.dgvCommandes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvCommandes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvCommandes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCommandes.AutoGenerateColumns = false;
             this.dgvCommandes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCommandes.BackgroundColor = System.Drawing.Color.White;
             this.dgvCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCommandes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.dateCommandeDataGridViewTextBoxColumn,
             this.nomPrenomClientDataGridViewTextBoxColumn,
+            this.dateCommandeDataGridViewTextBoxColumn,
             this.isLivreeDataGridViewCheckBoxColumn});
             this.dgvCommandes.DataSource = this.commandeBindingSource;
             this.dgvCommandes.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -277,14 +279,6 @@
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
-            // dateCommandeDataGridViewTextBoxColumn
-            // 
-            this.dateCommandeDataGridViewTextBoxColumn.DataPropertyName = "DateCommande";
-            this.dateCommandeDataGridViewTextBoxColumn.HeaderText = "Date commande";
-            this.dateCommandeDataGridViewTextBoxColumn.Name = "dateCommandeDataGridViewTextBoxColumn";
-            this.dateCommandeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateCommandeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
             // nomPrenomClientDataGridViewTextBoxColumn
             // 
             this.nomPrenomClientDataGridViewTextBoxColumn.DataPropertyName = "NomPrenomClient";
@@ -292,6 +286,14 @@
             this.nomPrenomClientDataGridViewTextBoxColumn.Name = "nomPrenomClientDataGridViewTextBoxColumn";
             this.nomPrenomClientDataGridViewTextBoxColumn.ReadOnly = true;
             this.nomPrenomClientDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dateCommandeDataGridViewTextBoxColumn
+            // 
+            this.dateCommandeDataGridViewTextBoxColumn.DataPropertyName = "DateCommande";
+            this.dateCommandeDataGridViewTextBoxColumn.HeaderText = "Date commande";
+            this.dateCommandeDataGridViewTextBoxColumn.Name = "dateCommandeDataGridViewTextBoxColumn";
+            this.dateCommandeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateCommandeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // isLivreeDataGridViewCheckBoxColumn
             // 
@@ -320,23 +322,23 @@
             this.dgvLigneCommande.AllowUserToAddRows = false;
             this.dgvLigneCommande.AllowUserToDeleteRows = false;
             this.dgvLigneCommande.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvLigneCommande.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(88)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvLigneCommande.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvLigneCommande.AutoGenerateColumns = false;
             this.dgvLigneCommande.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLigneCommande.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLigneCommande.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLigneCommande.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvLigneCommande.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLigneCommande.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.libelleFamilleDataGridViewTextBoxColumn,
@@ -344,14 +346,14 @@
             this.qtekiloDataGridViewTextBoxColumn,
             this.qteDemiKiloDataGridViewTextBoxColumn});
             this.dgvLigneCommande.DataSource = this.ligneCommandeBindingSource;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLigneCommande.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLigneCommande.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvLigneCommande.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLigneCommande.GridColor = System.Drawing.Color.White;
             this.dgvLigneCommande.Location = new System.Drawing.Point(3, 16);
@@ -456,8 +458,8 @@
         private System.Windows.Forms.BindingSource commandeBindingSource;
         private System.Windows.Forms.Label label4;
         private Outils.NullableDateTimePicker dateTimePicker;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnAll;
+        private System.Windows.Forms.Button btnLivrer;
+        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
@@ -471,8 +473,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn qtekiloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn qteDemiKiloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateCommandeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomPrenomClientDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateCommandeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isLivreeDataGridViewCheckBoxColumn;
     }
 }

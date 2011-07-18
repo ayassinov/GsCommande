@@ -22,6 +22,8 @@ namespace Com.GlagSoft.GsCommande.uc
 
         private void OnChangeSelectedCommande()
         {
+            btnLivrer.Enabled = SelectedCommande != null;
+
             if (ChangeSelectedCommande != null)
                 ChangeSelectedCommande();
         }
@@ -68,6 +70,32 @@ namespace Com.GlagSoft.GsCommande.uc
             OnChangeSelectedCommande();
         }
 
+        private void Livrer()
+        {
+            try
+            {
+                if (SelectedCommande == null)
+                {
+                    MessageBox.Show(@"Aucune commmande n'est sélectionné", @"Modification de la commande",
+                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                if (MessageBox.Show(string.Format("Vous êtes sur de vouloir livrer la commande {0} ?", SelectedCommande.Id),
+                    @"Modification de la commande",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.No)
+                    return;
+
+                _commandeservice.Deliver(SelectedCommande);
+
+            }
+            catch (Exception exception)
+            {
+                GestionException.TraiterException(exception, "Modification de la commande");
+            }
+        }
+
         private void btnRecherche_Click(object sender, EventArgs e)
         {
             _toInclue = false;
@@ -76,14 +104,15 @@ namespace Com.GlagSoft.GsCommande.uc
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            Reset();
+            //Livrer selected ligne
+            Livrer();
+
+            Recherche(); // reload the last search result.
         }
 
         private void btnAll_Click(object sender, EventArgs e)
         {
-            _toInclue = false;
             Reset();
-            Recherche();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -180,6 +209,12 @@ namespace Com.GlagSoft.GsCommande.uc
             _fomCommandeDetail.Close();
             _fomCommandeDetail.Dispose();
             Recherche(); // reload the last search result.
+        }
+
+        private void numericUpDown1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Recherche();
         }
     }
 }

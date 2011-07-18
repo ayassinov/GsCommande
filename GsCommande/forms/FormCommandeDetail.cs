@@ -176,8 +176,6 @@ namespace Com.GlagSoft.GsCommande.forms
 
                 _commandeService.Deliver(SelectedCommande);
 
-                MessageBox.Show(@"La commande a été livrée avec succès.", @"Modification de la commande",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 OnCloseForm();
             }
@@ -243,7 +241,5 @@ namespace Com.GlagSoft.GsCommande.forms
         {
             OnCloseForm();
         }
-
-
     }
 }

@@ -56,8 +56,22 @@ namespace Com.GlagSoft.GsCommande.forms
 
         private bool IsDataBaseValid()
         {
-            GestionParametre.Instance.DataBaseFilePath = txtDbFilePath.Text;
-            return _maintenanceService.IsDataBaseValid();
+            try
+            {
+                GestionParametre.Instance.DataBaseFilePath = txtDbFilePath.Text;
+                return _maintenanceService.IsDataBaseValid();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(
+                       @"La connexion à la base de données a échoué, veuillez sélectionner un fichier valide."
+                       + Environment.NewLine
+                       + @"Détail :"
+                       + Environment.NewLine
+                       + exception.Message,
+                       @"Gestion des paramètres", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         private bool IsBackupFolderValid()
@@ -86,9 +100,6 @@ namespace Com.GlagSoft.GsCommande.forms
 
             if (IsDataBaseValid())
                 isCanClose = true;
-            else
-                MessageBox.Show(@"La connexion à la base de données a échoué, veuillez sélectionner un fichier valide.",
-                                @"Gestion des paramètres", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             if (IsBackupFolderValid())
                 isCanClose = true;
@@ -139,13 +150,7 @@ namespace Com.GlagSoft.GsCommande.forms
             try
             {
                 if (!IsDataBaseValid())
-                {
-                    MessageBox.Show(
-                        @"La connexion à la base de données a échoué, veuillez sélectionner un fichier valide.",
-                        @"Gestion des paramètres", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                     return;
-                }
 
                 Properties.Settings.Default.DataBaseFilePath = txtDbFilePath.Text;
                 Properties.Settings.Default.BackUpPath = txtRestoreFolder.Text;
