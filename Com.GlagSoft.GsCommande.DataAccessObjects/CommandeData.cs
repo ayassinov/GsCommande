@@ -49,13 +49,14 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
         {
             bool isUpdated;
 
-            using (var helper = new SqliteHelper("UPDATE Commande set DateCommande = @DateCommande, NomPrenomClient = @NomPrenomClient WHERE Id = @Id"))
+            using (Helper)
             {
-                helper.AddInParameter("Id", DbType.Int32, commande.Id);
-                helper.AddInParameter("DateCommande", DbType.DateTime, commande.DateCommande);
-                helper.AddInParameter("NomPrenomClient", DbType.String, commande.NomPrenomClient);
+                Helper.PrepareCommand("UPDATE Commande set DateCommande = @DateCommande, NomPrenomClient = @NomPrenomClient WHERE Id = @Id");
+                Helper.AddInParameter("Id", DbType.Int32, commande.Id);
+                Helper.AddInParameter("DateCommande", DbType.DateTime, commande.DateCommande);
+                Helper.AddInParameter("NomPrenomClient", DbType.String, commande.NomPrenomClient);
 
-                isUpdated = helper.ExecuteNonQuery();
+                isUpdated = Helper.ExecuteNonQuery();
             }
 
             return isUpdated;
@@ -168,6 +169,57 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             }
 
             return commande;
+        }
+
+        public bool UpdateCommandeSeqTransaction(int seqVal)
+        {
+            bool isUpdated;
+
+            using (Helper)
+            {
+                Helper.PrepareCommand("UPDATE sqlite_sequence set seq = @seq WHERE NAME = 'Commande' ");
+                Helper.AddInParameter("seq", DbType.Int32, seqVal);
+                isUpdated = Helper.ExecuteNonQuery();
+            }
+
+            return isUpdated;
+        }
+
+        public bool IsCommandeIdExist(int id)
+        {
+            bool isExist = false;
+
+            using (var helper = new SqliteHelper("SELECT Id FROM Commande WHERE Id = @ID "))
+            {
+                helper.AddInParameter("ID", DbType.Int32, id);
+
+                using (var reader = helper.ExecuteQuery())
+                {
+                    if (reader.Read())
+                        isExist = reader.GetBoolFromReader("ID");
+                }
+            }
+
+            return isExist;
+        }
+
+        public int GetNextId()
+        {
+            int nextId = -1;
+
+            using (var helper = new SqliteHelper("SELECT SEQ FROM SQLITE_SEQUENCE WHERE NAME = 'Commande' "))
+            {
+                using (var reader = helper.ExecuteQuery())
+                {
+                    if (reader.Read())
+                        nextId = reader.GetIntFromReader("SEQ");
+                }
+            }
+
+            if (nextId == -1)
+                throw new Exception("le code de la commande retourer par la séquence n'est pas valide !");
+
+            return ++nextId;
         }
     }
 }

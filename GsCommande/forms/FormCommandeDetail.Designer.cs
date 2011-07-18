@@ -29,15 +29,15 @@
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnQuitter = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.btnLivrer = new System.Windows.Forms.ToolStripButton();
             this.btnAnnulerLivraison = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSupprimer = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.ucCommandeAjouter1 = new Com.GlagSoft.GsCommande.uc.UcCommandeAjouter();
+            this.ucCommandeAjouter1 = new Com.GlagSoft.GsCommande.uc.UcCommandeModifier();
             this.pnlCommandeLivree = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -57,7 +57,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(672, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(754, 39);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -71,6 +71,11 @@
             this.btnQuitter.Size = new System.Drawing.Size(72, 36);
             this.btnQuitter.Text = "&Fermer";
             this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // btnSave
             // 
@@ -105,11 +110,6 @@
             this.btnAnnulerLivraison.Text = "Annuler Livraison";
             this.btnAnnulerLivraison.Click += new System.EventHandler(this.btnAnnulerLivraison_Click);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
-            // 
             // btnSupprimer
             // 
             this.btnSupprimer.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Remove;
@@ -127,7 +127,7 @@
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 483);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(672, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(754, 22);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
@@ -155,7 +155,7 @@
             this.ucCommandeAjouter1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucCommandeAjouter1.Location = new System.Drawing.Point(0, 88);
             this.ucCommandeAjouter1.Name = "ucCommandeAjouter1";
-            this.ucCommandeAjouter1.Size = new System.Drawing.Size(672, 395);
+            this.ucCommandeAjouter1.Size = new System.Drawing.Size(754, 395);
             this.ucCommandeAjouter1.TabIndex = 6;
             // 
             // pnlCommandeLivree
@@ -164,7 +164,7 @@
             this.pnlCommandeLivree.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCommandeLivree.Location = new System.Drawing.Point(0, 39);
             this.pnlCommandeLivree.Name = "pnlCommandeLivree";
-            this.pnlCommandeLivree.Size = new System.Drawing.Size(672, 49);
+            this.pnlCommandeLivree.Size = new System.Drawing.Size(754, 49);
             this.pnlCommandeLivree.TabIndex = 7;
             this.pnlCommandeLivree.Visible = false;
             // 
@@ -172,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 505);
+            this.ClientSize = new System.Drawing.Size(754, 505);
             this.Controls.Add(this.ucCommandeAjouter1);
             this.Controls.Add(this.pnlCommandeLivree);
             this.Controls.Add(this.statusStrip1);
@@ -208,7 +208,7 @@
         private System.Windows.Forms.ToolStripButton btnSave;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Label label1;
-        private uc.UcCommandeAjouter ucCommandeAjouter1;
+        private uc.UcCommandeModifier ucCommandeAjouter1;
         private System.Windows.Forms.Panel pnlCommandeLivree;
         private System.Windows.Forms.ToolStripButton btnAnnulerLivraison;
 

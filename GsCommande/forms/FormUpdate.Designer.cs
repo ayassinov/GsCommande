@@ -29,15 +29,15 @@
         {
             this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnFermer = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblVersion = new System.Windows.Forms.Label();
-            this.lblTaille = new System.Windows.Forms.Label();
-            this.lblSignature = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
+            this.lblSignature = new System.Windows.Forms.Label();
+            this.lblTaille = new System.Windows.Forms.Label();
+            this.lblVersion = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnFermer = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdate.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.load;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(217, 215);
+            this.btnUpdate.Location = new System.Drawing.Point(329, 215);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 34);
             this.btnUpdate.TabIndex = 0;
@@ -70,52 +70,42 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(305, 197);
+            this.groupBox1.Size = new System.Drawing.Size(417, 197);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
             // 
-            // btnFermer
+            // txtDescription
             // 
-            this.btnFermer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFermer.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnFermer.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Exit;
-            this.btnFermer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFermer.Location = new System.Drawing.Point(139, 215);
-            this.btnFermer.Name = "btnFermer";
-            this.btnFermer.Size = new System.Drawing.Size(72, 34);
-            this.btnFermer.TabIndex = 1;
-            this.btnFermer.Text = "Fermer";
-            this.btnFermer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFermer.UseVisualStyleBackColor = true;
-            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
+            this.txtDescription.Location = new System.Drawing.Point(84, 124);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(327, 61);
+            this.txtDescription.TabIndex = 9;
             // 
-            // label1
+            // lblSignature
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Version :";
+            this.lblSignature.AutoSize = true;
+            this.lblSignature.Location = new System.Drawing.Point(84, 82);
+            this.lblSignature.Name = "lblSignature";
+            this.lblSignature.Size = new System.Drawing.Size(0, 13);
+            this.lblSignature.TabIndex = 8;
             // 
-            // label3
+            // lblTaille
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Taille :";
+            this.lblTaille.AutoSize = true;
+            this.lblTaille.Location = new System.Drawing.Point(84, 53);
+            this.lblTaille.Name = "lblTaille";
+            this.lblTaille.Size = new System.Drawing.Size(0, 13);
+            this.lblTaille.TabIndex = 7;
             // 
-            // label4
+            // lblVersion
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 82);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Signature :";
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Location = new System.Drawing.Point(84, 26);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(0, 13);
+            this.lblVersion.TabIndex = 5;
             // 
             // label5
             // 
@@ -126,37 +116,47 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Description :";
             // 
-            // lblVersion
+            // label4
             // 
-            this.lblVersion.AutoSize = true;
-            this.lblVersion.Location = new System.Drawing.Point(84, 26);
-            this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(0, 13);
-            this.lblVersion.TabIndex = 5;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(20, 82);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Signature :";
             // 
-            // lblTaille
+            // label3
             // 
-            this.lblTaille.AutoSize = true;
-            this.lblTaille.Location = new System.Drawing.Point(84, 53);
-            this.lblTaille.Name = "lblTaille";
-            this.lblTaille.Size = new System.Drawing.Size(0, 13);
-            this.lblTaille.TabIndex = 7;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(40, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Taille :";
             // 
-            // lblSignature
+            // label1
             // 
-            this.lblSignature.AutoSize = true;
-            this.lblSignature.Location = new System.Drawing.Point(84, 82);
-            this.lblSignature.Name = "lblSignature";
-            this.lblSignature.Size = new System.Drawing.Size(0, 13);
-            this.lblSignature.TabIndex = 8;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Version :";
             // 
-            // txtDescription
+            // btnFermer
             // 
-            this.txtDescription.Location = new System.Drawing.Point(84, 124);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(214, 61);
-            this.txtDescription.TabIndex = 9;
+            this.btnFermer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFermer.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnFermer.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Exit;
+            this.btnFermer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFermer.Location = new System.Drawing.Point(251, 215);
+            this.btnFermer.Name = "btnFermer";
+            this.btnFermer.Size = new System.Drawing.Size(72, 34);
+            this.btnFermer.TabIndex = 1;
+            this.btnFermer.Text = "Fermer";
+            this.btnFermer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFermer.UseVisualStyleBackColor = true;
+            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
             // FormUpdate
             // 
@@ -164,7 +164,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnFermer;
-            this.ClientSize = new System.Drawing.Size(329, 261);
+            this.ClientSize = new System.Drawing.Size(441, 261);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.btnUpdate);

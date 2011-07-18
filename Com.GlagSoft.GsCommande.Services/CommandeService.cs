@@ -19,6 +19,11 @@ namespace Com.GlagSoft.GsCommande.Services
 
             try
             {
+                int nextCode = GetNextId();
+
+                if (commande.Id != nextCode)
+                    _commandeData.UpdateCommandeSeqTransaction(commande.Id - 1);
+
                 commande = _commandeData.CreateTransaction(commande);
                 if (commande.Id > 0)
                 {
@@ -98,7 +103,7 @@ namespace Com.GlagSoft.GsCommande.Services
 
                 BaseData.Commit();
             }
-            catch (Exception )
+            catch (Exception)
             {
                 BaseData.RollBack();
                 throw;
@@ -134,6 +139,26 @@ namespace Com.GlagSoft.GsCommande.Services
             return commandes;
         }
 
+
+        public int GetNextId()
+        {
+
+            return _commandeData.GetNextId();
+
+        }
+
+        public bool IsCommandeIdExist(int id)
+        {
+            try
+            {
+                return _commandeData.IsCommandeIdExist(id);
+            }
+            catch (Exception exception)
+            {
+                GestionException.TraiterException(exception, "Vérification du code de la commande");
+                return false;
+            }
+        }
 
     }
 }

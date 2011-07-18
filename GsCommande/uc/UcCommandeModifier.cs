@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Com.GlagSoft.GsCommande.forms;
@@ -9,17 +8,17 @@ using Com.GlagSoft.GsCommande.Services;
 
 namespace Com.GlagSoft.GsCommande.uc
 {
-    public partial class UcCommandeAjouter : UserControl
+    public partial class UcCommandeModifier : UserControl
     {
         CommandeService _commandeService = new CommandeService();
 
-        FormProduitSelectForCreate _formForCreate = new FormProduitSelectForCreate();
+        FormProduitSelect _formForCreate = new FormProduitSelect();
 
         public List<LigneCommande> LigneCommandes = new List<LigneCommande>();
 
         public Commande CommandeForUpdate { get; set; }
 
-        public UcCommandeAjouter()
+        public UcCommandeModifier()
         {
             InitializeComponent();
         }
@@ -31,7 +30,7 @@ namespace Com.GlagSoft.GsCommande.uc
 
             try
             {
-                txtCodeCommande.Text = _commandeService.GetNextId().ToString();
+                lblIdCommande.Text = _commandeService.GetNextId().ToString();
             }
             catch (Exception e)
             {
@@ -51,8 +50,8 @@ namespace Com.GlagSoft.GsCommande.uc
 
             if (dgvLigneCommande.RowCount > 0)
                 dgvLigneCommande.Rows[0].Selected = true;
-            txtCodeCommande.Enabled = false;
-            txtCodeCommande.Text = CommandeForUpdate.Id.ToString();
+            lblIdCommande.Enabled = false;
+            lblIdCommande.Text = CommandeForUpdate.Id.ToString();
             txtClient.Text = CommandeForUpdate.NomPrenomClient;
             dateTimePicker.Value = CommandeForUpdate.DateCommande.Value.Date;
             ShowHideButtons();
@@ -77,7 +76,7 @@ namespace Com.GlagSoft.GsCommande.uc
 
                 var commande = new Commande()
                                    {
-                                       Id = Convert.ToInt32(txtCodeCommande.Text),
+                                       Id = Convert.ToInt32(lblIdCommande.Text),
                                        DateCommande = dateTimePicker.Value,
                                        NomPrenomClient = txtClient.Text,
                                        IsLivree = false,
@@ -110,7 +109,7 @@ namespace Com.GlagSoft.GsCommande.uc
                 return;
             }
 
-            _formForCreate = new FormProduitSelectForCreate
+            _formForCreate = new FormProduitSelect
                         {
                             LigneCommande = dgvLigneCommande.SelectedRows[0].DataBoundItem as LigneCommande,
                             IsUpdate = true,
@@ -125,7 +124,7 @@ namespace Com.GlagSoft.GsCommande.uc
             if (!btnAjouter.Enabled)
                 return;
 
-            _formForCreate = new FormProduitSelectForCreate { IsUpdate = false, LigneCommande = null, LigneCommandes = LigneCommandes, SelectedFamille = -1 };
+            _formForCreate = new FormProduitSelect { IsUpdate = false, LigneCommande = null, LigneCommandes = LigneCommandes };
             OpenSelectionForm();
         }
 
@@ -160,20 +159,7 @@ namespace Com.GlagSoft.GsCommande.uc
         {
             _formForCreate.LoadAll();
             _formForCreate.CloseFormProduitSelect += form_CloseFormProduitSelect;
-            _formForCreate.AddLigneCommande += formForCreate_AddLigneCommande;
-            _formForCreate.SaveCommande += formForCreate_SaveCommande;
             _formForCreate.ShowDialog();
-        }
-
-        private void formForCreate_SaveCommande()
-        {
-            SaveCommande();
-        }
-
-        private void formForCreate_AddLigneCommande()
-        {
-            SaveChangeToGrid();
-            ShowHideButtons();
         }
 
         private void SaveChangeToGrid()
@@ -197,8 +183,8 @@ namespace Com.GlagSoft.GsCommande.uc
 
         private void form_CloseFormProduitSelect()
         {
-            //SaveChangeToGrid();
-            //ShowHideButtons();
+            SaveChangeToGrid();
+            ShowHideButtons();
 
             _formForCreate.LigneCommande = null;
             _formForCreate.Dispose();
@@ -212,7 +198,7 @@ namespace Com.GlagSoft.GsCommande.uc
 
         private bool ValidateIdCommande()
         {
-            if (string.IsNullOrEmpty(txtCodeCommande.Text))
+            if (string.IsNullOrEmpty(lblIdCommande.Text))
             {
                 MessageBox.Show(@"Vous devez choisir un code pour la commande", @"Ajout Commande", MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
@@ -223,7 +209,7 @@ namespace Com.GlagSoft.GsCommande.uc
 
             try
             {
-                code = Convert.ToInt32(txtCodeCommande.Text);
+                code = Convert.ToInt32(lblIdCommande.Text);
             }
             catch (Exception)
             {
@@ -282,11 +268,6 @@ namespace Com.GlagSoft.GsCommande.uc
         private void UcCommandeAjouter_EnabledChanged(object sender, EventArgs e)
         {
             dgvLigneCommande.Enabled = this.Enabled;
-        }
-
-        private void btnDefault_Click(object sender, EventArgs e)
-        {
-            txtCodeCommande.Text = _commandeService.GetNextId().ToString();
         }
     }
 }
