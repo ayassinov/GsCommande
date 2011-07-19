@@ -41,12 +41,8 @@
             this.txtClient = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnLivrer = new System.Windows.Forms.Button();
+            this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnRecherche = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvCommandes = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,8 +60,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.contextMenuStrip2.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCommandes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commandeBindingSource)).BeginInit();
@@ -87,7 +81,7 @@
             this.groupBox1.Controls.Add(this.txtClient);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnReset);
-            this.groupBox1.Controls.Add(this.btnLivrer);
+            this.groupBox1.Controls.Add(this.btnSupprimer);
             this.groupBox1.Controls.Add(this.btnRecherche);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -157,7 +151,6 @@
             // 
             // btnReset
             // 
-            this.btnReset.ContextMenuStrip = this.contextMenuStrip2;
             this.btnReset.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.clear;
             this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReset.Location = new System.Drawing.Point(209, 60);
@@ -168,39 +161,20 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnAll_Click);
             // 
-            // contextMenuStrip2
+            // btnSupprimer
             // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2});
-            this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStrip2.Size = new System.Drawing.Size(236, 26);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.finished_work;
-            this.toolStripMenuItem2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(235, 22);
-            this.toolStripMenuItem2.Text = "Inclure les commandes livrées ";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // btnLivrer
-            // 
-            this.btnLivrer.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.shipping;
-            this.btnLivrer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLivrer.Location = new System.Drawing.Point(311, 60);
-            this.btnLivrer.Name = "btnLivrer";
-            this.btnLivrer.Size = new System.Drawing.Size(96, 32);
-            this.btnLivrer.TabIndex = 0;
-            this.btnLivrer.Text = "     &Livrer";
-            this.btnLivrer.UseVisualStyleBackColor = true;
-            this.btnLivrer.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnSupprimer.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Remove;
+            this.btnSupprimer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSupprimer.Location = new System.Drawing.Point(311, 60);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(96, 32);
+            this.btnSupprimer.TabIndex = 0;
+            this.btnSupprimer.Text = "     &Supprimer";
+            this.btnSupprimer.UseVisualStyleBackColor = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnRecherche
             // 
-            this.btnRecherche.ContextMenuStrip = this.contextMenuStrip1;
             this.btnRecherche.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Find;
             this.btnRecherche.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRecherche.Location = new System.Drawing.Point(107, 60);
@@ -210,24 +184,6 @@
             this.btnRecherche.Text = "     &Chercher";
             this.btnRecherche.UseVisualStyleBackColor = true;
             this.btnRecherche.Click += new System.EventHandler(this.btnRecherche_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(236, 26);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.finished_work;
-            this.toolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(235, 22);
-            this.toolStripMenuItem1.Text = "Inclure les commandes livrées ";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // groupBox2
             // 
@@ -429,8 +385,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.contextMenuStrip2.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCommandes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commandeBindingSource)).EndInit();
@@ -458,12 +412,8 @@
         private System.Windows.Forms.BindingSource commandeBindingSource;
         private System.Windows.Forms.Label label4;
         private Outils.NullableDateTimePicker dateTimePicker;
-        private System.Windows.Forms.Button btnLivrer;
+        private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.GroupBox grbDetail;
         private System.Windows.Forms.DataGridView dgvLigneCommande;
         private System.Windows.Forms.BindingSource ligneCommandeBindingSource;

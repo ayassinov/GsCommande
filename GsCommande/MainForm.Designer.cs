@@ -67,6 +67,7 @@
             this.btnGestionFamille = new System.Windows.Forms.ToolStripButton();
             this.btnGestionProduit = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.fichierLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ucListeProduit1 = new Com.GlagSoft.GsCommande.uc.UcListeProduit();
             this.ucCommandeRecherche1 = new Com.GlagSoft.GsCommande.uc.UcCommandeRecherche();
             this.ucCommandeAjouter1 = new Com.GlagSoft.GsCommande.uc.UcCommandeAjouter();
@@ -263,6 +264,7 @@
             // 
             this.aideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuCheckUpdate,
+            this.fichierLogToolStripMenuItem,
             this.toolStripSeparator4,
             this.mnuAPropos});
             this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
@@ -422,6 +424,13 @@
             this.panel1.Size = new System.Drawing.Size(764, 367);
             this.panel1.TabIndex = 4;
             // 
+            // fichierLogToolStripMenuItem
+            // 
+            this.fichierLogToolStripMenuItem.Name = "fichierLogToolStripMenuItem";
+            this.fichierLogToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.fichierLogToolStripMenuItem.Text = "Fichier Log";
+            this.fichierLogToolStripMenuItem.Click += new System.EventHandler(this.fichierLogToolStripMenuItem_Click);
+            // 
             // ucListeProduit1
             // 
             this.ucListeProduit1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -522,5 +531,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem mnuCheckUpdate;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem fichierLogToolStripMenuItem;
     }
 }

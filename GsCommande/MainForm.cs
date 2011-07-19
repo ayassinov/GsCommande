@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
@@ -442,6 +443,26 @@ namespace Com.GlagSoft.GsCommande
                  + @"Detail de l'erreur :"
                  + Environment.NewLine
                  + e.Message);
+            }
+        }
+
+        private void fichierLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                var pathToLog = Path.Combine(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), "Logs");
+
+                pathToLog = Path.Combine(pathToLog, "gscommande.log");
+
+                if (File.Exists(pathToLog))
+                    Process.Start("notepad.exe", pathToLog);
+                else
+                    MessageBox.Show(@"Le Fichier log n'existe pas");
+            }
+            catch (Exception exception)
+            {
+                GestionException.TraiterException(exception, "Ouverture du fichier log");
             }
         }
     }

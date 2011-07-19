@@ -27,6 +27,25 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
             ResetSequence("Commande");
         }
 
+
+        private int GetRowCount(string tableName)
+        {
+            var count = 0;
+
+            using (Helper)
+            {
+                Helper.PrepareCommand("Select count(*) as Total FROM " + tableName);
+                using (var reader = Helper.ExecuteQuery())
+                {
+                    if (reader.Read())
+                        count = reader.GetIntFromReader("Total");
+                }
+            }
+
+            return count;
+
+        }
+
         private void ClearTable(string tableName)
         {
             var isOk = false;
@@ -37,7 +56,9 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
                 isOk = Helper.ExecuteNonQuery();
             }
 
-            if (!isOk)
+            var count = GetRowCount(tableName);
+
+            if (!isOk && count > 0)
                 throw new Exception(string.Format("Erreur lors de la suppression de la table <{0}>", tableName));
         }
 
@@ -69,12 +90,12 @@ namespace Com.GlagSoft.GsCommande.DataAccessObjects
         {
             var isValide = false;
             var helper = new SqliteHelper("SELECT name FROM sqlite_master WHERE name='Commande'");
-            
-                using (var reader = helper.ExecuteQuery())
-                {
-                    if (reader.Read())
-                        isValide = true;
-                }
+
+            using (var reader = helper.ExecuteQuery())
+            {
+                if (reader.Read())
+                    isValide = true;
+            }
             helper.Dispose();
             return isValide;
         }

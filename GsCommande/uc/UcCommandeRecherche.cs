@@ -22,7 +22,7 @@ namespace Com.GlagSoft.GsCommande.uc
 
         private void OnChangeSelectedCommande()
         {
-            btnLivrer.Enabled = SelectedCommande != null;
+            btnSupprimer.Enabled = SelectedCommande != null;
 
             if (ChangeSelectedCommande != null)
                 ChangeSelectedCommande();
@@ -74,21 +74,13 @@ namespace Com.GlagSoft.GsCommande.uc
         {
             try
             {
-                if (SelectedCommande == null)
-                {
-                    MessageBox.Show(@"Aucune commmande n'est sélectionné", @"Modification de la commande",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-
-                if (MessageBox.Show(string.Format("Vous êtes sur de vouloir livrer la commande {0} ?", SelectedCommande.Id),
+                if (MessageBox.Show(string.Format(@"Vous êtes sur de vouloir supprimer la commande N° {0} ? {1} Cette action est irréversible!", SelectedCommande.Id, Environment.NewLine),
                     @"Modification de la commande",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.No)
                     return;
 
-                _commandeservice.Deliver(SelectedCommande);
-
+                _commandeservice.Delete(SelectedCommande);
             }
             catch (Exception exception)
             {
