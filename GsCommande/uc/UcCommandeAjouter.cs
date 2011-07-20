@@ -84,12 +84,12 @@ namespace Com.GlagSoft.GsCommande.uc
                                        LigneCommande = LigneCommandes
                                    };
 
-                commande = _commandeService.Create(commande);
+                _commandeService.Create(commande);
 
                 Reset();
 
-                MessageBox.Show(string.Format("La commande numéro {0}  a été ajouter avec succès", commande.Id),
-                                @"Ajout commande", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show(string.Format("La commande numéro {0}  a été ajouter avec succès", commande.Id),
+                //                @"Ajout commande", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception exception)

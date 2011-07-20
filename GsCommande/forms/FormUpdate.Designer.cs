@@ -30,7 +30,6 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.lblSignature = new System.Windows.Forms.Label();
             this.lblTaille = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -38,6 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnFermer = new System.Windows.Forms.Button();
+            this.txtSignature = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdate.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.load;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(329, 215);
+            this.btnUpdate.Location = new System.Drawing.Point(267, 215);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 34);
             this.btnUpdate.TabIndex = 0;
@@ -60,8 +60,8 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.txtSignature);
             this.groupBox1.Controls.Add(this.txtDescription);
-            this.groupBox1.Controls.Add(this.lblSignature);
             this.groupBox1.Controls.Add(this.lblTaille);
             this.groupBox1.Controls.Add(this.lblVersion);
             this.groupBox1.Controls.Add(this.label5);
@@ -70,26 +70,21 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(417, 197);
+            this.groupBox1.Size = new System.Drawing.Size(355, 197);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(84, 124);
+            this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescription.Location = new System.Drawing.Point(81, 124);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(327, 61);
+            this.txtDescription.ReadOnly = true;
+            this.txtDescription.Size = new System.Drawing.Size(268, 61);
             this.txtDescription.TabIndex = 9;
-            // 
-            // lblSignature
-            // 
-            this.lblSignature.AutoSize = true;
-            this.lblSignature.Location = new System.Drawing.Point(84, 82);
-            this.lblSignature.Name = "lblSignature";
-            this.lblSignature.Size = new System.Drawing.Size(0, 13);
-            this.lblSignature.TabIndex = 8;
             // 
             // lblTaille
             // 
@@ -149,7 +144,7 @@
             this.btnFermer.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnFermer.Image = global::Com.GlagSoft.GsCommande.Properties.Resources.Exit;
             this.btnFermer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFermer.Location = new System.Drawing.Point(251, 215);
+            this.btnFermer.Location = new System.Drawing.Point(189, 215);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(72, 34);
             this.btnFermer.TabIndex = 1;
@@ -158,13 +153,24 @@
             this.btnFermer.UseVisualStyleBackColor = true;
             this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
+            // txtSignature
+            // 
+            this.txtSignature.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSignature.Location = new System.Drawing.Point(81, 82);
+            this.txtSignature.Multiline = true;
+            this.txtSignature.Name = "txtSignature";
+            this.txtSignature.ReadOnly = true;
+            this.txtSignature.Size = new System.Drawing.Size(268, 36);
+            this.txtSignature.TabIndex = 10;
+            // 
             // FormUpdate
             // 
             this.AcceptButton = this.btnUpdate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnFermer;
-            this.ClientSize = new System.Drawing.Size(441, 261);
+            this.ClientSize = new System.Drawing.Size(379, 261);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.btnUpdate);
@@ -189,13 +195,13 @@
         private System.Windows.Forms.Button btnFermer;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.Label lblSignature;
         private System.Windows.Forms.Label lblTaille;
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtSignature;
 
     }
 }
