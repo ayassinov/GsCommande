@@ -46,10 +46,10 @@ namespace Com.GlagSoft.GsCommande.forms
 
                     if (SelectedCommande.IsLivree)
                     {
-                        btnLivrer.Enabled = false;
+                       // btnLivrer.Enabled = false;
                         btnSave.Enabled = false;
                         btnSupprimer.Enabled = false;
-                        btnAnnulerLivraison.Visible = true;
+                       //a btnAnnulerLivraison.Visible = true;
                         label1.Text =
                             string.Format("Cette Commande a été livrée le {0}. \n \t Il n'est pas possible de la modifier.",
                             SelectedCommande.DateLivraison.Value.ToShortDateString());
@@ -59,7 +59,7 @@ namespace Com.GlagSoft.GsCommande.forms
                     else
                     {
                         pnlCommandeLivree.Visible = false;
-                        btnAnnulerLivraison.Visible = false;
+                        //btnAnnulerLivraison.Visible = false;
                         ucCommandeAjouter1.Enabled = true;
                     }
                 }

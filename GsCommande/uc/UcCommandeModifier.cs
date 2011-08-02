@@ -192,7 +192,7 @@ namespace Com.GlagSoft.GsCommande.uc
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            if (ValidateIdCommande())
+          //  if (ValidateIdCommande())
                 AddLigneCommande();
         }
 
