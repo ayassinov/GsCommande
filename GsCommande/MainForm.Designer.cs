@@ -53,6 +53,7 @@
             this.mnuListerProduit = new System.Windows.Forms.ToolStripMenuItem();
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCheckUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.fichierLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuAPropos = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -67,14 +68,15 @@
             this.btnGestionFamille = new System.Windows.Forms.ToolStripButton();
             this.btnGestionProduit = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.fichierLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ucListeProduit1 = new Com.GlagSoft.GsCommande.uc.UcListeProduit();
             this.ucCommandeRecherche1 = new Com.GlagSoft.GsCommande.uc.UcCommandeRecherche();
             this.ucCommandeAjouter1 = new Com.GlagSoft.GsCommande.uc.UcCommandeAjouter();
+            this.report1 = new FastReport.Report();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.report1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -278,6 +280,13 @@
             this.mnuCheckUpdate.Text = "Vérifier mise à jour...";
             this.mnuCheckUpdate.Click += new System.EventHandler(this.mnuCheckUpdate_Click);
             // 
+            // fichierLogToolStripMenuItem
+            // 
+            this.fichierLogToolStripMenuItem.Name = "fichierLogToolStripMenuItem";
+            this.fichierLogToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.fichierLogToolStripMenuItem.Text = "Fichier Log";
+            this.fichierLogToolStripMenuItem.Click += new System.EventHandler(this.fichierLogToolStripMenuItem_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
@@ -424,13 +433,6 @@
             this.panel1.Size = new System.Drawing.Size(764, 367);
             this.panel1.TabIndex = 4;
             // 
-            // fichierLogToolStripMenuItem
-            // 
-            this.fichierLogToolStripMenuItem.Name = "fichierLogToolStripMenuItem";
-            this.fichierLogToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.fichierLogToolStripMenuItem.Text = "Fichier Log";
-            this.fichierLogToolStripMenuItem.Click += new System.EventHandler(this.fichierLogToolStripMenuItem_Click);
-            // 
             // ucListeProduit1
             // 
             this.ucListeProduit1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -459,6 +461,10 @@
             this.ucCommandeAjouter1.Size = new System.Drawing.Size(764, 347);
             this.ucCommandeAjouter1.TabIndex = 0;
             // 
+            // report1
+            // 
+            this.report1.ReportResourceString = resources.GetString("report1.ReportResourceString");
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -483,6 +489,7 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.report1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -532,5 +539,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuCheckUpdate;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem fichierLogToolStripMenuItem;
+        private FastReport.Report report1;
     }
 }

@@ -40,8 +40,13 @@ namespace Com.GlagSoft.GsCommande.uc
             try
             {
                 //reportListeProduit.RegisterData(_produits, "ListeProduit");
-                reportListeProduit.Load("listeproduit.frx");
-                reportListeProduit.Show(true);
+                //                reportListeProduit.Load("listeproduit.frx");
+                //                
+                //                reportListeProduit.ShowPrepared();
+                report1.Load("listeproduit.frx");
+                report1.RegisterData(_produits, "produitBindingSource");
+                report1.Prepare();
+                report1.ShowPrepared();
             }
             catch (Exception exception)
             {

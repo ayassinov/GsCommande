@@ -402,8 +402,8 @@ namespace Com.GlagSoft.GsCommande
         {
             try
             {
-                ucListeProduit1.reportListeProduit.Load("listeproduit.frx");
-                ucListeProduit1.reportListeProduit.Design(true);
+                report1.Load("listeproduit.frx");
+                report1.Design();
             }
             catch (Exception exception)
             {

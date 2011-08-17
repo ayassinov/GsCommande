@@ -126,6 +126,67 @@
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>248, 17</value>
   </metadata>
+  <metadata name="report1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>353, 17</value>
+  </metadata>
+  <data name="report1.ReportResourceString" xml:space="preserve">
+    <value>﻿&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;Report ScriptLanguage="CSharp" ReportInfo.Created="06/23/2011 11:57:27" ReportInfo.Modified="08/17/2011 09:01:33" ReportInfo.CreatorVersion="1.6.19.0"&gt;
+  &lt;Dictionary&gt;
+    &lt;BusinessObjectDataSource Name="produitBindingSource" ReferenceName="produitBindingSource" DataType="System.Int32" Enabled="true"&gt;
+      &lt;Column Name="Id" DataType="System.Int32"/&gt;
+      &lt;Column Name="Code" DataType="System.Int32"/&gt;
+      &lt;Column Name="Libelle" DataType="System.String"/&gt;
+      &lt;Column Name="Famille" DataType="System.Int32"&gt;
+        &lt;Column Name="Id" DataType="System.Int32"/&gt;
+        &lt;Column Name="Libelle" DataType="System.String"/&gt;
+      &lt;/Column&gt;
+      &lt;Column Name="TotalQteKilo" DataType="System.Int32"/&gt;
+      &lt;Column Name="TotalQteDemiKilo" DataType="System.Int32"/&gt;
+      &lt;Column Name="FamilleString" DataType="System.String"/&gt;
+    &lt;/BusinessObjectDataSource&gt;
+  &lt;/Dictionary&gt;
+  &lt;ReportPage Name="Page1"&gt;
+    &lt;ReportTitleBand Name="ReportTitle1" Width="718.2" Height="56.7"&gt;
+      &lt;TextObject Name="Text1" Left="264.6" Top="9.45" Width="160.65" Height="18.9" Text="Liste des produits" Font="Arial, 12pt, style=Bold"/&gt;
+      &lt;TextObject Name="Text2" Left="567" Top="9.45" Width="170.1" Height="18.9" Text="[Date]"/&gt;
+      &lt;LineObject Name="Line1" Left="-9.45" Top="9.45" Diagonal="true"/&gt;
+    &lt;/ReportTitleBand&gt;
+    &lt;PageHeaderBand Name="PageHeader1" Top="60.7" Width="718.2" Height="18.9"&gt;
+      &lt;TextObject Name="Text4" Left="9.45" Width="94.5" Height="18.9" Text="Code" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/&gt;
+      &lt;TextObject Name="Text6" Left="103.95" Width="160.65" Height="18.9" Text="Famille" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/&gt;
+      &lt;TextObject Name="Text8" Left="264.6" Width="236.25" Height="18.9" Text="Produit" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/&gt;
+      &lt;TextObject Name="Text10" Left="500.85" Width="94.5" Height="18.9" Text="Total Kg" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/&gt;
+      &lt;TextObject Name="Text12" Left="595.35" Width="94.5" Height="18.9" Text="Total 1/2 Kg" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/&gt;
+      &lt;LineObject Name="Line2" Left="103.95" Height="18.9" Diagonal="true"/&gt;
+      &lt;LineObject Name="Line8" Left="9.45" Height="18.9" Diagonal="true"/&gt;
+      &lt;LineObject Name="Line9" Left="264.6" Height="18.9" Diagonal="true"/&gt;
+      &lt;LineObject Name="Line11" Left="689.85" Height="18.9" Diagonal="true"/&gt;
+      &lt;LineObject Name="Line12" Left="595.35" Height="18.9" Diagonal="true"/&gt;
+      &lt;LineObject Name="Line13" Left="500.85" Height="18.9" Diagonal="true"/&gt;
+      &lt;LineObject Name="Line14" Left="9.45" Height="18.9" Diagonal="true"/&gt;
+      &lt;LineObject Name="Line16" Left="9.45" Width="680.4" Diagonal="true"/&gt;
+      &lt;LineObject Name="Line17" Left="9.45" Top="18.9" Width="680.4" Diagonal="true"/&gt;
+    &lt;/PageHeaderBand&gt;
+    &lt;DataBand Name="Data1" Top="83.6" Width="718.2" Height="18.9" DataSource="produitBindingSource"&gt;
+      &lt;TextObject Name="Text3" Left="9.45" Width="94.5" Height="18.9" Text="[produitBindingSource.Code]" HorzAlign="Center"/&gt;
+      &lt;TextObject Name="Text5" Left="103.95" Width="160.65" Height="18.9" Text="[produitBindingSource.Famille.Libelle]" HorzAlign="Center"/&gt;
+      &lt;TextObject Name="Text7" Left="264.6" Width="236.25" Height="18.9" Text="[produitBindingSource.Libelle]" HorzAlign="Center"/&gt;
+      &lt;TextObject Name="Text9" Left="500.85" Width="94.5" Height="18.9" Text="[produitBindingSource.TotalQteKilo]" HorzAlign="Center"/&gt;
+      &lt;TextObject Name="Text11" Left="595.35" Width="94.5" Height="18.9" Text="[produitBindingSource.TotalQteDemiKilo]" HorzAlign="Center"/&gt;
+      &lt;LineObject Name="Line3" Left="103.95" Height="18.9" Diagonal="true"/&gt;
+      &lt;LineObject Name="Line4" Left="264.6" Height="18.9" Diagonal="true"/&gt;
+      &lt;LineObject Name="Line5" Left="500.85" Height="18.9" Diagonal="true"/&gt;
+      &lt;LineObject Name="Line6" Left="595.35" Height="18.9" Diagonal="true"/&gt;
+      &lt;LineObject Name="Line7" Left="9.45" Height="18.9" Diagonal="true"/&gt;
+      &lt;LineObject Name="Line10" Left="689.85" Height="18.9" Diagonal="true"/&gt;
+      &lt;LineObject Name="Line15" Left="9.45" Height="18.9" Diagonal="true"/&gt;
+    &lt;/DataBand&gt;
+    &lt;PageFooterBand Name="PageFooter1" Top="106.5" Width="718.2" Height="18.9"/&gt;
+  &lt;/ReportPage&gt;
+&lt;/Report&gt;
+</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

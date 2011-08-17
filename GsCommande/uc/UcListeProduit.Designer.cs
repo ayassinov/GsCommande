@@ -32,25 +32,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcListeProduit));
-            FastReport.Design.DesignerSettings designerSettings1 = new FastReport.Design.DesignerSettings();
-            FastReport.Design.DesignerRestrictions designerRestrictions1 = new FastReport.Design.DesignerRestrictions();
-            FastReport.Export.Email.EmailSettings emailSettings1 = new FastReport.Export.Email.EmailSettings();
-            FastReport.PreviewSettings previewSettings1 = new FastReport.PreviewSettings();
-            FastReport.ReportSettings reportSettings1 = new FastReport.ReportSettings();
             this.dgvProduits = new System.Windows.Forms.DataGridView();
+            this.report1 = new FastReport.Report();
+            this.produitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.familleStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.libelleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.familleStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalQteKiloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalQteDemiKiloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.familleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.produitBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportListeProduit = new FastReport.Report();
-            this.environmentSettings1 = new FastReport.EnvironmentSettings();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduits)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.report1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportListeProduit)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProduits
@@ -71,8 +65,8 @@
             this.dgvProduits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codeDataGridViewTextBoxColumn,
-            this.familleStringDataGridViewTextBoxColumn,
             this.libelleDataGridViewTextBoxColumn,
+            this.familleStringDataGridViewTextBoxColumn,
             this.totalQteKiloDataGridViewTextBoxColumn,
             this.totalQteDemiKiloDataGridViewTextBoxColumn,
             this.idDataGridViewTextBoxColumn,
@@ -95,31 +89,34 @@
             this.dgvProduits.TabIndex = 0;
             this.dgvProduits.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProduits_ColumnHeaderMouseClick);
             // 
+            // report1
+            // 
+            this.report1.ReportResourceString = resources.GetString("report1.ReportResourceString");
+            // 
+            // produitBindingSource
+            // 
+            this.produitBindingSource.DataSource = typeof(Com.GlagSoft.GsCommande.Objects.Produit);
+            // 
             // codeDataGridViewTextBoxColumn
             // 
             this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
             this.codeDataGridViewTextBoxColumn.HeaderText = "Code Produit";
             this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
             this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // familleStringDataGridViewTextBoxColumn
-            // 
-            this.familleStringDataGridViewTextBoxColumn.DataPropertyName = "FamilleString";
-            this.familleStringDataGridViewTextBoxColumn.FillWeight = 300F;
-            this.familleStringDataGridViewTextBoxColumn.HeaderText = "Libelle Famille";
-            this.familleStringDataGridViewTextBoxColumn.Name = "familleStringDataGridViewTextBoxColumn";
-            this.familleStringDataGridViewTextBoxColumn.ReadOnly = true;
-            this.familleStringDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // libelleDataGridViewTextBoxColumn
             // 
             this.libelleDataGridViewTextBoxColumn.DataPropertyName = "Libelle";
-            this.libelleDataGridViewTextBoxColumn.FillWeight = 300F;
             this.libelleDataGridViewTextBoxColumn.HeaderText = "Libelle Produit";
             this.libelleDataGridViewTextBoxColumn.Name = "libelleDataGridViewTextBoxColumn";
             this.libelleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.libelleDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // familleStringDataGridViewTextBoxColumn
+            // 
+            this.familleStringDataGridViewTextBoxColumn.DataPropertyName = "FamilleString";
+            this.familleStringDataGridViewTextBoxColumn.HeaderText = "Libelle Famille";
+            this.familleStringDataGridViewTextBoxColumn.Name = "familleStringDataGridViewTextBoxColumn";
+            this.familleStringDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // totalQteKiloDataGridViewTextBoxColumn
             // 
@@ -127,7 +124,6 @@
             this.totalQteKiloDataGridViewTextBoxColumn.HeaderText = "Total Qte Kg";
             this.totalQteKiloDataGridViewTextBoxColumn.Name = "totalQteKiloDataGridViewTextBoxColumn";
             this.totalQteKiloDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalQteKiloDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // totalQteDemiKiloDataGridViewTextBoxColumn
             // 
@@ -135,7 +131,6 @@
             this.totalQteDemiKiloDataGridViewTextBoxColumn.HeaderText = "Total Qte 1/2 Kg";
             this.totalQteDemiKiloDataGridViewTextBoxColumn.Name = "totalQteDemiKiloDataGridViewTextBoxColumn";
             this.totalQteDemiKiloDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalQteDemiKiloDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -153,37 +148,6 @@
             this.familleDataGridViewTextBoxColumn.ReadOnly = true;
             this.familleDataGridViewTextBoxColumn.Visible = false;
             // 
-            // produitBindingSource
-            // 
-            this.produitBindingSource.DataSource = typeof(Com.GlagSoft.GsCommande.Objects.Produit);
-            // 
-            // reportListeProduit
-            // 
-            this.reportListeProduit.ReportResourceString = resources.GetString("reportListeProduit.ReportResourceString");
-            this.reportListeProduit.RegisterData(this.produitBindingSource, "produitBindingSource");
-            // 
-            // environmentSettings1
-            // 
-            designerSettings1.ApplicationConnection = null;
-            designerSettings1.DefaultFont = new System.Drawing.Font("Arial", 10F);
-            designerSettings1.Icon = ((System.Drawing.Icon)(resources.GetObject("designerSettings1.Icon")));
-            designerSettings1.Restrictions = designerRestrictions1;
-            designerSettings1.Text = "";
-            this.environmentSettings1.DesignerSettings = designerSettings1;
-            emailSettings1.Address = "";
-            emailSettings1.Host = "";
-            emailSettings1.MessageTemplate = "";
-            emailSettings1.Name = "";
-            emailSettings1.Password = "";
-            emailSettings1.UserName = "";
-            this.environmentSettings1.EmailSettings = emailSettings1;
-            previewSettings1.Icon = ((System.Drawing.Icon)(resources.GetObject("previewSettings1.Icon")));
-            previewSettings1.Text = "";
-            previewSettings1.TopMost = true;
-            this.environmentSettings1.PreviewSettings = previewSettings1;
-            this.environmentSettings1.ReportSettings = reportSettings1;
-            this.environmentSettings1.UIStyle = FastReport.Utils.UIStyle.Office2007Blue;
-            // 
             // UcListeProduit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,8 +156,8 @@
             this.Name = "UcListeProduit";
             this.Size = new System.Drawing.Size(587, 357);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduits)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.report1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reportListeProduit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,11 +166,10 @@
 
         private System.Windows.Forms.DataGridView dgvProduits;
         private System.Windows.Forms.BindingSource produitBindingSource;
-        public FastReport.Report reportListeProduit;
-        private FastReport.EnvironmentSettings environmentSettings1;
+        private FastReport.Report report1;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn familleStringDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn libelleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn familleStringDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalQteKiloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalQteDemiKiloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;

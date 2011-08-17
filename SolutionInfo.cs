@@ -10,9 +10,9 @@ using System.Reflection;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyDelaySign(false)]
 
-[assembly: AssemblyVersion("1.3.0")]
-[assembly: AssemblyFileVersion("1.3")]
-[assembly: AssemblyInformationalVersion("1.3")]
+[assembly: AssemblyVersion("1.4.0")]
+[assembly: AssemblyFileVersion("1.4")]
+[assembly: AssemblyInformationalVersion("1.4")]
 
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
